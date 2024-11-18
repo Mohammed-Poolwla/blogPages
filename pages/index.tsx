@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { createConnection } from "../lib/db";
 import Link from "next/link";
+import { QueryResult } from "mysql2";
 
 // Define the Blog type
 interface Blog {
@@ -11,7 +12,9 @@ interface Blog {
 
 export async function getStaticProps() {
   const db = await createConnection();
-  const [blogs]: [Blog[]] = await db.execute('SELECT slug, title, image FROM blogs');
+  const [result]: [QueryResult, unknown[]] = await db.execute('SELECT slug, title, image FROM blogs');
+  const blogs: Blog[] = result as Blog[];
+
   await db.end();
 
   return {

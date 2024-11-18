@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { createConnection } from '../../lib/db';
 // import fs from 'fs';
 import Markdown from 'markdown-to-jsx';
-import path from 'path';
+
 
 export async function getStaticPaths() {
   const db = await createConnection();
@@ -24,7 +24,7 @@ export async function getStaticProps({ params }) {
   await db.end();
 
   const blog = blogs[0];
-  const imagePath = path.join(process.cwd(), 'public', 'images', blog.image);
+
   // const image = fs.readFileSync(imagePath).toString('base64');
 
   return {
