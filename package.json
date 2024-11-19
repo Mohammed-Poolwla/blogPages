@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-     "export": "next export",
     "lint": "next lint"
   },
   "dependencies": {
@@ -15,7 +14,7 @@
     "fs": "^0.0.1-security",
     "markdown-to-jsx": "^7.5.0",
     "mysql2": "^3.11.3",
-    "next": "14.2.11",
+    "next": "^15.0.3",
     "openai": "^4.61.1",
     "react": "^18",
     "react-dom": "^18",

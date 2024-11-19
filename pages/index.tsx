@@ -10,6 +10,7 @@ interface Blog {
   image: string;
 }
 
+
 export async function getStaticProps() {
   const db = await createConnection();
   const [result]: [QueryResult, unknown[]] = await db.execute('SELECT slug, title, image FROM blogs');
