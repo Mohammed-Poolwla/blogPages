@@ -3,7 +3,10 @@ const xlsx = require('xlsx');
 const fs = require('fs');
 const path = require('path');
 const gpt = require('../lib/generateBlog');
-const { createConnection, db } = require('../lib/db');
+const { BlogsTable, db } = require('../lib/db');
+// const sql = require('@vercel/postgres');
+
+
 
 const uploadBlogs = async (file) => {
   const filePath = path.join(__dirname, file);
@@ -39,10 +42,20 @@ const uploadBlogs = async (file) => {
       const title = seoTitle;
       const persona = Prompt;
       const topic = Topic;
-      await db.execute(
-        'INSERT INTO blogs (title, content, image, slug, persona, topic) VALUES (?, ?, ?, ?, ?, ?)',
-        [title, content, imageName, slug, persona, topic]
-      );
+      const blog = {
+        title: title,
+        content,
+        image: imageName,
+        slug,
+        persona,
+        topic
+      };
+      await db.insert(BlogsTable).values(blog);
+    
+      // await db.insert (
+      //   'INSERT INTO blogs (title, content, image, slug, persona, topic) VALUES ($1, $2, $3, $4, $5, $6)',
+      //   [title, content, imageName, slug, persona, topic]
+      // );
 
       console.log(`Blog for "${Topic}" uploaded successfully.`);
     } catch (error) {

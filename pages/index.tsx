@@ -15,7 +15,7 @@ export async function getStaticProps() {
   // const db = await createConnection();
   const result = await db.select().from(BlogsTable);
   const blogs: Blog[] = result as Blog[];
-  console.log(result);
+
   // await db.end();
 
   return {
