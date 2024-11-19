@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { BlogsTable, db } from "../lib/db";
 import Link from "next/link";
-import { QueryResult } from "mysql2";
+
 
 // Define the Blog type
 interface Blog {
