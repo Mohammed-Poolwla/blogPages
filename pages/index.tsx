@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { createConnection } from "../lib/db";
+import { BlogsTable, db } from "../lib/db";
 import Link from "next/link";
 import { QueryResult } from "mysql2";
 
@@ -12,11 +12,11 @@ interface Blog {
 
 
 export async function getStaticProps() {
-  const db = await createConnection();
-  const [result]: [QueryResult, unknown[]] = await db.execute('SELECT slug, title, image FROM blogs');
+  // const db = await createConnection();
+  const result = await db.select().from(BlogsTable);
   const blogs: Blog[] = result as Blog[];
-
-  await db.end();
+  console.log(result);
+  // await db.end();
 
   return {
     props: {

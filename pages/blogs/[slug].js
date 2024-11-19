@@ -1,15 +1,14 @@
 import Image from 'next/image'
 
 // pages/blogs/[slug].js
-import { createConnection } from '../../lib/db';
+import { BlogsTable, db } from '../../lib/db';
 // import fs from 'fs';
 import Markdown from 'markdown-to-jsx';
 
 
 export async function getStaticPaths() {
-  const db = await createConnection();
-  const [blogs] = await db.execute('SELECT slug FROM blogs');
-  await db.end();
+  const blogs = await db.select().from(BlogsTable);
+
 
   const paths = blogs.map((blog) => ({
     params: { slug: blog.slug },
@@ -19,13 +18,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const db = await createConnection();
-  const [blogs] = await db.execute('SELECT * FROM blogs WHERE slug = ?', [params.slug]);
-  await db.end();
-
+  const blogs = await db.select().from(BlogsTable).where(BlogsTable.slug === params.slug);
   const blog = blogs[0];
-
-  // const image = fs.readFileSync(imagePath).toString('base64');
 
   return {
     props: {

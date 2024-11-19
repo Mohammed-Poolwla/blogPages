@@ -3,7 +3,7 @@ const xlsx = require('xlsx');
 const fs = require('fs');
 const path = require('path');
 const gpt = require('../lib/generateBlog');
-const { createConnection } = require('../lib/db');
+const { createConnection, db } = require('../lib/db');
 
 const uploadBlogs = async (file) => {
   const filePath = path.join(__dirname, file);
@@ -11,7 +11,6 @@ const uploadBlogs = async (file) => {
   const sheet = workbook.Sheets[workbook.SheetNames[0]];
   const rows = xlsx.utils.sheet_to_json(sheet);
 
-  const db = await createConnection();
 
   for (const row of rows) {
     const { Topic, Prompt } = row;
