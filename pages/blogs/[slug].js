@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { BlogsTable, db } from '../../lib/db';
 // import fs from 'fs';
 import Markdown from 'markdown-to-jsx';
+import { eq } from 'drizzle-orm';
 
 
 export async function getStaticPaths() {
@@ -18,8 +19,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const blogs = await db.select().from(BlogsTable).where(BlogsTable.slug === params.slug);
+  console.log('slug',params.slug);
+  const blogs = await db.select().from(BlogsTable).where(eq(BlogsTable.slug, params.slug)).limit(1);
   const blog = blogs[0];
+
 
   return {
     props: {
