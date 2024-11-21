@@ -6,6 +6,30 @@ const gpt = require('../lib/generateBlog');
 const { BlogsTable, db } = require('../lib/db');
 // const sql = require('@vercel/postgres');
 
+function extractAndCleanContent(content) {
+  // Helper function to extract text between markers and remove it from content
+  const extractBetweenMarkers = (startMarker, endMarker) => {
+    const regex = new RegExp(`${startMarker}([\\s\\S]*?)${endMarker}`, 'i');
+    const match = content.match(regex);
+    if (match) {
+      content = content.replace(match[0], "").trim(); // Remove the matched section
+      return match[1].trim();
+    }
+    return null;
+  };
+
+  // Extract quote, description, and keywords
+  const quote = extractBetweenMarkers("{{quote_start}}", "{{quote_end}}");
+  const description = extractBetweenMarkers("{{description_start}}", "{{description_end}}");
+  const keywords = extractBetweenMarkers("{{keywords_start}}", "{{keywords_end}}");
+
+  // Return the cleaned content and extracted metadata
+  return {
+    cleanedContent: content,
+    metadata: { quote, description, keywords },
+  };
+}
+
 
 
 const uploadBlogs = async (file) => {
@@ -38,17 +62,22 @@ const uploadBlogs = async (file) => {
         fs.writeFileSync(imagePath, image, 'base64');
       }
 
+      const {cleanedContent, metadata} = extractAndCleanContent(content);
+
       // Insert blog post into DB
       const title = seoTitle;
       const persona = Prompt;
       const topic = Topic;
       const blog = {
         title: title,
-        content,
+        content: cleanedContent,
         image: imageName,
         slug,
         persona,
-        topic
+        topic,
+        description: metadata.description,
+        quote: metadata.quote,
+        keywords: metadata.keywords
       };
       await db.insert(BlogsTable).values(blog);
     

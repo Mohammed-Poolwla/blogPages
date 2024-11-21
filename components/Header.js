@@ -13,13 +13,13 @@ const Header = () => {
           {/* Logo */}
           <div className="text-2xl font-bold">
             <Link href="/" className="hover:text-gray-300">
-              MySite
+              webSRC
             </Link>
           </div>
 
           {/* Navigation */}
           <nav className="hidden md:flex space-x-6">
-            <Link href="/" className="hover:text-gray-300">
+            {/* <Link href="/" className="hover:text-gray-300">
               Home
             </Link>
             <Link href="/about" className="hover:text-gray-300">
@@ -30,7 +30,7 @@ const Header = () => {
             </Link>
             <Link href="/contact" className="hover:text-gray-300">
               Contact
-            </Link>
+            </Link> */}
           </nav>
 
           {/* Mobile Menu Button */}
