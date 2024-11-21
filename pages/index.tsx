@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,15 +9,15 @@ const HomePage = () => {
   <header className="fixed top-0 z-20 w-full">
     <nav className="2lg:px-12 mx-auto max-w-7xl px-6 py-12 lg:px-12 xl:px-6 2xl:px-0">
       <div className="flex items-center justify-between">
-        <a href="/" className="text-2xl font-light tracking-widest text-white">
+        <Link href="/" className="text-2xl font-light tracking-widest text-white">
           webSrc
-        </a>
-        <a
+        </Link>
+        <Link
           href="#contact"
           className="relative py-1.5 text-white before:absolute before:inset-0 before:origin-bottom before:scale-y-[.03] before:bg-white/60 before:transition before:duration-300 hover:before:scale-y-100 hover:before:scale-x-125 hover:before:bg-white/10"
         >
           <span className="relative">Get in touch</span>
-        </a>
+        </Link>
       </div>
     </nav>
   </header>
@@ -26,7 +27,7 @@ const HomePage = () => {
         aria-hidden="true"
         className="absolute inset-0 z-[1] bg-gradient-to-b from-black/10 via-black/20 to-black"
       />
-      <img
+      <Image
         src="/landing-images/woman-in-dark.webp"
         className="fixed inset-0 h-full w-full object-cover"
         alt="woman in dark"
@@ -49,10 +50,10 @@ const HomePage = () => {
           <div className="ml-auto md:w-2/3 md:pt-12 lg:w-1/2">
             <p className="mb-20 text-lg font-light text-white sm:text-2xl xl:leading-normal">
               On an endless journey to create experiences that inspire others.
-              Always motived by design that's honest, aesthetic and natural.
+              Always motived by design that&apos;s honest, aesthetic and natural.
               Probably the only designer you’ll ever need.
             </p>
-            <a
+            <Link
               data-rellax-speed={1}
               data-rellax-xs-speed={0}
               data-rellax-mobile-speed={0}
@@ -61,7 +62,7 @@ const HomePage = () => {
               
             >
               <span className="relative">See our work</span>
-            </a>
+            </Link>
           </div>
         </div>
         <div
@@ -76,19 +77,19 @@ const HomePage = () => {
           </span>
           <ul className="relative z-20 mt-4 space-y-2 text-sm font-light text-white">
             <li>
-              <a href="#" target="_blank">
+              <Link href="#" target="_blank">
                 001 ------ Instagram
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" target="_blank">
+              <Link href="#" target="_blank">
                 002 ------ Behance
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" target="_blank">
+              <Link href="#" target="_blank">
                 003 ------ Twitter
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -111,7 +112,7 @@ const HomePage = () => {
           </span>
         </div>
         <div className="relative mt-20 gap-20 gap-x-6 space-y-20 sm:grid sm:grid-cols-2 sm:space-y-0 md:mt-72 lg:mt-60">
-          <a
+          <Link
             className="rellax group col-span-2 lg:col-span-1"
             data-rellax-mobile-speed={0}
             data-rellax-speed={-2}
@@ -121,7 +122,7 @@ const HomePage = () => {
            
           >
             <div className="relative before:absolute before:inset-0 before:origin-top before:bg-gradient-to-t before:from-black/5 before:opacity-50 before:backdrop-grayscale before:transition before:duration-500 group-hover:before:origin-bottom group-hover:before:scale-y-0">
-              <img
+              <Image
                 className="transition duration-500"
                 src="/landing-images/gild-cover.webp"
                 alt="gild cover"
@@ -135,8 +136,8 @@ const HomePage = () => {
                 01 / 2023
               </span>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             className="rellax group block"
             data-rellax-mobile-speed={0}
             data-rellax-speed={1}
@@ -146,7 +147,7 @@ const HomePage = () => {
             
           >
             <div className="relative before:absolute before:inset-0 before:origin-top before:bg-gradient-to-t before:from-black/5 before:opacity-50 before:backdrop-grayscale before:transition before:duration-500 group-hover:before:origin-bottom group-hover:before:scale-y-0">
-              <img
+              <Image
                 className="transition duration-500"
                 src="/landing-images/project2.webp"
                 alt="project description"
@@ -160,8 +161,8 @@ const HomePage = () => {
                 01 / 2023
               </span>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             className="rellax group block"
             data-rellax-mobile-speed={0}
             data-rellax-speed={-2}
@@ -171,7 +172,7 @@ const HomePage = () => {
            
           >
             <div className="relative before:absolute before:inset-0 before:origin-top before:bg-gradient-to-t before:from-black/5 before:opacity-50 before:backdrop-grayscale before:transition before:duration-500 group-hover:before:origin-bottom group-hover:before:scale-y-0">
-              <img
+              <Image
                 className="transition duration-500"
                 src="/landing-images/project3.webp"
                 alt="project description"
@@ -185,8 +186,8 @@ const HomePage = () => {
                 01 / 2023
               </span>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             className="rellax group col-span-2 block lg:col-span-1"
             data-rellax-mobile-speed={0}
             data-rellax-speed={0}
@@ -196,7 +197,7 @@ const HomePage = () => {
           
           >
             <div className="relative before:absolute before:inset-0 before:origin-top before:bg-gradient-to-t before:from-black/5 before:opacity-50 before:backdrop-grayscale before:transition before:duration-500 group-hover:before:origin-bottom group-hover:before:scale-y-0">
-              <img
+              <Image
                 className="transition duration-500"
                 src="/landing-images/project4.webp"
                 alt="project description"
@@ -210,8 +211,8 @@ const HomePage = () => {
                 01 / 2023
               </span>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             className="rellax group block"
             data-rellax-mobile-speed={0}
             data-rellax-speed={-3}
@@ -221,7 +222,7 @@ const HomePage = () => {
            
           >
             <div className="relative before:absolute before:inset-0 before:origin-top before:bg-gradient-to-t before:from-black/5 before:opacity-50 before:backdrop-grayscale before:transition before:duration-500 group-hover:before:origin-bottom group-hover:before:scale-y-0">
-              <img
+              <Image
                 className="transition duration-500"
                 src="/landing-images/project5.webp"
                 alt="project description"
@@ -235,8 +236,8 @@ const HomePage = () => {
                 01 / 2023
               </span>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             className="rellax group block"
             data-rellax-mobile-speed={0}
             data-rellax-speed={0}
@@ -246,7 +247,7 @@ const HomePage = () => {
            
           >
             <div className="relative before:absolute before:inset-0 before:origin-top before:bg-gradient-to-t before:from-black/5 before:opacity-50 before:backdrop-grayscale before:transition before:duration-500 group-hover:before:origin-bottom group-hover:before:scale-y-0">
-              <img
+              <Image
                 className="transition duration-500"
                 src="/landing-images/project6.webp"
                 alt="project description"
@@ -260,7 +261,7 @@ const HomePage = () => {
                 01 / 2023
               </span>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
@@ -359,7 +360,7 @@ const HomePage = () => {
           <div className="grid gap-6">
             <div className="grid md:grid-cols-3">
               <div className="overflow-hidden md:col-span-2">
-                <img
+                <Image
                   src="/landing-images/un-duo.webp"
                   alt="unnamed duo photo"
                   width={1500}
@@ -393,7 +394,7 @@ const HomePage = () => {
       <div className="mx-auto max-w-7xl px-6 lg:px-12 xl:px-6 2xl:px-0">
         <div className="flex flex-wrap items-center gap-6">
           <h2 className="text-7xl font-bold text-white xl:text-8xl">
-            Let's work together
+            Let&apos;s work together
           </h2>
           <span className="h-max rounded-full border border-white/40 px-2 py-1 text-xs tracking-wider text-white">
             __
@@ -489,14 +490,14 @@ const HomePage = () => {
                 </h3>
                 <ul className="relative z-20 mt-4 space-y-2 font-light text-white">
                   <li>
-                    <a href="tel:+243000000000">
-                      Phone ------ +243 000 000 000
-                    </a>
+                    <Link href="tel:+918109041335">
+                      Phone ------ +91 8109041335
+                    </Link>
                   </li>
                   <li>
-                    <a href="mailto:hello@tailus.io">
-                      E-mail ------- hello@tailus.io
-                    </a>
+                    <Link href="mailto:mohammed.poolwala@gmail.com">
+                      E-mail ------- mohammed.poolwala@gmail.com
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -506,19 +507,19 @@ const HomePage = () => {
                 </h3>
                 <ul className="relative z-20 mt-4 space-y-2 font-light text-white">
                   <li>
-                    <a href="#" target="_blank">
+                    <Link href="#" target="_blank">
                       001 ------ Instagram
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" target="_blank">
+                    <Link href="#" target="_blank">
                       002 ------ Behance
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" target="_blank">
+                    <Link href="#" target="_blank">
                       003 ------ Twitter
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -533,104 +534,104 @@ const HomePage = () => {
       <div>
         <div className="flex flex-wrap items-center gap-6">
           <h2 className="text-3xl text-white xl:text-6xl">Instagram</h2>
-          <a
+          <Link
             href="#"
             target="_blank"
             className="h-max rounded-full border border-white/40 px-2 py-1 text-xs tracking-wider text-white"
           >
-            @tailus
-          </a>
+            @WebSrc
+          </Link>
         </div>
         <div className="mt-12 grid grid-cols-3 md:mt-16 lg:mt-24">
-          <a
+          <Link
             href="#"
             target="_blank"
             className="relative before:absolute before:inset-0 before:origin-top before:bg-gradient-to-t before:from-black/5 before:opacity-50 before:backdrop-grayscale before:transition before:duration-500 hover:before:origin-bottom hover:before:scale-y-0"
           >
             <span className="sr-only">Instagram feed</span>
-            <img
+            <Image
               className="transition duration-500"
               src="/landing-images/gild-cover.webp"
               alt="insta feed cover"
               width={2000}
               height={1333}
             />
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             target="_blank"
             className="relative before:absolute before:inset-0 before:origin-top before:bg-gradient-to-t before:from-black/5 before:opacity-50 before:backdrop-grayscale before:transition before:duration-500 hover:before:origin-bottom hover:before:scale-y-0"
           >
             <span className="sr-only">Instagram feed</span>
-            <img
+            <Image
               className="transition duration-500"
               src="/landing-images/gild-cover2.webp"
               alt="insta feed cover"
               width={2000}
               height={1334}
             />
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             target="_blank"
             className="relative before:absolute before:inset-0 before:origin-top before:bg-gradient-to-t before:from-black/5 before:opacity-50 before:backdrop-grayscale before:transition before:duration-500 hover:before:origin-bottom hover:before:scale-y-0"
           >
             <span className="sr-only">Instagram feed</span>
-            <img
+            <Image
               className="transition duration-500"
               src="/landing-images/gild-cover.webp"
               alt="insta feed cover"
               width={1800}
               height={1200}
             />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="mt-12 md:mt-16 lg:mt-24">
         <div className="space-y-8 md:space-y-12">
-          <a
+          <Link
             href="/"
             className="text-2xl font-light tracking-widest text-white"
           >
-            <img
+            <Image
               className="h-8 w-auto brightness-200"
               src="/favicon.svg"
               alt="logo mark"
               width={100}
               height={100}
             />
-          </a>
+          </Link>
           <nav>
             <ul className="flex flex-wrap gap-6 text-sm uppercase tracking-wider text-white">
               <li>
-                <a href="#home">Home</a>
+                <Link href="#home">Home</Link>
               </li>
               <li>
-                <a href="#work">Work</a>
+                <Link href="#work">Work</Link>
               </li>
               <li>
-                <a href="#services">Services</a>
+                <Link href="#services">Services</Link>
               </li>
               <li>
-                <a className="block w-max" href="#about">
+                <Link className="block w-max" href="#about">
                   About us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contact">Contact</a>
+                <Link href="#contact">Contact</Link>
               </li>
             </ul>
           </nav>
           <div className="flex flex-wrap justify-between gap-3">
             <span className="text-sm text-white/50">
-              © Radiant 2021 - Present
+              © Radiant 2024 - Present
             </span>
             <span className="text-sm text-white/50">
               Designed by{" "}
-              <a href="https://tailus.io/" className="text-white">
-                Tailus
-              </a>{" "}
-              in Lubumbashi{" "}
+              <Link href="https://websrc.uk/" className="text-white">
+                WebSrc
+              </Link>{" "}
+              in India{" "}
             </span>
           </div>
         </div>
