@@ -78,8 +78,8 @@ const BlogPost = ({ title, content, image, description, keywords, quote }) => {
         <Image
           src={`/images/${image}`}
           alt={title}
-          height={500}
-          width={500}
+          height={343}
+          width={600}
           className="rounded-lg shadow-lg mb-6"
         />
 
