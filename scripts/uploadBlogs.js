@@ -91,8 +91,7 @@ const uploadBlogs = async (file) => {
       console.error(`Failed to process row with title "${Topic}": ${error.message}`);
     }
   }
-
-  await db.end();
+  
 };
 
 uploadBlogs('./path_to_your_excel_file.xlsx')
