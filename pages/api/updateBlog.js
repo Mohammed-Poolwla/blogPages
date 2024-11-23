@@ -1,25 +1,24 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { db, BlogsTable } from "@/lib/db";
 import { eq } from "drizzle-orm";
 
-interface BlogData {
-  id: number;
-  slug?: string;
-  title?: string;
-  image?: string;
-  description?: string;
-  keywords?: string;
-  quote?: string;
-  content?: string;
-}
+// interface BlogData {
+//   id: number;
+//   slug?: string;
+//   title?: string;
+//   image?: string;
+//   description?: string;
+//   keywords?: string;
+//   quote?: string;
+//   content?: string;
+// }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
-    const data: BlogData = req.body;
+    const data = req.body;
 
     // Validate `id` field
     if (!data.id) {

@@ -17,7 +17,7 @@
     "axios": "^1.7.7",
     "cloudinary": "^2.5.1",
     "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.36.3",
+    "drizzle-orm": "^0.36.4",
     "fs": "^0.0.1-security",
     "markdown-to-jsx": "^7.5.0",
     "mysql2": "^3.11.3",
