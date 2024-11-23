@@ -1,8 +1,6 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import Image from "next/image";
 import Link from "next/link";
-import { CldImage } from 'next-cloudinary';
-
 
 const HomePage = () => {
   return (
