@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import Image from "next/image";
 import Link from "next/link";
+import { CldImage } from 'next-cloudinary';
 
 
 const HomePage = () => {
@@ -619,6 +620,9 @@ const HomePage = () => {
               </li>
               <li>
                 <Link href="#contact">Contact</Link>
+              </li>
+              <li>
+                <Link href="/blogs">Blogs</Link>
               </li>
             </ul>
           </nav>

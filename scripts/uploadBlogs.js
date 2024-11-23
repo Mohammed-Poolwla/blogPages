@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const gpt = require('../lib/generateBlog');
 const { BlogsTable, db } = require('../lib/db');
+const uploadImage = require('../lib/imageUpload');
 // const sql = require('@vercel/postgres');
 
 function extractAndCleanContent(content) {
@@ -38,7 +39,6 @@ const uploadBlogs = async (file) => {
   const sheet = workbook.Sheets[workbook.SheetNames[0]];
   const rows = xlsx.utils.sheet_to_json(sheet);
 
-
   for (const row of rows) {
     const { Topic, Prompt } = row;
 
@@ -52,14 +52,12 @@ const uploadBlogs = async (file) => {
       }
 
       // Generate slug
-      const slug = seoTitle.toLowerCase().replace(/[^a-z0-9]/g, '-');
-
+      const slug = seoTitle.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/^-+|-+$/g, '');
+      const imageName = slug+'-'+Date.now()
       // Save image to /public/images
-      let imageName = '';
+      let storeImage = '';
       if (image) {
-        imageName = `${slug}.jpg`;
-        const imagePath = path.join(process.cwd(), 'public', 'images', imageName);
-        fs.writeFileSync(imagePath, image, 'base64');
+        storeImage = await uploadImage(image, imageName);
       }
 
       const {cleanedContent, metadata} = extractAndCleanContent(content);
@@ -71,7 +69,7 @@ const uploadBlogs = async (file) => {
       const blog = {
         title: title,
         content: cleanedContent,
-        image: imageName,
+        image: storeImage?.public_id || null,
         slug,
         persona,
         topic,
