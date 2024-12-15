@@ -2,7 +2,7 @@ import { BlogsTable, db } from "../../lib/db";
 import Link from "next/link";
 import Layout from "@/components/layout";
 import { CldImage } from "next-cloudinary";
-import { TrashIcon, PencilSquareIcon } from "@heroicons/react/24/solid"; // Import TrashIcon from Heroicons
+import { TrashIcon } from "@heroicons/react/24/solid"; // Import TrashIcon from Heroicons
 
 // Define the Blog type
 interface Blog {
@@ -49,7 +49,7 @@ const BlogsPage = ({ blogs }: { blogs: Blog[] }) => {
     }
   };
 
-  const reGenrateImage = async (data: any) => {
+  const reGenrateImage = async (data:Blog) => {
     try {
       const response = await fetch(`/api/reGenrateImage`, {
         method: "POST",
