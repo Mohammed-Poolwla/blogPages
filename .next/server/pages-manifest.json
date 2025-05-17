@@ -1,1 +1,8 @@
-{"/_app":"pages/_app.js","/_document":"pages/_document.js","/_error":"pages/_error.js","/api/hello":"pages/api/hello.js","/api/updateBlog":"pages/api/updateBlog.js","/api/deleteBlog":"pages/api/deleteBlog.js","/":"pages/index.html","/blogs":"pages/blogs.js","/blogs/[slug]":"pages/blogs/[slug].js","/404":"pages/404.html"}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/blogs": "pages/blogs.js",
+  "/": "pages/index.js",
+  "/blogs/[slug]": "pages/blogs/[slug].js"
+}
