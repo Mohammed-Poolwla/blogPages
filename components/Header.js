@@ -7,30 +7,33 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-gray-800 text-white shadow-md">
+    <header className="bg-gray-900 text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="text-2xl font-bold">
+          <div className="text-2xl font-bold tracking-wide">
             <Link href="/" className="hover:text-gray-300">
               webSRC
             </Link>
           </div>
 
           {/* Navigation */}
-          <nav className="hidden md:flex space-x-6">
-            {/* <Link href="/" className="hover:text-gray-300">
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link href="/" className="hover:text-gray-300">
               Home
             </Link>
             <Link href="/about" className="hover:text-gray-300">
               About
             </Link>
-            <Link href="/blog" className="hover:text-gray-300">
-              Blog
+            <Link href="/services" className="hover:text-gray-300">
+              Services
+            </Link>
+            <Link href="/blogs" className="hover:text-gray-300">
+              Blogs
             </Link>
             <Link href="/contact" className="hover:text-gray-300">
               Contact
-            </Link> */}
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -38,6 +41,7 @@ const Header = () => {
             <button
               onClick={toggleMenu}
               className="text-gray-300 hover:text-white"
+              aria-label="Toggle navigation menu"
             >
               <svg
                 className="h-6 w-6"
@@ -66,8 +70,11 @@ const Header = () => {
             <Link href="/about" className="block text-gray-300 hover:text-white">
               About
             </Link>
-            <Link href="/blog" className="block text-gray-300 hover:text-white">
-              Blog
+            <Link href="/services" className="block text-gray-300 hover:text-white">
+              Services
+            </Link>
+            <Link href="/blogs" className="block text-gray-300 hover:text-white">
+              Blogs
             </Link>
             <Link href="/contact" className="block text-gray-300 hover:text-white">
               Contact
