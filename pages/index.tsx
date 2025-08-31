@@ -9,40 +9,69 @@ import { BlogsTable, db } from "../lib/db";
 
 type Blog = { slug: string; title: string; image: string; description: string };
 type MediumPost = { title: string; link: string; pubDate?: string };
-type GitHubInsights = { followers: number; publicRepos: number; totalStars: number; htmlUrl: string };
-type StackOverflowInsights = { reputation: number; badges: { gold: number; silver: number; bronze: number }; topTags: string[]; link: string };
 
-const HomePage = ({ blogs, medium, github, stackoverflow }: { blogs: Blog[]; medium: MediumPost[]; github: GitHubInsights; stackoverflow: StackOverflowInsights }) => {
-  const projects = [
-    {
-      title: "saleshero.dk",
-      image: "/landing-images/saleshero-dk.png",
-      url: "https://saleshero.dk",
-      summary: "B2B site performance revamp with Next.js and analytics.",
-      tags: ["Web", "Performance"],
-    },
-    {
-      title: "hyvv.io",
-      image: "/landing-images/hyvv-io.png",
-      url: "https://hyvv.io",
-      summary: "Marketing site and CMS integration with editorial workflow.",
-      tags: ["Web", "Content"],
-    },
-    {
-      title: "butterflye.io",
-      image: "/landing-images/butterflye-io.png",
-      url: "https://butterflye.io",
-      summary: "Design system and frontend component library.",
-      tags: ["Web", "Design"],
-    },
-  ];
+// Stable projects data (module scope) so hooks don't warn
+type Project = {
+  title: string;
+  image: string;
+  url: string;
+  summary: string;
+  tags: Array<"Web" | "Content" | "Performance" | "Design" | "AI">;
+};
 
-  const filters = ["All", "Web", "Content", "Performance", "Design"];
-  const [filter, setFilter] = useState<string>("All");
-  const filteredProjects = useMemo(
-    () => (filter === "All" ? projects : projects.filter((p) => p.tags.includes(filter))),
-    [filter]
-  );
+const projectsData: ReadonlyArray<Project> = [
+  {
+    title: "artofthepossibleagency.com",
+    image: "/landing-images/artofthepossibleagency-com.png",
+    url: "https://artofthepossibleagency.com",
+    summary: "Agency site enhancements and performance-focused rebuild.",
+    tags: ["Web", "Performance"],
+  },
+  {
+    title: "saleshero.dk",
+    image: "/landing-images/saleshero-dk.png",
+    url: "https://saleshero.dk",
+    summary: "B2B site performance revamp with Next.js and analytics.",
+    tags: ["Web", "Performance"],
+  },
+  {
+    title: "hyvv.io",
+    image: "/landing-images/hyvv-io.png",
+    url: "https://hyvv.io",
+    summary: "Marketing site and CMS integration with editorial workflow.",
+    tags: ["Web", "Content"],
+  },
+  {
+    title: "butterflye.io",
+    image: "/landing-images/butterflye-io.png",
+    url: "https://butterflye.io",
+    summary: "Design system and frontend component library.",
+    tags: ["Web", "Design"],
+  },
+  {
+    title: "shidosha.io",
+    image: "/landing-images/shidosha-io.png",
+    url: "https://shidosha.io",
+    summary: "Personal site and brand presence with modern UI.",
+    tags: ["Web", "Design"],
+  },
+  {
+    title: "owliver.ai",
+    image: "https://image.thum.io/get/width/1600/https://owliver.ai",
+    url: "https://owliver.ai",
+    summary: "AI-focused project work and integrations.",
+    tags: ["Web", "AI"],
+  },
+] as const;
+
+const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) => {
+
+  const filters = ["All", "Web", "Content", "Performance", "Design", "AI"] as const;
+  const [filter, setFilter] = useState<(typeof filters)[number]>("All");
+  const filteredProjects = useMemo(() => {
+    if (filter === "All") return projectsData;
+    return projectsData.filter((p) => p.tags.includes(filter as Project["tags"][number]));
+  }, [filter]);
   return (
     <Layout>
       <Head>
@@ -186,7 +215,7 @@ const HomePage = ({ blogs, medium, github, stackoverflow }: { blogs: Blog[]; med
             <h2 className="text-2xl font-semibold heading-gradient">From Medium</h2>
             <Link href="https://medium.com/@mohammed.poolwala_1888" target="_blank" className="text-sm text-blue-600 hover:underline">Follow on Medium</Link>
           </div>
-          <div className	="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {(medium || []).slice(0,3).map((p) => (
               <a key={p.link} href={p.link} target="_blank" rel="noopener noreferrer" className="block rounded-lg border border-gray-200 p-5 hover:bg-gray-50">
                 <div className="text-sm text-gray-500">{p.pubDate || ""}</div>
@@ -289,11 +318,18 @@ export default HomePage;
 export async function getStaticProps() {
   try {
     const result = await db.select().from(BlogsTable).limit(3);
-    const blogs = (result || []).map((b: any) => ({
-      slug: b.slug,
-      title: b.title,
-      image: b.image,
-      description: b.description,
+    type BlogRow = {
+      slug: string | null;
+      title: string | null;
+      image: string | null;
+      description: string | null;
+    };
+    const rows = (result || []) as BlogRow[];
+    const blogs: Blog[] = rows.map((b) => ({
+      slug: b.slug || "",
+      title: b.title || "",
+      image: b.image || "",
+      description: b.description || "",
     }));
     // Fetch Medium RSS (simple parsing for latest posts)
     const feedUrl = "https://medium.com/feed/@mohammed.poolwala_1888";
@@ -316,53 +352,8 @@ export async function getStaticProps() {
     } catch (_) {
       medium = [];
     }
-    // GitHub insights
-    const ghUser = "Mohammed-Poolwla";
-    let github: any = { followers: 0, publicRepos: 0, totalStars: 0, htmlUrl: `https://github.com/${ghUser}` };
-    try {
-      const [userRes, reposRes] = await Promise.all([
-        fetch(`https://api.github.com/users/${ghUser}`),
-        fetch(`https://api.github.com/users/${ghUser}/repos?per_page=100`),
-      ]);
-      const userJson: any = await userRes.json();
-      const reposJson: any[] = await reposRes.json();
-      const totalStars = Array.isArray(reposJson) ? reposJson.reduce((sum, r) => sum + (r?.stargazers_count || 0), 0) : 0;
-      github = {
-        followers: Number(userJson?.followers || 0),
-        publicRepos: Number(userJson?.public_repos || 0),
-        totalStars,
-        htmlUrl: userJson?.html_url || `https://github.com/${ghUser}`,
-      };
-    } catch (_) {}
-
-    // Stack Overflow insights
-    const soUserId = 7057833;
-    let stackoverflow: any = { reputation: 0, badges: { gold: 0, silver: 0, bronze: 0 }, topTags: [], link: `https://stackoverflow.com/users/${soUserId}` };
-    try {
-      const [userRes, tagsRes] = await Promise.all([
-        fetch(`https://api.stackexchange.com/2.3/users/${soUserId}?order=desc&sort=reputation&site=stackoverflow`),
-        fetch(`https://api.stackexchange.com/2.3/users/${soUserId}/top-tags?site=stackoverflow`),
-      ]);
-      const userJson: any = await userRes.json();
-      const tagsJson: any = await tagsRes.json();
-      const u = Array.isArray(userJson?.items) ? userJson.items[0] : undefined;
-      const topTags = Array.isArray(tagsJson?.items) ? tagsJson.items.slice(0, 5).map((t: any) => t?.tag_name).filter(Boolean) : [];
-      if (u) {
-        stackoverflow = {
-          reputation: Number(u.reputation || 0),
-          badges: {
-            gold: Number(u.badge_counts?.gold || 0),
-            silver: Number(u.badge_counts?.silver || 0),
-            bronze: Number(u.badge_counts?.bronze || 0),
-          },
-          topTags,
-          link: u.link || `https://stackoverflow.com/users/${soUserId}`,
-        };
-      }
-    } catch (_) {}
-
-    return { props: { blogs, medium, github, stackoverflow }, revalidate: 3600 };
+    return { props: { blogs, medium }, revalidate: 3600 };
   } catch (e) {
-    return { props: { blogs: [], medium: [], github: { followers: 0, publicRepos: 0, totalStars: 0, htmlUrl: "https://github.com/Mohammed-Poolwla" }, stackoverflow: { reputation: 0, badges: { gold: 0, silver: 0, bronze: 0 }, topTags: [], link: "https://stackoverflow.com/users/7057833/mohammed-poolwala" } }, revalidate: 3600 };
+    return { props: { blogs: [], medium: [] }, revalidate: 3600 };
   }
 }

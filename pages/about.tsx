@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from '@/components/layout';
+import Link from 'next/link';
 
 export default function AboutPage() {
   return (
@@ -77,7 +78,7 @@ export default function AboutPage() {
         </ul>
 
         <div className="mb-10">
-          <a href="/contact" className="inline-flex items-center rounded-md bg-gray-900 px-4 py-2 text-white hover:bg-black">Work with me</a>
+          <Link href="/contact" className="inline-flex items-center rounded-md bg-gray-900 px-4 py-2 text-white hover:bg-black">Work with me</Link>
         </div>
       </div>
     </Layout>

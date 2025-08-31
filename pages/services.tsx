@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from '@/components/layout';
+import Link from 'next/link';
 import { DevicePhoneMobileIcon, GlobeAltIcon, ServerStackIcon, ShoppingCartIcon, SparklesIcon, NewspaperIcon } from '@heroicons/react/24/outline';
 
 export default function ServicesPage() {
@@ -44,7 +45,7 @@ export default function ServicesPage() {
           </div>
         </div>
         <div className="mt-10">
-          <a href="/contact" className="inline-flex items-center rounded-md bg-gray-900 px-4 py-2 text-white hover:bg-black">Request a quote</a>
+          <Link href="/contact" className="inline-flex items-center rounded-md bg-gray-900 px-4 py-2 text-white hover:bg-black">Request a quote</Link>
         </div>
       </div>
     </Layout>
