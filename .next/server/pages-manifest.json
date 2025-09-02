@@ -1,1 +1,12 @@
-{"/_app":"pages/_app.js","/_error":"pages/_error.js","/about":"pages/about.html","/_document":"pages/_document.js","/api/deleteBlog":"pages/api/deleteBlog.js","/api/hello":"pages/api/hello.js","/api/reGenrateImage":"pages/api/reGenrateImage.js","/api/updateBlog":"pages/api/updateBlog.js","/api/sitemap.xml":"pages/api/sitemap.xml.js","/contact":"pages/contact.html","/services":"pages/services.html","/cookies":"pages/cookies.html","/terms":"pages/terms.html","/disclaimer":"pages/disclaimer.html","/privacy":"pages/privacy.html","/blogs":"pages/blogs.js","/blogs/[slug]":"pages/blogs/[slug].js","/":"pages/index.js","/404":"pages/404.html"}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/blogs": "pages/blogs.js",
+  "/": "pages/index.js",
+  "/blogs/[slug]": "pages/blogs/[slug].js",
+  "/disclaimer": "pages/disclaimer.js",
+  "/privacy": "pages/privacy.js",
+  "/terms": "pages/terms.js",
+  "/cookies": "pages/cookies.js"
+}
