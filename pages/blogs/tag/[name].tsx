@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { CldImage } from "next-cloudinary";
 import { db, BlogsTable, TagsTable, BlogTagsTable } from "@/lib/db";
 import { eq, inArray } from "drizzle-orm";
+import type { GetStaticPaths, GetStaticProps } from "next";
 
 interface Blog {
   slug: string;
@@ -15,18 +16,19 @@ interface Blog {
   keywords?: string | null;
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const tags = await db.select().from(TagsTable);
-  const paths = (tags || []).map((t: any) => ({ params: { name: t.name } }));
+  const paths = (tags || []).map((t: { name: string | null }) => ({ params: { name: String(t.name) } }));
   return { paths, fallback: "blocking" };
-}
+};
 
-export async function getStaticProps({ params }) {
-  const tagName = params?.name;
+export const getStaticProps: GetStaticProps = async (context) => {
+  const tagName = (context.params as { name?: string })?.name;
 
   const tags = await db
     .select()
     .from(TagsTable)
+    // @ts-expect-error Drizzle SQL type identity mismatch across module instances
     .where(eq(TagsTable.name, String(tagName)))
     .limit(1);
   const tag = tags?.[0] || null;
@@ -38,12 +40,17 @@ export async function getStaticProps({ params }) {
   const blogTagLinks = await db
     .select()
     .from(BlogTagsTable)
+    // @ts-expect-error Drizzle SQL type identity mismatch across module instances
     .where(eq(BlogTagsTable.tagId, tag.id));
-  const blogIds = (blogTagLinks || []).map((bt: any) => bt.blogId).filter(Boolean);
+  const blogIds = (blogTagLinks || []).map((bt: { blogId: number | null }) => bt.blogId).filter(Boolean);
 
   let blogs: Blog[] = [];
   if (blogIds.length > 0) {
-    blogs = (await db.select().from(BlogsTable).where(inArray(BlogsTable.id, blogIds))) as unknown as Blog[];
+    blogs = (await db
+      .select()
+      .from(BlogsTable)
+      // @ts-expect-error Drizzle SQL type identity mismatch across module instances
+      .where(inArray(BlogsTable.id, blogIds))) as unknown as Blog[];
   }
 
   return {
@@ -52,7 +59,7 @@ export async function getStaticProps({ params }) {
       blogs,
     },
   };
-}
+};
 
 export default function TagBlogsPage({ tagName, blogs }: { tagName: string; blogs: Blog[] }) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://websrc.uk";

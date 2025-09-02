@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from '@/components/layout';
+import Link from 'next/link';
 
 export default function TermsPage() {
   return (
@@ -14,7 +15,7 @@ export default function TermsPage() {
         <h2>Acceptance of terms</h2>
         <p>
           By accessing or using this website, you agree to be bound by these Terms of Service and our
-          <a href="/privacy"> Privacy Policy</a>. If you do not agree, please do not use the website.
+          <Link href="/privacy"> Privacy Policy</Link>. If you do not agree, please do not use the website.
         </p>
 
         <h2>Use of the website</h2>
@@ -45,7 +46,7 @@ export default function TermsPage() {
 
         <h2>Disclaimer of warranties</h2>
         <p>
-          The website is provided on an "as is" and "as available" basis without warranties of any kind, whether
+          The website is provided on an &quot;as is&quot; and &quot;as available&quot; basis without warranties of any kind, whether
           express or implied, including but not limited to implied warranties of merchantability, fitness for a
           particular purpose, and non‑infringement.
         </p>

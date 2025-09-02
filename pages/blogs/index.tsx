@@ -25,13 +25,13 @@ export async function getStaticProps() {
   const categoriesResult = await db.select().from(CategoriesTable);
   const tagsResult = await db.select().from(TagsTable);
   const categories = (categoriesResult || [])
-    .map((c: any) => c.name)
-    .filter(Boolean)
-    .sort((a: string, b: string) => a.localeCompare(b));
+    .map((c: { name: string | null }) => c.name)
+    .filter((name): name is string => Boolean(name))
+    .sort((a, b) => a.localeCompare(b));
   const tags = (tagsResult || [])
-    .map((t: any) => t.name)
-    .filter(Boolean)
-    .sort((a: string, b: string) => a.localeCompare(b));
+    .map((t: { name: string | null }) => t.name)
+    .filter((name): name is string => Boolean(name))
+    .sort((a, b) => a.localeCompare(b));
 
   return {
     props: {

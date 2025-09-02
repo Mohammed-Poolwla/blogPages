@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from '@/components/layout';
+import Link from 'next/link';
 
 export default function PrivacyPage() {
   return (
@@ -35,7 +36,7 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong>Cookies</strong>: essential cookies to operate the site and optional analytics cookies. See our
-            <a href="/cookies"> Cookie Policy</a> for details.
+            <Link href="/cookies"> Cookie Policy</Link> for details.
           </li>
         </ul>
 

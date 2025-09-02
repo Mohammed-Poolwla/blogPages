@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { CldImage } from "next-cloudinary";
 import { db, BlogsTable, CategoriesTable, BlogCategoriesTable } from "@/lib/db";
 import { eq, inArray } from "drizzle-orm";
+import type { GetStaticPaths, GetStaticProps } from "next";
 
 interface Blog {
   slug: string;
@@ -15,18 +16,19 @@ interface Blog {
   keywords?: string | null;
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await db.select().from(CategoriesTable);
-  const paths = (categories || []).map((c: any) => ({ params: { name: c.name } }));
+  const paths = (categories || []).map((c: { name: string | null }) => ({ params: { name: String(c.name) } }));
   return { paths, fallback: "blocking" };
-}
+};
 
-export async function getStaticProps({ params }) {
-  const categoryName = params?.name;
+export const getStaticProps: GetStaticProps = async (context) => {
+  const categoryName = (context.params as { name?: string })?.name;
 
   const categories = await db
     .select()
     .from(CategoriesTable)
+    // @ts-expect-error Drizzle SQL type identity mismatch across module instances
     .where(eq(CategoriesTable.name, String(categoryName)))
     .limit(1);
   const category = categories?.[0] || null;
@@ -38,12 +40,17 @@ export async function getStaticProps({ params }) {
   const blogCategoryLinks = await db
     .select()
     .from(BlogCategoriesTable)
+    // @ts-expect-error Drizzle SQL type identity mismatch across module instances
     .where(eq(BlogCategoriesTable.categoryId, category.id));
-  const blogIds = (blogCategoryLinks || []).map((bc: any) => bc.blogId).filter(Boolean);
+  const blogIds = (blogCategoryLinks || []).map((bc: { blogId: number | null }) => bc.blogId).filter(Boolean);
 
   let blogs: Blog[] = [];
   if (blogIds.length > 0) {
-    blogs = (await db.select().from(BlogsTable).where(inArray(BlogsTable.id, blogIds))) as unknown as Blog[];
+    blogs = (await db
+      .select()
+      .from(BlogsTable)
+      // @ts-expect-error Drizzle SQL type identity mismatch across module instances
+      .where(inArray(BlogsTable.id, blogIds))) as unknown as Blog[];
   }
 
   return {
@@ -52,7 +59,7 @@ export async function getStaticProps({ params }) {
       blogs,
     },
   };
-}
+};
 
 export default function CategoryBlogsPage({ categoryName, blogs }: { categoryName: string; blogs: Blog[] }) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://websrc.uk";
