@@ -189,9 +189,9 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9979240102739736"
         crossOrigin="anonymous"
       />
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <aside className="lg:col-span-3 space-y-6">
+          <aside className="order-2 lg:order-1 lg:col-span-3 space-y-6">
             <div className="bg-white border border-gray-200 rounded-lg p-4">
               <h2 className="text-lg font-semibold mb-3">Search</h2>
               <input
@@ -255,13 +255,13 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
             </div>
           </aside>
 
-          <div className="lg:col-span-9">
+          <div className="order-1 lg:order-2 lg:col-span-9">
             <div className="mb-4 text-sm text-gray-600">
               Showing {filteredBlogs.length} result{filteredBlogs.length === 1 ? "" : "s"}
               {selectedCategory !== "All" && <> in category <span className="font-medium">{selectedCategory}</span></>}
               {selectedTag !== "All" && <> with tag <span className="font-medium">{selectedTag}</span></>}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
               {pageItems.map((blog) => (
                 <div
                   key={blog.slug}
