@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Script from "next/script";
 import { BlogsTable, CategoriesTable, TagsTable, db } from "../../lib/db";
 import Link from "next/link";
