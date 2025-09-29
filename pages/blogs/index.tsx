@@ -1,3 +1,5 @@
+import Head from "next/head";
+import Script from "next/script";
 import { BlogsTable, CategoriesTable, TagsTable, db } from "../../lib/db";
 import Link from "next/link";
 import Layout from "@/components/layout";
@@ -181,6 +183,15 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
 
   return (
     <Layout>
+      <Head>
+        <Script
+          id="adsbygoogle-init"
+          strategy="afterInteractive"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9979240102739736"
+          crossOrigin="anonymous"
+        />
+      </Head>
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <aside className="lg:col-span-3 space-y-6">

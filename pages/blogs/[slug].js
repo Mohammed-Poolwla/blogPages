@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Script from "next/script";
 import Layout from "@/components/layout";
 
 // pages/blogs/[slug].js
@@ -91,6 +92,13 @@ const BlogPost = ({
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
         <meta name="author" content="WebSRC" />
+        <Script
+          id="adsbygoogle-init"
+          strategy="afterInteractive"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9979240102739736"
+          crossOrigin="anonymous"
+        />
 
         {/* Open Graph Meta Tags for Social Sharing */}
         <meta property="og:title" content={`Blog - ${title}`} />

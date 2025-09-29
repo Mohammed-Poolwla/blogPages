@@ -1,3 +1,5 @@
+import Head from "next/head";
+import Script from "next/script";
 import Layout from "@/components/layout";
 import Link from "next/link";
 import { useMemo } from "react";
@@ -76,6 +78,15 @@ export default function CategoryBlogsPage({ categoryName, blogs }: { categoryNam
 
   return (
     <Layout>
+      <Head>
+        <Script
+          id="adsbygoogle-init"
+          strategy="afterInteractive"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9979240102739736"
+          crossOrigin="anonymous"
+        />
+      </Head>
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-6">
           <h1 className="text-2xl font-semibold">Category: {categoryName}</h1>
