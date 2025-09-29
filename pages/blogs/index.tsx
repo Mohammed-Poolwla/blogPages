@@ -261,7 +261,7 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
               {selectedCategory !== "All" && <> in category <span className="font-medium">{selectedCategory}</span></>}
               {selectedTag !== "All" && <> with tag <span className="font-medium">{selectedTag}</span></>}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-6 md:gap-8">
               {pageItems.map((blog) => (
                 <div
                   key={blog.slug}
@@ -371,27 +371,37 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
             </div>
 
             {totalPages > 1 && (
-              <div className="mt-8 flex items-center justify-center gap-2">
+              <div className="mt-8 flex items-center justify-center gap-1 sm:gap-2">
                 <button
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                   disabled={currentPageSafe === 1}
-                  className="px-3 py-1 rounded-md border border-gray-300 bg-white disabled:opacity-50"
+                  className="px-3 py-2 sm:px-4 sm:py-2 rounded-md border border-gray-300 bg-white disabled:opacity-50 hover:bg-gray-50 text-sm font-medium"
                 >
                   Prev
                 </button>
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                  <button
-                    key={p}
-                    onClick={() => setCurrentPage(p)}
-                    className={`px-3 py-1 rounded-md border ${p === currentPageSafe ? "bg-blue-600 text-white border-blue-600" : "bg-white border-gray-300"}`}
-                  >
-                    {p}
-                  </button>
-                ))}
+                
+                {/* Show page numbers on larger screens */}
+                <div className="hidden sm:flex items-center gap-1">
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+                    <button
+                      key={p}
+                      onClick={() => setCurrentPage(p)}
+                      className={`px-3 py-2 rounded-md border text-sm font-medium ${p === currentPageSafe ? "bg-blue-600 text-white border-blue-600" : "bg-white border-gray-300 hover:bg-gray-50"}`}
+                    >
+                      {p}
+                    </button>
+                  ))}
+                </div>
+                
+                {/* Show current page info on small screens */}
+                <div className="sm:hidden px-3 py-2 text-sm text-gray-600 font-medium">
+                  {currentPageSafe} of {totalPages}
+                </div>
+                
                 <button
                   onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
                   disabled={currentPageSafe === totalPages}
-                  className="px-3 py-1 rounded-md border border-gray-300 bg-white disabled:opacity-50"
+                  className="px-3 py-2 sm:px-4 sm:py-2 rounded-md border border-gray-300 bg-white disabled:opacity-50 hover:bg-gray-50 text-sm font-medium"
                 >
                   Next
                 </button>
