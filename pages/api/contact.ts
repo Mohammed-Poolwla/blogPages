@@ -41,7 +41,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     });
 
     return res.status(200).json({ ok: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Contact form error:', error);
     return res.status(500).json({ ok: false, error: 'Failed to send message' });
   }

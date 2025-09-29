@@ -78,15 +78,13 @@ export default function TagBlogsPage({ tagName, blogs }: { tagName: string; blog
 
   return (
     <Layout>
-      <Head>
-        <Script
-          id="adsbygoogle-init"
-          strategy="afterInteractive"
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9979240102739736"
-          crossOrigin="anonymous"
-        />
-      </Head>
+      <Script
+        id="adsbygoogle-init"
+        strategy="afterInteractive"
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9979240102739736"
+        crossOrigin="anonymous"
+      />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-6">
           <h1 className="text-2xl font-semibold">Tag: {tagName}</h1>

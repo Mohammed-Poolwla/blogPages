@@ -92,13 +92,6 @@ const BlogPost = ({
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
         <meta name="author" content="WebSRC" />
-        <Script
-          id="adsbygoogle-init"
-          strategy="afterInteractive"
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9979240102739736"
-          crossOrigin="anonymous"
-        />
 
         {/* Open Graph Meta Tags for Social Sharing */}
         <meta property="og:title" content={`Blog - ${title}`} />
@@ -113,6 +106,13 @@ const BlogPost = ({
         <meta name="twitter:image" content={image} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+      <Script
+        id="adsbygoogle-init"
+        strategy="afterInteractive"
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9979240102739736"
+        crossOrigin="anonymous"
+      />
 
       {/* Main Content */}
       <div className="max-w-6xl mx-auto p-4 grid grid-cols-1 lg:grid-cols-12 gap-8">
