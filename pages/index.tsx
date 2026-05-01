@@ -62,6 +62,13 @@ const projectsData: ReadonlyArray<Project> = [
     summary: "AI-focused project work and integrations.",
     tags: ["Web", "AI"],
   },
+  {
+    title: "sunstone-website-chi.vercel.app",
+    image: "https://image.thum.io/get/width/1600/https://sunstone-website-chi.vercel.app",
+    url: "https://sunstone-website-chi.vercel.app",
+    summary: "Next.js + Supabase build for ASC Sunstone’s PCB manufacturing site.",
+    tags: ["Web"],
+  },
 ] as const;
 
 const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) => {
