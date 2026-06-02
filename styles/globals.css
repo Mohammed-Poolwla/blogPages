@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050816;
+  --foreground: #e2e8f0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #050816;
+    --foreground: #e2e8f0;
   }
 }
 
@@ -143,4 +143,275 @@ h3{
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.brand-gradient {
+  background: linear-gradient(90deg, #9be6ff 0%, #67d5ff 45%, #b5d0ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass-panel {
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 1.25rem;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 26px 54px -30px rgba(14, 116, 144, 0.7);
+}
+
+.glass-tile {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.36);
+  backdrop-filter: blur(8px);
+}
+
+.btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(186, 230, 253, 0.45);
+  padding: 0.5rem 1rem;
+  color: #e0f2fe;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-ghost-light:hover {
+  background: rgba(186, 230, 253, 0.12);
+  border-color: rgba(186, 230, 253, 0.8);
+  transform: translateY(-1px);
+}
+
+.parallax-hero,
+.parallax-break,
+.parallax-cta {
+  position: relative;
+  overflow: hidden;
+  background-color: #050816;
+}
+
+.parallax-deep-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #070c1f;
+}
+
+.pets-parallax-story {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(34, 211, 238, 0.2), transparent 35%),
+    radial-gradient(circle at 85% 10%, rgba(14, 165, 233, 0.16), transparent 30%),
+    linear-gradient(180deg, #050816 0%, #071129 100%);
+}
+
+.parallax-light {
+  background:
+    radial-gradient(circle at 12% 22%, rgba(34, 211, 238, 0.2), transparent 32%),
+    radial-gradient(circle at 90% 88%, rgba(14, 165, 233, 0.16), transparent 36%),
+    linear-gradient(180deg, #f0f9ff 0%, #eef2ff 100%);
+}
+
+.parallax-light-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.layer-grid {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.14) 1px, transparent 1px);
+  background-size: 64px 64px;
+  transform: translateZ(0) scale(1.2);
+  animation: parallaxGrid 36s linear infinite;
+}
+
+.layer-glow {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(56, 189, 248, 0.4), transparent 33%),
+    radial-gradient(circle at 84% 64%, rgba(59, 130, 246, 0.35), transparent 30%),
+    radial-gradient(circle at 44% 82%, rgba(99, 102, 241, 0.32), transparent 28%);
+  animation: driftGlow 20s ease-in-out infinite alternate;
+}
+
+.layer-rings {
+  background-image: radial-gradient(circle at center, transparent 0 30%, rgba(148, 163, 184, 0.16) 31%, transparent 32%);
+  background-size: 260px 260px;
+  opacity: 0.55;
+  animation: ringsFloat 24s ease-in-out infinite;
+}
+
+.layer-lines {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(56, 189, 248, 0.13) 0,
+    rgba(56, 189, 248, 0.13) 1px,
+    transparent 1px,
+    transparent 54px
+  );
+  animation: linesSlide 15s linear infinite;
+}
+
+.layer-paws {
+  opacity: 0.3;
+  background-image: radial-gradient(circle, rgba(186, 230, 253, 0.35) 0 1.6px, transparent 2px);
+  background-size: 34px 34px;
+  animation: pawsDrift 16s linear infinite;
+}
+
+.layer-light-dots {
+  opacity: 0.5;
+  background-image: radial-gradient(circle, rgba(14, 165, 233, 0.22) 0 1.8px, transparent 2px);
+  background-size: 44px 44px;
+  animation: lightDotsDrift 22s linear infinite;
+}
+
+.layer-glow-soft {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(56, 189, 248, 0.2), transparent 30%),
+    radial-gradient(circle at 82% 70%, rgba(59, 130, 246, 0.18), transparent 28%);
+  animation: driftGlowSoft 24s ease-in-out infinite alternate;
+}
+
+.pets-value-card {
+  border: 1px solid rgba(165, 243, 252, 0.22);
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(6px);
+  animation: cardLiftIn 0.65s ease both;
+}
+
+.paw-pulse {
+  display: inline-block;
+  animation: pawPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes parallaxGrid {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 64px 0, 0 64px;
+  }
+}
+
+@keyframes driftGlow {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-3%, 2%, 0) scale(1.07);
+  }
+}
+
+@keyframes ringsFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(3%, -2%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes linesSlide {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 54px;
+  }
+}
+
+@keyframes pawsDrift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 34px 68px;
+  }
+}
+
+@keyframes lightDotsDrift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 44px 88px;
+  }
+}
+
+@keyframes driftGlowSoft {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(2%, -2%, 0) scale(1.05);
+  }
+}
+
+@keyframes cardLiftIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pawPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.13);
+  }
+}
+
+.legal-page {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(6px);
+  color: #dbeafe;
+}
+
+.legal-page h1,
+.legal-page h2,
+.legal-page h3 {
+  color: #ffffff;
+}
+
+.legal-page h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.legal-page h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.7rem;
+  font-size: 1.2rem;
+}
+
+.legal-page p,
+.legal-page li {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.legal-page a {
+  color: #67e8f9;
 }

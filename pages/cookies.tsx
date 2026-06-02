@@ -5,9 +5,9 @@ export default function CookiesPage() {
   return (
     <Layout>
       <Head>
-        <title>Cookie Policy - webSRC</title>
+        <title>Cookie Policy - WEBSRC</title>
       </Head>
-      <div className="max-w-3xl mx-auto px-4 prose">
+      <div className="max-w-3xl mx-auto px-6 py-14 legal-page">
         <h1>Cookie Policy</h1>
         <p><strong>Last updated:</strong> {new Date().getFullYear()}</p>
 

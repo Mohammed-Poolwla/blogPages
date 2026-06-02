@@ -1,53 +1,142 @@
 import Head from 'next/head';
 import Layout from '@/components/layout';
 import Link from 'next/link';
-import { DevicePhoneMobileIcon, GlobeAltIcon, ServerStackIcon, ShoppingCartIcon, SparklesIcon, NewspaperIcon } from '@heroicons/react/24/outline';
+import {
+  DevicePhoneMobileIcon,
+  GlobeAltIcon,
+  ServerStackIcon,
+  SparklesIcon,
+  NewspaperIcon,
+  CpuChipIcon,
+  BoltIcon,
+  CircleStackIcon,
+} from '@heroicons/react/24/outline';
+
+const services = [
+  {
+    title: 'AI Web Apps & SaaS MVPs',
+    description: 'Production-ready React/Next.js apps with Supabase, AI features, billing, and scalable architecture.',
+    icon: CpuChipIcon,
+  },
+  {
+    title: 'React & Next.js Frontends',
+    description: 'High-converting interfaces, design systems, responsive UX, and clean component architecture.',
+    icon: GlobeAltIcon,
+  },
+  {
+    title: 'Mobile Apps (iOS + Android)',
+    description: 'React Native + Expo delivery with push notifications, offline sync, and store submissions.',
+    icon: DevicePhoneMobileIcon,
+  },
+  {
+    title: 'n8n Automation Systems',
+    description: 'Business workflow automation with CRM integrations, AI agent routing, and webhook orchestration.',
+    icon: BoltIcon,
+  },
+  {
+    title: 'Backend & API Engineering',
+    description: 'Supabase/Node/Laravel backends, secure auth, API integrations, and real-time data flows.',
+    icon: ServerStackIcon,
+  },
+  {
+    title: 'Content & Authority Systems',
+    description: 'SEO-ready blog systems, editorial workflows, and growth content pipelines for long-term traffic.',
+    icon: NewspaperIcon,
+  },
+  {
+    title: 'Data & Database Design',
+    description: 'Postgres schema design, performance optimization, and maintainable data models for growth.',
+    icon: CircleStackIcon,
+  },
+  {
+    title: 'Performance & Reliability',
+    description: 'Core Web Vitals optimization, QA before handoff, and stable deployments with fast feedback loops.',
+    icon: SparklesIcon,
+  },
+];
 
 export default function ServicesPage() {
   return (
     <Layout>
       <Head>
-        <title>Services - webSRC</title>
-        <meta name="description" content="Services: Next.js web apps, mobile apps, Laravel APIs, e-commerce, content systems, performance and SEO." />
+        <title>Services - WEBSRC</title>
+        <meta
+          name="description"
+          content="WEBSRC services: AI web apps, React/Next.js, React Native, Supabase backends, n8n automations, and high-performance product delivery."
+        />
       </Head>
-      <div className="max-w-5xl mx-auto px-4">
-        <h1 className="text-3xl font-semibold text-gray-900 mb-6">Services</h1>
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-100"><GlobeAltIcon className="h-6 w-6 text-gray-700" /></div>
-            <h2 className="text-xl font-semibold mb-2">Web Apps</h2>
-            <p className="text-gray-700">Next.js applications with clean UI, type-safe APIs, and great UX.</p>
+      <section className="parallax-hero">
+        <div className="parallax-layer layer-grid" />
+        <div className="parallax-layer layer-glow" />
+        <div className="relative mx-auto max-w-6xl px-6 py-16">
+          <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">What WEBSRC Delivers</p>
+          <h1 className="mt-2 text-4xl font-black uppercase tracking-[0.08em] text-white sm:text-5xl">Services</h1>
+          <p className="mt-4 max-w-3xl text-slate-200">
+            I help startups, agencies, and enterprise teams ship AI-powered products and workflow automation in weeks,
+            not months. You get full-stack execution, daily communication, and production-ready delivery.
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="glass-tile p-4 text-center">
+              <div className="text-2xl font-black text-cyan-200">15+</div>
+              <p className="text-sm text-slate-300">Production Apps Delivered</p>
+            </div>
+            <div className="glass-tile p-4 text-center">
+              <div className="text-2xl font-black text-cyan-200">20+ hrs</div>
+              <p className="text-sm text-slate-300">Saved per week via automation</p>
+            </div>
+            <div className="glass-tile p-4 text-center">
+              <div className="text-2xl font-black text-cyan-200">2-4 Weeks</div>
+              <p className="text-sm text-slate-300">MVP sprint timeline</p>
+            </div>
+            <div className="glass-tile p-4 text-center">
+              <div className="text-2xl font-black text-cyan-200">4 Hours</div>
+              <p className="text-sm text-slate-300">Average first response</p>
+            </div>
           </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-100"><DevicePhoneMobileIcon className="h-6 w-6 text-gray-700" /></div>
-            <h2 className="text-xl font-semibold mb-2">Mobile Apps</h2>
-            <p className="text-gray-700">React Native/Expo apps, shared codebases, fast iteration, app store delivery.</p>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {services.map((service) => {
+              const Icon = service.icon;
+              return (
+                <article key={service.title} className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
+                    <Icon className="h-6 w-6 text-cyan-200" />
+                  </div>
+                  <h2 className="mb-2 text-xl font-semibold text-white">{service.title}</h2>
+                  <p className="text-slate-300">{service.description}</p>
+                </article>
+              );
+            })}
           </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-100"><ServerStackIcon className="h-6 w-6 text-gray-700" /></div>
-            <h2 className="text-xl font-semibold mb-2">Laravel & APIs</h2>
-            <p className="text-gray-700">Laravel backends, REST/GraphQL APIs, auth, queues, and integrations.</p>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <div className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm">
+              <h3 className="text-xl font-semibold text-white">Engagement Model</h3>
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
+                <li>• Discovery: goals, user flow, technical scope, and rollout plan</li>
+                <li>• Build: rapid weekly execution with transparent progress updates</li>
+                <li>• QA + Launch: tested handoff, production deployment, and post-launch support</li>
+                <li>• Optimization: ongoing improvements based on usage and performance data</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-cyan-300/30 bg-cyan-300/10 p-6">
+              <h3 className="text-xl font-semibold text-white">Best Fit Clients</h3>
+              <ul className="mt-4 space-y-2 text-sm text-slate-100">
+                <li>• Founders launching MVPs with AI or automation requirements</li>
+                <li>• Agencies needing reliable full-stack delivery capacity</li>
+                <li>• Teams modernizing legacy products and workflows</li>
+                <li>• Businesses that value clear communication and execution speed</li>
+              </ul>
+            </div>
           </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-100"><ShoppingCartIcon className="h-6 w-6 text-gray-700" /></div>
-            <h2 className="text-xl font-semibold mb-2">E‑commerce</h2>
-            <p className="text-gray-700">Shopify/Headless commerce, product catalogs, checkout flows, and analytics.</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-100"><NewspaperIcon className="h-6 w-6 text-gray-700" /></div>
-            <h2 className="text-xl font-semibold mb-2">Content Systems</h2>
-            <p className="text-gray-700">Blog pipelines, CMS integrations, analytics, and editorial tooling.</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-100"><SparklesIcon className="h-6 w-6 text-gray-700" /></div>
-            <h2 className="text-xl font-semibold mb-2">Performance & SEO</h2>
-            <p className="text-gray-700">Core Web Vitals, structured data, and on‑page SEO improvements.</p>
+
+          <div className="mt-10">
+            <Link href="/contact" className="btn-primary">Request a Quote</Link>
+            <span className="ml-3 text-sm text-slate-300">Share your idea and get a technical roadmap.</span>
           </div>
         </div>
-        <div className="mt-10">
-          <Link href="/contact" className="inline-flex items-center rounded-md bg-gray-900 px-4 py-2 text-white hover:bg-black">Request a quote</Link>
-        </div>
-      </div>
+      </section>
     </Layout>
   );
 }

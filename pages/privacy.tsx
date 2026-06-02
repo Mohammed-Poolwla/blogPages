@@ -6,10 +6,10 @@ export default function PrivacyPage() {
   return (
     <Layout>
       <Head>
-        <title>Privacy Policy - webSRC</title>
+        <title>Privacy Policy - WEBSRC</title>
         <meta name="robots" content="noodp" />
       </Head>
-      <div className="max-w-3xl mx-auto px-4 prose">
+      <div className="max-w-3xl mx-auto px-6 py-14 legal-page">
         <h1>Privacy Policy</h1>
         <p><strong>Last updated:</strong> {new Date().getFullYear()}</p>
         <p>

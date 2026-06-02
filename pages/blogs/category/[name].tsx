@@ -86,8 +86,8 @@ export default function CategoryBlogsPage({ categoryName, blogs }: { categoryNam
       />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-6">
-          <h1 className="text-2xl font-semibold">Category: {categoryName}</h1>
-          <p className="text-gray-600">{blogs.length} result{blogs.length === 1 ? "" : "s"}</p>
+          <h1 className="text-2xl font-semibold text-white">Category: {categoryName}</h1>
+          <p className="text-slate-300">{blogs.length} result{blogs.length === 1 ? "" : "s"}</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog) => (

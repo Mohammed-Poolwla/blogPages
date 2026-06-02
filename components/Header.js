@@ -7,81 +7,80 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-gray-900 text-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <div className="text-2xl font-bold tracking-wide">
-            <Link href="/" className="hover:text-gray-300">
-              webSRC
-            </Link>
-          </div>
-
-          {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="hover:text-gray-300">
-              Home
-            </Link>
-            <Link href="/about" className="hover:text-gray-300">
-              About
-            </Link>
-            <Link href="/services" className="hover:text-gray-300">
-              Services
-            </Link>
-            <Link href="/blogs" className="hover:text-gray-300">
-              Blogs
-            </Link>
-            <Link href="/contact" className="hover:text-gray-300">
-              Contact
-            </Link>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={toggleMenu}
-              className="text-gray-300 hover:text-white"
-              aria-label="Toggle navigation menu"
-            >
-              <svg
-                className="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#050816]/80 text-white backdrop-blur-lg">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <div className="text-2xl font-black tracking-[0.22em]">
+          <Link href="/" className="brand-gradient">
+            WEBSRC
+          </Link>
         </div>
 
-        {/* Mobile Navigation Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 space-y-4">
-            <Link href="/" className="block text-gray-300 hover:text-white">
+        <nav className="hidden items-center gap-7 text-sm font-medium md:flex">
+          <Link href="/" className="text-slate-200 transition-colors hover:text-white">
+            Home
+          </Link>
+          <Link href="/about" className="text-slate-200 transition-colors hover:text-white">
+            About
+          </Link>
+          <Link href="/services" className="text-slate-200 transition-colors hover:text-white">
+            Services
+          </Link>
+          <Link href="/blogs" className="text-slate-200 transition-colors hover:text-white">
+            Blogs
+          </Link>
+          <Link
+            href="/contact"
+            className="rounded-full border border-cyan-300/60 px-4 py-1.5 text-cyan-100 transition-all hover:border-cyan-200 hover:bg-cyan-300/10"
+          >
+            Contact
+          </Link>
+        </nav>
+
+        <div className="md:hidden">
+          <button
+            onClick={toggleMenu}
+            className="rounded border border-white/20 p-2 text-slate-200 hover:text-white"
+            aria-label="Toggle navigation menu"
+          >
+            <svg
+              className="h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {isMenuOpen && (
+        <div className="border-t border-white/10 bg-[#050816]/95 px-4 py-4 md:hidden sm:px-6">
+          <div className="space-y-3 text-slate-200">
+            <Link href="/" className="block hover:text-white">
               Home
             </Link>
-            <Link href="/about" className="block text-gray-300 hover:text-white">
+            <Link href="/about" className="block hover:text-white">
               About
             </Link>
-            <Link href="/services" className="block text-gray-300 hover:text-white">
+            <Link href="/services" className="block hover:text-white">
               Services
             </Link>
-            <Link href="/blogs" className="block text-gray-300 hover:text-white">
+            <Link href="/blogs" className="block hover:text-white">
               Blogs
             </Link>
-            <Link href="/contact" className="block text-gray-300 hover:text-white">
+            <Link href="/contact" className="block hover:text-white">
               Contact
             </Link>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   );
 };

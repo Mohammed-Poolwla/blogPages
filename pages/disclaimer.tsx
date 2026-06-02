@@ -5,9 +5,9 @@ export default function DisclaimerPage() {
   return (
     <Layout>
       <Head>
-        <title>Disclaimer - webSRC</title>
+        <title>Disclaimer - WEBSRC</title>
       </Head>
-      <div className="max-w-3xl mx-auto px-4 prose">
+      <div className="max-w-3xl mx-auto px-6 py-14 legal-page">
         <h1>Disclaimer</h1>
         <p><strong>Last updated:</strong> {new Date().getFullYear()}</p>
 

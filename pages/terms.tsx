@@ -6,9 +6,9 @@ export default function TermsPage() {
   return (
     <Layout>
       <Head>
-        <title>Terms of Service - webSRC</title>
+        <title>Terms of Service - WEBSRC</title>
       </Head>
-      <div className="max-w-3xl mx-auto px-4 prose">
+      <div className="max-w-3xl mx-auto px-6 py-14 legal-page">
         <h1>Terms of Service</h1>
         <p><strong>Last updated:</strong> {new Date().getFullYear()}</p>
 
