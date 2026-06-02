@@ -115,42 +115,46 @@ const BlogPost = ({
       />
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto p-4 grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <article className="lg:col-span-8 rounded-2xl border border-white/10 bg-white p-6">
-        <h1 className="text-3xl font-semibold text-gray-900 mb-2">{title}</h1>
-        {topic && (
-          <div className="mb-3 text-sm">
-            <span className="text-gray-600">Category: </span>
-            <Link href={{ pathname: "/blogs", query: { category: topic } }} className="font-medium text-blue-700 hover:underline">{topic}</Link>
-          </div>
-        )}
-        {(keywords || undefined) && (
-          <div className="mb-4 flex flex-wrap gap-2 text-xs">
-            {keywords?.split(',').map((t) => t.trim()).filter(Boolean).slice(0, 6).map((t) => (
-              <Link key={t} href={{ pathname: "/blogs", query: { tag: t } }} className="px-2 py-0.5 rounded-full bg-gray-100 border border-gray-300 text-gray-700 hover:bg-gray-200">{t}</Link>
-            ))}
-          </div>
-        )}
-        <CldImage
-          src={image} // Use this sample image or upload your own via the Media Explorer
-          height={343}
-          width={600}
-          alt={slug}
-          crop={{
-            type: "auto",
-            source: true,
-          }}
-          className="rounded-lg shadow-lg mb-6"
-        />
-        <p className="text-gray-600 mb-4 quote">{quote}</p>
+      <section className="parallax-hero">
+        <div className="parallax-layer layer-grid" />
+        <div className="parallax-layer layer-glow" />
+        <div className="relative max-w-6xl mx-auto p-4 pt-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <article className="lg:col-span-8 rounded-2xl border border-white/10 bg-white p-6 sm:p-8 shadow-xl">
+            <p className="text-xs uppercase tracking-[0.2em] text-cyan-700 mb-3">WEBSRC Blog</p>
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">{title}</h1>
+            {topic && (
+              <div className="mb-3 text-sm">
+                <span className="text-gray-600">Category: </span>
+                <Link href={{ pathname: "/blogs", query: { category: topic } }} className="font-medium text-blue-700 hover:underline">{topic}</Link>
+              </div>
+            )}
+            {(keywords || undefined) && (
+              <div className="mb-5 flex flex-wrap gap-2 text-xs">
+                {keywords?.split(',').map((t) => t.trim()).filter(Boolean).slice(0, 6).map((t) => (
+                  <Link key={t} href={{ pathname: "/blogs", query: { tag: t } }} className="px-2 py-1 rounded-full bg-slate-100 border border-slate-300 text-slate-700 hover:bg-slate-200">{t}</Link>
+                ))}
+              </div>
+            )}
+            <CldImage
+              src={image}
+              height={343}
+              width={600}
+              alt={slug}
+              crop={{
+                type: "auto",
+                source: true,
+              }}
+              className="w-full rounded-xl shadow-lg mb-6"
+            />
+            <p className="text-gray-600 mb-6 quote">{quote}</p>
 
-        <div className="prose text-gray-700">
-          <Markdown>{content}</Markdown>
-        </div>
-        {/* Share */}
-        <div className="mt-8 border-t pt-4">
-          <h3 className="text-sm font-semibold text-gray-700 mb-2">Share</h3>
-          <div className="flex items-center gap-3 text-gray-600">
+            <div className="prose prose-slate max-w-none text-gray-700">
+              <Markdown>{content}</Markdown>
+            </div>
+
+            <div className="mt-10 border-t border-slate-200 pt-5">
+              <h3 className="text-sm font-semibold text-gray-700 mb-2">Share this article</h3>
+              <div className="flex items-center gap-3 text-gray-600">
             <a
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(`${process.env.NEXT_PUBLIC_SITE_URL || 'https://websrc.uk'}/blogs/${slug}`)}`}
               target="_blank"
@@ -184,39 +188,40 @@ const BlogPost = ({
                 <path d="M20.447 20.452H17.21V14.69c0-1.377-.027-3.148-1.918-3.148-1.919 0-2.213 1.498-2.213 3.045v5.865H9.84V9h3.112v1.561h.044c.434-.82 1.495-1.685 3.074-1.685 3.29 0 3.894 2.164 3.894 4.977v6.599zM5.337 7.433c-1.004 0-1.818-.816-1.818-1.823 0-1.008.814-1.824 1.818-1.824 1.005 0 1.82.816 1.82 1.824 0 1.007-.815 1.823-1.82 1.823zM6.556 20.452H4.118V9h2.438v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
               </svg>
             </a>
-          </div>
-        </div>
-        </article>
-
-        <aside className="lg:col-span-4">
-          <div className="bg-white rounded-lg border border-gray-200 p-4 sticky top-6">
-            <h3 className="text-lg font-semibold mb-3">On this page</h3>
-            <ul className="text-sm text-gray-700 space-y-2 list-disc list-inside">
-              <li><a href="#" className="hover:underline">Top</a></li>
-            </ul>
-            <div className="mt-6">
-              <h4 className="text-sm font-semibold mb-2">Category</h4>
-              {/* Topic as category */}
-              <div className="text-sm text-gray-700">
-                { /* topic not returned explicitly in props; we show via keywords first tag or omit */ }
-                { /* To fully support categories, ensure `topic` exists on the table and returned in getStaticProps. */ }
               </div>
             </div>
-            {(keywords || undefined) && (
-              <div className="mt-6">
-                <h4 className="text-sm font-semibold mb-2">Tags</h4>
-                <div className="flex flex-wrap gap-2">
-                  {keywords?.split(',').map((t) => t.trim()).filter(Boolean).map((t) => (
-                    <Link key={t} href={{ pathname: "/blogs", query: { tag: t } }} className="px-2 py-1 rounded-full border text-xs">
-                      {t}
-                    </Link>
-                  ))}
-                </div>
+          </article>
+
+          <aside className="lg:col-span-4">
+            <div className="sticky top-24 space-y-4">
+              <div className="rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-md">
+                <h3 className="text-lg font-semibold text-white mb-3">Article navigation</h3>
+                <ul className="text-sm text-slate-200 space-y-2 list-disc list-inside">
+                  <li><a href="#" className="hover:underline">Back to top</a></li>
+                  <li><Link href="/blogs" className="hover:underline">All blogs</Link></li>
+                </ul>
               </div>
-            )}
-          </div>
-        </aside>
-      </div>
+              {(keywords || undefined) && (
+                <div className="rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-md">
+                  <h4 className="text-sm font-semibold mb-2 text-white">Tags</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {keywords?.split(',').map((t) => t.trim()).filter(Boolean).map((t) => (
+                      <Link key={t} href={{ pathname: "/blogs", query: { tag: t } }} className="px-2 py-1 rounded-full border border-white/30 text-xs text-slate-100 hover:bg-white/10">
+                        {t}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div className="rounded-2xl border border-cyan-300/40 bg-cyan-300/10 p-5">
+                <p className="text-xs uppercase tracking-[0.18em] text-cyan-100 mb-2">Need similar results?</p>
+                <p className="text-sm text-slate-100">WEBSRC builds high-performance products and content systems with measurable outcomes.</p>
+                <Link href="/contact" className="mt-4 inline-flex text-sm font-semibold text-cyan-100 hover:text-white">Start a project →</Link>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
       { process.env.DEV_ENV === 'development' && (
         
       
