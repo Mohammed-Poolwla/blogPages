@@ -183,6 +183,29 @@ h3{
   transform: translateY(-1px);
 }
 
+.science-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(34, 211, 238, 0.45);
+  background: rgba(14, 116, 144, 0.18);
+  color: #cffafe;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.science-chip::before {
+  content: "";
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 9999px;
+  background: #22d3ee;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2);
+}
+
 .parallax-hero,
 .parallax-break,
 .parallax-cta {

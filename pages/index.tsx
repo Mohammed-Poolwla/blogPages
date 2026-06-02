@@ -175,6 +175,16 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                 Each section tells a story, each interaction earns trust, and each build
                 is ready to scale.
               </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {["A/B Tested", "Core Web Vitals", "AI-Assisted", "System Design"].map((item) => (
+                  <span key={item} className="science-chip">
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-4 text-xs text-cyan-200/90 tracking-[0.18em]">
+                PERFORMANCE + USABILITY + AUTOMATION = SCALABLE DIGITAL OUTCOMES
+              </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/services" className="btn-primary">
                   Explore Services
@@ -310,16 +320,17 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
           <div className="mb-10 max-w-2xl">
             <h2 className="text-3xl font-bold text-[#0b1530]">What WEBSRC Delivers</h2>
             <p className="mt-3 text-slate-700">
-              We build websites that feel alive through depth, motion, and structure while maintaining
-              measurable performance and accessibility standards.
+              WEBSRC builds high-performance digital products, AI-powered web applications, automation
+              workflows, mobile app experiences, and scalable backend systems designed for growth,
+              conversions, and long-term business impact.
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { t: "Parallax UX", d: "Depth-based sections that guide user attention." },
-              { t: "Frontend Engineering", d: "Clean architecture with scalable component systems." },
-              { t: "Performance", d: "Core Web Vitals and delivery optimization by default." },
-              { t: "Content Systems", d: "Structured publishing workflows for growth teams." },
+              { t: "AI Product Development", d: "AI-enabled web apps, SaaS MVPs, and intelligent feature delivery." },
+              { t: "Automation Systems", d: "n8n workflows, CRM integrations, and operations automation at scale." },
+              { t: "Mobile + Web Platforms", d: "React Native and Next.js products with shared architecture and fast iteration." },
+              { t: "Performance + Growth", d: "Reliable engineering, Core Web Vitals, analytics, and content systems for long-term growth." },
             ].map((s) => (
               <div key={s.t} className="rounded-2xl border border-slate-200 bg-white/80 p-6 backdrop-blur-sm">
                 <h3 className="mb-2 text-lg font-semibold text-[#0b1530]">{s.t}</h3>
@@ -364,6 +375,9 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                 <p className="mb-2 text-xs uppercase tracking-[0.18em] text-cyan-200">WEBSRC Promise</p>
                 <h3 className="text-xl font-semibold text-white">{item.t}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-200">{item.d}</p>
+                <div className="mt-4 text-xs text-cyan-100/90">
+                  <span className="font-semibold">Model:</span> Observe → Analyze → Improve
+                </div>
               </article>
             ))}
           </div>
