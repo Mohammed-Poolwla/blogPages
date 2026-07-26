@@ -89,4 +89,11 @@ export type ServicePageConfig = {
     minPrice?: number;
     currency?: string;
   };
+  /** Optional lead-focused proof / comparison section. */
+  hookSection?: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    items: Array<{ title: string; body: string }>;
+  };
 };

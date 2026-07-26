@@ -28,12 +28,32 @@ const ArchitectureDiagram = dynamic(
   }
 );
 
+function HighlightPriceText({ text }: { text: string }) {
+  const parts = text.split(/(\$399(?:\s*USD)?)/g);
+  return (
+    <>
+      {parts.map((part, index) =>
+        part.startsWith("$399") ? (
+          <span key={`price-${index}`} className="price-highlight">
+            {part}
+          </span>
+        ) : (
+          <span key={`text-${index}`}>{part}</span>
+        )
+      )}
+    </>
+  );
+}
+
 export default function ServiceLandingPage({ config }: { config: ServicePageConfig }) {
   const pageUrl = `${SITE_URL}/${config.slug}`;
   const related = config.relatedSlugs
     .map((slug) => servicePages[slug])
     .filter(Boolean)
     .slice(0, 6);
+  const priceAmount = config.pricing?.minPrice
+    ? `$${config.pricing.minPrice}`
+    : null;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -209,13 +229,25 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
               <h1 className="mt-4 text-4xl font-black leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.15rem]">
                 {config.h1}
               </h1>
-              <p className="mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">{config.heroBody}</p>
+              <p className="mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
+                <HighlightPriceText text={config.heroBody} />
+              </p>
 
               {config.pricing ? (
-                <div className="mt-6 inline-flex flex-col gap-1 rounded-2xl border border-cyan-300/30 bg-cyan-300/10 px-5 py-4">
-                  <p className="text-xs uppercase tracking-[0.2em] text-cyan-200">Migration pricing</p>
-                  <p className="text-2xl font-bold text-white sm:text-3xl">{config.pricing.amountLabel}</p>
-                  <p className="max-w-md text-sm text-slate-300">{config.pricing.note}</p>
+                <div className="mt-6 inline-flex flex-col gap-2 rounded-2xl border border-amber-300/40 bg-amber-300/10 px-5 py-4 shadow-[0_0_32px_-8px_rgba(251,191,36,0.55)]">
+                  <p className="text-xs uppercase tracking-[0.2em] text-amber-200">Migration pricing</p>
+                  <p className="flex flex-wrap items-baseline gap-2 text-2xl font-bold text-white sm:text-3xl">
+                    <span className="text-lg font-semibold text-slate-200 sm:text-xl">From</span>
+                    <span className="price-highlight price-highlight--lg">
+                      {priceAmount || config.pricing.amountLabel}
+                    </span>
+                    <span className="text-lg font-semibold text-slate-200 sm:text-xl">
+                      {config.pricing.currency || "USD"}
+                    </span>
+                  </p>
+                  <p className="max-w-md text-sm text-slate-300">
+                    <HighlightPriceText text={config.pricing.note} />
+                  </p>
                 </div>
               ) : null}
 
@@ -255,6 +287,30 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
           ))}
         </div>
       </section>
+
+      {config.hookSection ? (
+        <section className="parallax-break" id="outcomes">
+          <div className="parallax-layer layer-lines" />
+          <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24">
+            <div className="max-w-2xl">
+              <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">{config.hookSection.eyebrow}</p>
+              <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{config.hookSection.title}</h2>
+              <p className="mt-4 text-slate-300">{config.hookSection.intro}</p>
+            </div>
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {config.hookSection.items.map((item) => (
+                <article
+                  key={item.title}
+                  className="rounded-2xl border border-cyan-300/20 bg-cyan-300/5 p-6"
+                >
+                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="parallax-deep-section" id="why">
         <div className="parallax-layer layer-grid" />
@@ -507,7 +563,9 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
             <div>
               <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">{config.auditEyebrow}</p>
               <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{config.auditTitle}</h2>
-              <p className="mt-4 text-slate-300">{config.auditIntro}</p>
+              <p className="mt-4 text-slate-300">
+                <HighlightPriceText text={config.auditIntro} />
+              </p>
               <ul className="mt-8 space-y-3 text-sm text-slate-300">
                 <li className="flex items-center gap-2">
                   <Users className="h-4 w-4 text-cyan-300" aria-hidden />
@@ -539,7 +597,9 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
           <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-black leading-tight text-white sm:text-5xl">
             {config.finalTitle}
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-slate-200">{config.finalBody}</p>
+          <p className="mx-auto mt-5 max-w-2xl text-slate-200">
+            <HighlightPriceText text={config.finalBody} />
+          </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a href="#audit" className="btn-primary">
               {config.primaryCta}

@@ -11,9 +11,11 @@
     "start": "next start",
     "lint": "next lint",
     "backfill:cats-tags": "node scripts/backfillCategoriesTags.js",
-    "backfill:ai": "node scripts/backfillCategoriesTags.js --ai"
+    "backfill:ai": "node scripts/backfillCategoriesTags.js --ai",
+    "db:leads": "node scripts/ensureLeadsTable.js"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@heroicons/react": "^2.2.0",
     "@vercel/postgres": "^0.10.0",
     "axios": "^1.7.7",

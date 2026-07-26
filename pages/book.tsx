@@ -1,12 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 import Layout from "@/components/layout";
-import AppointmentForm from "@/components/booking/AppointmentForm";
-import { getBookingEmbedUrl } from "@/lib/booking";
+import CalBookingEmbed from "@/components/booking/CalBookingEmbed";
 import { CalendarDays, Clock, Shield, Video } from "lucide-react";
 
 export default function BookAppointmentPage() {
-  const embedUrl = getBookingEmbedUrl();
   const pageUrl = "https://websrc.uk/book";
   const title = "Book Appointment | WEBSRC";
   const description =
@@ -47,25 +45,25 @@ export default function BookAppointmentPage() {
         <div className="parallax-layer layer-grid" />
         <div className="parallax-layer layer-glow" />
         <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-20">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
               <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">Book appointment</p>
               <h1 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl">
                 Book a free consultation call
               </h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
-                Pick a preferred time for a 30-minute call. We use it for migration assessments, Supabase audits,
-                consulting, and AI MVP launch planning.
+                Pick a live slot on the calendar. 30-minute calls for migration assessments, Supabase
+                audits, consulting, and AI MVP launch planning.
               </p>
 
               <ul className="mt-8 space-y-3 text-sm text-slate-300">
                 <li className="flex items-center gap-3">
                   <CalendarDays className="h-4 w-4 text-cyan-300" aria-hidden />
-                  Free intro call, no obligation
+                  Instant booking via Cal.com
                 </li>
                 <li className="flex items-center gap-3">
                   <Clock className="h-4 w-4 text-cyan-300" aria-hidden />
-                  Usually confirmed within one business day
+                  Free intro call, no obligation
                 </li>
                 <li className="flex items-center gap-3">
                   <Video className="h-4 w-4 text-cyan-300" aria-hidden />
@@ -90,23 +88,8 @@ export default function BookAppointmentPage() {
               </p>
             </div>
 
-            <AppointmentForm />
+            <CalBookingEmbed />
           </div>
-
-          {embedUrl ? (
-            <div className="mt-14 overflow-hidden rounded-2xl border border-white/15 bg-white/5">
-              <div className="border-b border-white/10 px-5 py-4">
-                <h2 className="text-lg font-semibold text-white">Or book instantly on the calendar</h2>
-                <p className="mt-1 text-sm text-slate-400">Choose a live slot if you prefer instant confirmation.</p>
-              </div>
-              <iframe
-                src={embedUrl}
-                title="WEBSRC booking calendar"
-                className="h-[720px] w-full bg-white"
-                loading="lazy"
-              />
-            </div>
-          ) : null}
         </div>
       </section>
     </Layout>

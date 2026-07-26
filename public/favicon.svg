@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="WEBSRC">
+  <defs>
+    <linearGradient id="w" x1="8" y1="14" x2="56" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9BE6FF"/>
+      <stop offset="0.5" stop-color="#67D5FF"/>
+      <stop offset="1" stop-color="#B5D0FF"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A1530"/>
+      <stop offset="1" stop-color="#050816"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <polygon
+    fill="url(#w)"
+    points="8,16 17,16 23,38 32,16 40,16 49,38 55,16 62,16 51,48 42,48 32,28 22,48 13,48"
+  />
+</svg>

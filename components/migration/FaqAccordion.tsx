@@ -6,6 +6,23 @@ import { ChevronDown } from "lucide-react";
 
 export type FaqItem = { question: string; answer: string };
 
+function HighlightPriceText({ text }: { text: string }) {
+  const parts = text.split(/(\$399(?:\s*USD)?)/g);
+  return (
+    <>
+      {parts.map((part, index) =>
+        part.startsWith("$399") ? (
+          <span key={`price-${index}`} className="price-highlight">
+            {part}
+          </span>
+        ) : (
+          <span key={`text-${index}`}>{part}</span>
+        )
+      )}
+    </>
+  );
+}
+
 export default function FaqAccordion({ items }: { items: FaqItem[] }) {
   const baseId = useId();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -50,7 +67,7 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
                   transition={{ duration: 0.22, ease: "easeOut" }}
                 >
                   <p className="border-t border-white/10 px-5 py-4 text-sm leading-7 text-slate-300">
-                    {item.answer}
+                    <HighlightPriceText text={item.answer} />
                   </p>
                 </motion.div>
               )}
