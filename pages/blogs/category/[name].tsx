@@ -29,7 +29,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const categories = await db
     .select()
     .from(CategoriesTable)
-    // @ts-expect-error Drizzle SQL type identity mismatch across module instances
     .where(eq(CategoriesTable.name, String(categoryName)))
     .limit(1);
   const category = categories?.[0] || null;
@@ -41,7 +40,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const blogCategoryLinks = await db
     .select()
     .from(BlogCategoriesTable)
-    // @ts-expect-error Drizzle SQL type identity mismatch across module instances
     .where(eq(BlogCategoriesTable.categoryId, category.id));
   const blogIds = (blogCategoryLinks || []).map((bc: { blogId: number | null }) => bc.blogId).filter(Boolean);
 
