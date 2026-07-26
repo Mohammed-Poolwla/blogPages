@@ -255,7 +255,7 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
                 <a href="#audit" className="btn-primary">
                   {config.primaryCta}
                 </a>
-                <Link href={bookHref(config.slug)} className="btn-ghost-light">
+                <Link href={bookHref()} className="btn-ghost-light">
                   Book Appointment
                 </Link>
               </div>
@@ -503,7 +503,7 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
                 <a href="#audit" className="btn-primary">
                   {config.primaryCta}
                 </a>
-                <Link href={bookHref(config.slug)} className="btn-ghost-light">
+                <Link href={bookHref()} className="btn-ghost-light">
                   Book Appointment
                 </Link>
               </div>
@@ -580,7 +580,7 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
                   {config.auditBullets[2]}
                 </li>
               </ul>
-              <Link href={bookHref(config.slug)} className="btn-ghost-light mt-8">
+              <Link href={bookHref()} className="btn-ghost-light mt-8">
                 Prefer a call? Book Appointment
               </Link>
             </div>
@@ -604,7 +604,7 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
             <a href="#audit" className="btn-primary">
               {config.primaryCta}
             </a>
-            <Link href={bookHref(config.slug)} className="btn-ghost-light">
+            <Link href={bookHref()} className="btn-ghost-light">
               Book Appointment
             </Link>
           </div>

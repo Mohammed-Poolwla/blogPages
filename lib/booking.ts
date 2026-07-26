@@ -34,6 +34,6 @@ export function getBookingEmbedUrl() {
   return `https://cal.com/${calLink}`;
 }
 
-export function bookHref(_service?: string) {
+export function bookHref() {
   return BOOKING_PATH;
 }
