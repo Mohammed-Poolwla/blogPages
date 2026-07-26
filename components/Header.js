@@ -25,12 +25,21 @@ const Header = () => {
           <Link href="/services" className="text-slate-200 transition-colors hover:text-white">
             Services
           </Link>
+          <Link href="/lovable-to-supabase" className="text-slate-200 transition-colors hover:text-white">
+            Lovable to Supabase
+          </Link>
           <Link href="/blogs" className="text-slate-200 transition-colors hover:text-white">
             Blogs
           </Link>
           <Link
-            href="/contact"
+            href="/book"
             className="rounded-full border border-cyan-300/60 px-4 py-1.5 text-cyan-100 transition-all hover:border-cyan-200 hover:bg-cyan-300/10"
+          >
+            Book Appointment
+          </Link>
+          <Link
+            href="/contact"
+            className="text-slate-200 transition-colors hover:text-white"
           >
             Contact
           </Link>
@@ -72,8 +81,14 @@ const Header = () => {
             <Link href="/services" className="block hover:text-white">
               Services
             </Link>
+            <Link href="/lovable-to-supabase" className="block hover:text-white">
+              Lovable to Supabase
+            </Link>
             <Link href="/blogs" className="block hover:text-white">
               Blogs
+            </Link>
+            <Link href="/book" className="block hover:text-white">
+              Book Appointment
             </Link>
             <Link href="/contact" className="block hover:text-white">
               Contact

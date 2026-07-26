@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Layout from '@/components/layout';
 
 export default function ContactPage() {
@@ -29,7 +30,7 @@ export default function ContactPage() {
     <Layout>
       <Head>
         <title>Contact - WEBSRC</title>
-        <meta name="description" content="Contact webSRC for web development or content collaborations." />
+        <meta name="description" content="Contact WEBSRC for web development, Supabase migrations, or book a consultation appointment." />
       </Head>
       <section className="parallax-hero">
         <div className="parallax-layer layer-grid" />
@@ -38,6 +39,12 @@ export default function ContactPage() {
           <p className="mt-4 text-slate-200">
             Reach out at <a className="text-cyan-200 hover:text-cyan-100" href="mailto:info@websrc.uk">info@websrc.uk</a> or send a message below.
           </p>
+          <div className="mt-6">
+            <Link href="/book" className="btn-primary">
+              Book Appointment
+            </Link>
+            <span className="ml-3 text-sm text-slate-300">Prefer a scheduled call? Pick a time.</span>
+          </div>
           <form className="mt-8 space-y-4 rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm text-slate-200">Name</label>
@@ -58,5 +65,3 @@ export default function ContactPage() {
     </Layout>
   );
 }
-
-
