@@ -29,11 +29,12 @@ const ArchitectureDiagram = dynamic(
 );
 
 function HighlightPriceText({ text }: { text: string }) {
-  const parts = text.split(/(\$399(?:\s*USD)?)/g);
+  // Keep "from / starting from $399" together so it never reads as a fixed flat fee.
+  const parts = text.split(/((?:starting from|start from|from)\s+\$399(?:\s*USD)?|\$399(?:\s*USD)?)/gi);
   return (
     <>
       {parts.map((part, index) =>
-        part.startsWith("$399") ? (
+        /\$399/i.test(part) ? (
           <span key={`price-${index}`} className="price-highlight">
             {part}
           </span>
@@ -102,17 +103,11 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         category: "Software consulting",
         offers: config.pricing
           ? {
-              "@type": "Offer",
+              "@type": "AggregateOffer",
               name: `${config.navLabel} starting price`,
-              price: String(config.pricing.minPrice ?? 399),
+              lowPrice: String(config.pricing.minPrice ?? 399),
               priceCurrency: config.pricing.currency || "USD",
-              priceSpecification: {
-                "@type": "PriceSpecification",
-                price: String(config.pricing.minPrice ?? 399),
-                priceCurrency: config.pricing.currency || "USD",
-                minPrice: String(config.pricing.minPrice ?? 399),
-                description: config.pricing.note,
-              },
+              offerCount: "1",
               availability: "https://schema.org/InStock",
               url: pageUrl,
               description: config.pricing.note,
@@ -235,9 +230,9 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
 
               {config.pricing ? (
                 <div className="mt-6 inline-flex flex-col gap-2 rounded-2xl border border-amber-300/40 bg-amber-300/10 px-5 py-4 shadow-[0_0_32px_-8px_rgba(251,191,36,0.55)]">
-                  <p className="text-xs uppercase tracking-[0.2em] text-amber-200">Migration pricing</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-amber-200">Starting price (minimum)</p>
                   <p className="flex flex-wrap items-baseline gap-2 text-2xl font-bold text-white sm:text-3xl">
-                    <span className="text-lg font-semibold text-slate-200 sm:text-xl">From</span>
+                    <span className="text-lg font-semibold text-slate-200 sm:text-xl">Starting from</span>
                     <span className="price-highlight price-highlight--lg">
                       {priceAmount || config.pricing.amountLabel}
                     </span>

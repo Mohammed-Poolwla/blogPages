@@ -108,14 +108,35 @@ h3{
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 1rem;
-  border-radius: 0.75rem;
-  background-image: linear-gradient(90deg, #111827, #4b5563);
-  color: #fff;
-  box-shadow: 0 10px 18px -10px rgba(17, 24, 39, 0.6);
-  transition: transform 150ms ease, box-shadow 200ms ease, opacity 150ms ease;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.35rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(125, 211, 252, 0.55);
+  background-image: linear-gradient(135deg, #22d3ee 0%, #38bdf8 48%, #67e8f9 100%);
+  color: #04111f;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.25),
+    0 12px 28px -10px rgba(34, 211, 238, 0.75),
+    0 0 36px -8px rgba(56, 189, 248, 0.55);
+  transition: transform 150ms ease, box-shadow 200ms ease, filter 150ms ease, opacity 150ms ease;
 }
-.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 16px 28px -12px rgba(17, 24, 39, 0.7); }
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.4),
+    0 16px 34px -10px rgba(34, 211, 238, 0.85),
+    0 0 42px -6px rgba(56, 189, 248, 0.7);
+}
+.btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+}
 
 .btn-outline {
   display: inline-flex;
@@ -170,17 +191,27 @@ h3{
 .btn-ghost-light {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
   border-radius: 9999px;
-  border: 1px solid rgba(186, 230, 253, 0.45);
-  padding: 0.5rem 1rem;
-  color: #e0f2fe;
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  border: 1px solid rgba(251, 191, 36, 0.55);
+  padding: 0.7rem 1.25rem;
+  color: #fff7d6;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.22), rgba(245, 158, 11, 0.12));
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.18),
+    0 10px 24px -12px rgba(245, 158, 11, 0.55);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-ghost-light:hover {
-  background: rgba(186, 230, 253, 0.12);
-  border-color: rgba(186, 230, 253, 0.8);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.34), rgba(245, 158, 11, 0.2));
+  border-color: rgba(252, 211, 77, 0.9);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.3),
+    0 14px 28px -12px rgba(245, 158, 11, 0.7);
 }
 
 .science-chip {
@@ -445,7 +476,8 @@ h3{
 }
 
 .price-highlight {
-  display: inline;
+  display: inline-block;
+  white-space: nowrap;
   border-radius: 0.4rem;
   padding: 0.05em 0.28em;
   font-weight: 800;

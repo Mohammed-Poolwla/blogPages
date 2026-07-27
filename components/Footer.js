@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { servicePageList } from '@/lib/services';
 
+const WHATSAPP_NUMBER = String(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918109041335").replace(/[^\d]/g, "");
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
+
 const Footer = () => {
   const migrationLinks = servicePageList.filter((p) =>
     [
@@ -57,6 +60,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-white">Profiles</h4>
             <ul className="mt-3 space-y-2 text-sm">
+              <li>
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">
+                  WhatsApp: +91 81090 41335
+                </a>
+              </li>
               <li><a href="https://www.linkedin.com/in/mohammed-poolwala-41621896/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">LinkedIn</a></li>
               <li><a href="https://www.upwork.com/freelancers/~0127aaf7f87ebb7377" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">Upwork</a></li>
               <li><a href="https://github.com/Mohammed-Poolwla" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">GitHub</a></li>

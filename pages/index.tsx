@@ -341,6 +341,7 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
         </div>
       </section>
 
+      {/* Temporarily hidden: pet blogs section
       <section className="pets-parallax-story">
         <div className="parallax-layer layer-paws" />
         <div className="relative mx-auto max-w-7xl px-6 py-20">
@@ -399,6 +400,7 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
           </div>
         </div>
       </section>
+      */}
 
       <section className="parallax-deep-section">
         <div className="parallax-layer layer-grid" />

@@ -31,16 +31,10 @@ const Header = () => {
           <Link href="/blogs" className="text-slate-200 transition-colors hover:text-white">
             Blogs
           </Link>
-          <Link
-            href="/book"
-            className="rounded-full border border-cyan-300/60 px-4 py-1.5 text-cyan-100 transition-all hover:border-cyan-200 hover:bg-cyan-300/10"
-          >
+          <Link href="/book" className="btn-primary !px-4 !py-1.5 text-sm">
             Book Appointment
           </Link>
-          <Link
-            href="/contact"
-            className="text-slate-200 transition-colors hover:text-white"
-          >
+          <Link href="/contact" className="btn-ghost-light !px-4 !py-1.5 text-sm">
             Contact
           </Link>
         </nav>
@@ -87,10 +81,10 @@ const Header = () => {
             <Link href="/blogs" className="block hover:text-white">
               Blogs
             </Link>
-            <Link href="/book" className="block hover:text-white">
+            <Link href="/book" className="btn-primary inline-flex w-full justify-center">
               Book Appointment
             </Link>
-            <Link href="/contact" className="block hover:text-white">
+            <Link href="/contact" className="btn-ghost-light inline-flex w-full justify-center">
               Contact
             </Link>
           </div>

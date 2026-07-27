@@ -7,11 +7,11 @@ import { ChevronDown } from "lucide-react";
 export type FaqItem = { question: string; answer: string };
 
 function HighlightPriceText({ text }: { text: string }) {
-  const parts = text.split(/(\$399(?:\s*USD)?)/g);
+  const parts = text.split(/((?:starting from|start from|from)\s+\$399(?:\s*USD)?|\$399(?:\s*USD)?)/gi);
   return (
     <>
       {parts.map((part, index) =>
-        part.startsWith("$399") ? (
+        /\$399/i.test(part) ? (
           <span key={`price-${index}`} className="price-highlight">
             {part}
           </span>
