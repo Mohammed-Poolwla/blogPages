@@ -37,7 +37,7 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
         return (
           <div
             key={item.question}
-            className="overflow-hidden rounded-2xl border border-white/12 bg-white/[0.04]"
+            className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md"
           >
             <h3>
               <button
@@ -45,12 +45,12 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
                 type="button"
                 aria-expanded={open}
                 aria-controls={panelId}
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-white transition-colors hover:bg-white/[0.03] sm:text-base"
+                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-slate-900 transition-colors hover:bg-sky-50 sm:text-base"
                 onClick={() => setOpenIndex(open ? null : index)}
               >
                 <span>{item.question}</span>
                 <ChevronDown
-                  className={`h-5 w-5 shrink-0 text-cyan-200 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+                  className={`h-5 w-5 shrink-0 text-sky-600 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
                   aria-hidden
                 />
               </button>
@@ -66,7 +66,7 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.22, ease: "easeOut" }}
                 >
-                  <p className="border-t border-white/10 px-5 py-4 text-sm leading-7 text-slate-300">
+                  <p className="border-t border-slate-100 px-5 py-4 text-sm leading-7 text-slate-600">
                     <HighlightPriceText text={item.answer} />
                   </p>
                 </motion.div>

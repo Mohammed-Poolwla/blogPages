@@ -69,39 +69,39 @@ export default function ServicesPage() {
         <div className="parallax-layer layer-grid" />
         <div className="parallax-layer layer-glow" />
         <div className="relative mx-auto max-w-6xl px-6 py-16">
-          <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">What WEBSRC Delivers</p>
-          <h1 className="mt-2 text-4xl font-black uppercase tracking-[0.08em] text-white sm:text-5xl">Services</h1>
-          <p className="mt-4 max-w-3xl text-slate-200">
+          <p className="text-xs uppercase tracking-[0.28em] text-sky-700">What WEBSRC Delivers</p>
+          <h1 className="mt-2 text-4xl font-black uppercase tracking-[0.08em] text-slate-900 sm:text-5xl">Services</h1>
+          <p className="mt-4 max-w-3xl text-slate-600">
             I help startups, agencies, and enterprise teams ship AI-powered products and workflow automation in weeks,
             not months. You get full-stack execution, daily communication, and production-ready delivery.
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div className="glass-tile p-4 text-center">
-              <div className="text-2xl font-black text-cyan-200">15+</div>
-              <p className="text-sm text-slate-300">Production Apps Delivered</p>
+              <div className="text-2xl font-black text-sky-700">15+</div>
+              <p className="text-sm text-slate-600">Production Apps Delivered</p>
             </div>
             <div className="glass-tile p-4 text-center">
-              <div className="text-2xl font-black text-cyan-200">20+ hrs</div>
-              <p className="text-sm text-slate-300">Saved per week via automation</p>
+              <div className="text-2xl font-black text-sky-700">20+ hrs</div>
+              <p className="text-sm text-slate-600">Saved per week via automation</p>
             </div>
             <div className="glass-tile p-4 text-center">
-              <div className="text-2xl font-black text-cyan-200">2-4 Weeks</div>
-              <p className="text-sm text-slate-300">MVP sprint timeline</p>
+              <div className="text-2xl font-black text-sky-700">2-4 Weeks</div>
+              <p className="text-sm text-slate-600">MVP sprint timeline</p>
             </div>
             <div className="glass-tile p-4 text-center">
-              <div className="text-2xl font-black text-cyan-200">4 Hours</div>
-              <p className="text-sm text-slate-300">Average first response</p>
+              <div className="text-2xl font-black text-sky-700">4 Hours</div>
+              <p className="text-sm text-slate-600">Average first response</p>
             </div>
           </div>
 
           <div className="mt-10">
             <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.24em] text-cyan-200">Migration and Supabase</p>
-                <h2 className="mt-2 text-2xl font-semibold text-white">Specialist landing pages</h2>
+                <p className="text-xs uppercase tracking-[0.24em] text-sky-700">Migration and Supabase</p>
+                <h2 className="mt-2 text-2xl font-semibold text-slate-900">Specialist landing pages</h2>
               </div>
-              <Link href="/lovable-to-supabase" className="text-sm text-cyan-200 hover:text-cyan-100">
+              <Link href="/lovable-to-supabase" className="text-sm text-sky-700 hover:text-sky-700">
                 Start with Lovable to Supabase →
               </Link>
             </div>
@@ -121,19 +121,19 @@ export default function ServicesPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-2xl border border-white/15 bg-white/5 p-5 transition-colors hover:border-cyan-300/30 hover:bg-white/[0.07]"
+                  className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-sky-300 hover:shadow-md"
                 >
-                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="mt-2 text-sm text-slate-300">{item.body}</p>
+                  <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{item.body}</p>
                 </Link>
               ))}
             </div>
           </div>
 
           <div className="mt-10 rounded-2xl border border-cyan-300/30 bg-cyan-300/10 p-6 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.24em] text-cyan-100">Featured service</p>
-            <h2 className="mt-2 text-2xl font-semibold text-white">Lovable to Supabase Migration</h2>
-            <p className="mt-3 max-w-3xl text-sm text-slate-100 sm:text-base">
+            <p className="text-xs uppercase tracking-[0.24em] text-sky-700">Featured service</p>
+            <h2 className="mt-2 text-2xl font-semibold text-slate-900">Lovable to Supabase Migration</h2>
+            <p className="mt-3 max-w-3xl text-sm text-slate-700 sm:text-base">
               Move your Lovable app onto infrastructure you own: Postgres, Auth, Storage, RLS, Edge Functions, and a
               production cutover plan with minimal downtime.
             </p>
@@ -151,21 +151,21 @@ export default function ServicesPage() {
             {services.map((service) => {
               const Icon = service.icon;
               return (
-                <article key={service.title} className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm">
-                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
-                    <Icon className="h-6 w-6 text-cyan-200" />
+                <article key={service.title} className="rounded-2xl border border-slate-200 bg-white p-6 backdrop-blur-sm">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-50">
+                    <Icon className="h-6 w-6 text-sky-700" />
                   </div>
-                  <h2 className="mb-2 text-xl font-semibold text-white">{service.title}</h2>
-                  <p className="text-slate-300">{service.description}</p>
+                  <h2 className="mb-2 text-xl font-semibold text-slate-900">{service.title}</h2>
+                  <p className="text-slate-600">{service.description}</p>
                 </article>
               );
             })}
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-white">Engagement Model</h3>
-              <ul className="mt-4 space-y-2 text-sm text-slate-300">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 backdrop-blur-sm">
+              <h3 className="text-xl font-semibold text-slate-900">Engagement Model</h3>
+              <ul className="mt-4 space-y-2 text-sm text-slate-600">
                 <li>• Discovery: goals, user flow, technical scope, and rollout plan</li>
                 <li>• Build: rapid weekly execution with transparent progress updates</li>
                 <li>• QA + Launch: tested handoff, production deployment, and post-launch support</li>
@@ -173,8 +173,8 @@ export default function ServicesPage() {
               </ul>
             </div>
             <div className="rounded-2xl border border-cyan-300/30 bg-cyan-300/10 p-6">
-              <h3 className="text-xl font-semibold text-white">Best Fit Clients</h3>
-              <ul className="mt-4 space-y-2 text-sm text-slate-100">
+              <h3 className="text-xl font-semibold text-slate-900">Best Fit Clients</h3>
+              <ul className="mt-4 space-y-2 text-sm text-slate-700">
                 <li>• Founders launching MVPs with AI or automation requirements</li>
                 <li>• Agencies needing reliable full-stack delivery capacity</li>
                 <li>• Teams modernizing legacy products and workflows</li>
@@ -185,7 +185,7 @@ export default function ServicesPage() {
 
           <div className="mt-10">
             <Link href="/contact" className="btn-primary">Request a Quote</Link>
-            <span className="ml-3 text-sm text-slate-300">Share your idea and get a technical roadmap.</span>
+            <span className="ml-3 text-sm text-slate-600">Share your idea and get a technical roadmap.</span>
           </div>
         </div>
       </section>

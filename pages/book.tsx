@@ -47,16 +47,16 @@ export default function BookAppointmentPage() {
         <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-20">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
-              <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">Book appointment</p>
-              <h1 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl">
+              <p className="text-xs uppercase tracking-[0.28em] text-sky-700">Book appointment</p>
+              <h1 className="mt-3 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
                 Book a free consultation call
               </h1>
-              <p className="mt-5 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
+              <p className="mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
                 Pick a live slot on the calendar. 30-minute calls for migration assessments, Supabase
                 audits, consulting, and AI MVP launch planning.
               </p>
 
-              <ul className="mt-8 space-y-3 text-sm text-slate-300">
+              <ul className="mt-8 space-y-3 text-sm text-slate-600">
                 <li className="flex items-center gap-3">
                   <CalendarDays className="h-4 w-4 text-cyan-300" aria-hidden />
                   Instant booking via Cal.com
@@ -77,11 +77,11 @@ export default function BookAppointmentPage() {
 
               <p className="mt-8 text-sm text-slate-400">
                 Prefer email?{" "}
-                <a href="mailto:info@websrc.uk" className="text-cyan-200 hover:text-cyan-100">
+                <a href="mailto:info@websrc.uk" className="text-sky-700 hover:text-sky-700">
                   info@websrc.uk
                 </a>{" "}
                 or use the{" "}
-                <Link href="/contact" className="text-cyan-200 hover:text-cyan-100">
+                <Link href="/contact" className="text-sky-700 hover:text-sky-700">
                   contact form
                 </Link>
                 .

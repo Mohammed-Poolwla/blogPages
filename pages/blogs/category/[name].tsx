@@ -84,8 +84,8 @@ export default function CategoryBlogsPage({ categoryName, blogs }: { categoryNam
       />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-6">
-          <h1 className="text-2xl font-semibold text-white">Category: {categoryName}</h1>
-          <p className="text-slate-300">{blogs.length} result{blogs.length === 1 ? "" : "s"}</p>
+          <h1 className="text-2xl font-semibold text-slate-900">Category: {categoryName}</h1>
+          <p className="text-slate-600">{blogs.length} result{blogs.length === 1 ? "" : "s"}</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog) => (
@@ -105,17 +105,17 @@ export default function CategoryBlogsPage({ categoryName, blogs }: { categoryNam
                       className="w-full h-48 object-cover"
                     />
                   </div>
-                  <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent text-white p-4 w-full">
+                  <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent text-white p-4 w-full">
                     <h3 className="text-xl font-semibold">{blog.title}</h3>
                     {(blog.topic || blog.keywords) && (
                       <div className="mt-1 text-xs text-gray-200 flex flex-wrap gap-2">
                         {blog.topic && (
-                          <Link href={`/blogs/category/${encodeURIComponent(blog.topic)}`} className="px-2 py-0.5 rounded-full bg-black/40 border border-white/20 hover:bg-black/60">
+                          <Link href={`/blogs/category/${encodeURIComponent(blog.topic)}`} className="px-2 py-0.5 rounded-full bg-slate-900/50 border border-slate-200 hover:bg-slate-900/70">
                             {blog.topic}
                           </Link>
                         )}
                         {parseTags(blog.keywords).slice(0, 3).map((t) => (
-                          <Link key={t} href={`/blogs/tag/${encodeURIComponent(t)}`} className="px-2 py-0.5 rounded-full bg-black/30 border border-white/10 hover:bg-black/50">
+                          <Link key={t} href={`/blogs/tag/${encodeURIComponent(t)}`} className="px-2 py-0.5 rounded-full bg-slate-900/40 border border-slate-200 hover:bg-slate-900/60">
                             {t}
                           </Link>
                         ))}

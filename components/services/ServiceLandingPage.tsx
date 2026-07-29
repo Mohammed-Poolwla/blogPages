@@ -23,7 +23,7 @@ const ArchitectureDiagram = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="h-[420px] animate-pulse rounded-2xl border border-white/10 bg-white/5" aria-hidden />
+      <div className="h-[420px] animate-pulse rounded-2xl border border-slate-200 bg-slate-100" aria-hidden />
     ),
   }
 );
@@ -169,7 +169,7 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
           name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
-        <meta name="theme-color" content="#050816" />
+        <meta name="theme-color" content="#f8fbff" />
         <link rel="canonical" href={pageUrl} />
 
         <meta property="og:type" content="website" />
@@ -194,17 +194,17 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         />
       </Head>
 
-      <nav className="border-b border-white/10 bg-[#050816]/60" aria-label="Breadcrumb">
+      <nav className="border-b border-slate-200 bg-white/70" aria-label="Breadcrumb">
         <div className="mx-auto flex max-w-7xl items-center gap-2 px-6 py-3 text-xs text-slate-400">
-          <Link href="/" className="transition-colors hover:text-white">
+          <Link href="/" className="transition-colors hover:text-slate-900">
             Home
           </Link>
           <span aria-hidden>/</span>
-          <Link href="/services" className="transition-colors hover:text-white">
+          <Link href="/services" className="transition-colors hover:text-slate-900">
             Services
           </Link>
           <span aria-hidden>/</span>
-          <span className="text-slate-200">{config.navLabel}</span>
+          <span className="font-medium text-slate-700">{config.navLabel}</span>
         </div>
       </nav>
 
@@ -216,31 +216,31 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-16 sm:pb-28 sm:pt-20">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-3 py-1 text-xs tracking-wide text-cyan-100">
+              <p className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold tracking-wide text-sky-800">
                 <span className="h-2 w-2 rounded-full bg-cyan-300" />
                 {config.eyebrow}
               </p>
-              <p className="mt-5 text-sm font-medium text-cyan-200/90">{config.tagline}</p>
-              <h1 className="mt-4 text-4xl font-black leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.15rem]">
+              <p className="mt-5 text-sm font-semibold text-sky-700">{config.tagline}</p>
+              <h1 className="mt-4 text-4xl font-black leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.15rem]">
                 {config.h1}
               </h1>
-              <p className="mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
+              <p className="mt-6 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
                 <HighlightPriceText text={config.heroBody} />
               </p>
 
               {config.pricing ? (
-                <div className="mt-6 inline-flex flex-col gap-2 rounded-2xl border border-amber-300/40 bg-amber-300/10 px-5 py-4 shadow-[0_0_32px_-8px_rgba(251,191,36,0.55)]">
-                  <p className="text-xs uppercase tracking-[0.2em] text-amber-200">Starting price (minimum)</p>
-                  <p className="flex flex-wrap items-baseline gap-2 text-2xl font-bold text-white sm:text-3xl">
-                    <span className="text-lg font-semibold text-slate-200 sm:text-xl">Starting from</span>
+                <div className="mt-6 inline-flex flex-col gap-2 rounded-2xl border border-amber-300 bg-gradient-to-br from-amber-50 to-orange-50 px-5 py-4 shadow-lg shadow-amber-500/15">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">Starting price (minimum)</p>
+                  <p className="flex flex-wrap items-baseline gap-2 text-2xl font-bold text-slate-900 sm:text-3xl">
+                    <span className="text-lg font-semibold text-slate-600 sm:text-xl">Starting from</span>
                     <span className="price-highlight price-highlight--lg">
                       {priceAmount || config.pricing.amountLabel}
                     </span>
-                    <span className="text-lg font-semibold text-slate-200 sm:text-xl">
+                    <span className="text-lg font-semibold text-slate-600 sm:text-xl">
                       {config.pricing.currency || "USD"}
                     </span>
                   </p>
-                  <p className="max-w-md text-sm text-slate-300">
+                  <p className="max-w-md text-sm text-slate-600">
                     <HighlightPriceText text={config.pricing.note} />
                   </p>
                 </div>
@@ -269,14 +269,14 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-[#070c1f]" aria-label="Service trust badges">
+      <section className="border-y border-slate-200 bg-slate-100/70" aria-label="Service trust badges">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-3 px-6 py-6 sm:gap-4">
           {config.trustBadges.map((badge) => (
             <span
               key={badge}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-200 sm:text-sm"
+              className="inline-flex items-center gap-2 rounded-full rounded-full border border-sky-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm sm:text-sm"
             >
-              <Check className="h-3.5 w-3.5 text-cyan-300" aria-hidden />
+              <Check className="h-3.5 w-3.5 text-sky-600" aria-hidden />
               {badge}
             </span>
           ))}
@@ -288,18 +288,18 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
           <div className="parallax-layer layer-lines" />
           <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24">
             <div className="max-w-2xl">
-              <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">{config.hookSection.eyebrow}</p>
-              <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{config.hookSection.title}</h2>
-              <p className="mt-4 text-slate-300">{config.hookSection.intro}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">{config.hookSection.eyebrow}</p>
+              <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{config.hookSection.title}</h2>
+              <p className="mt-4 text-slate-600">{config.hookSection.intro}</p>
             </div>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {config.hookSection.items.map((item) => (
                 <article
                   key={item.title}
-                  className="rounded-2xl border border-cyan-300/20 bg-cyan-300/5 p-6"
+                  className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:border-sky-300 hover:shadow-md transition-all"
                 >
-                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">{item.body}</p>
+                  <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
                 </article>
               ))}
             </div>
@@ -311,9 +311,9 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         <div className="parallax-layer layer-grid" />
         <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">{config.problemEyebrow}</p>
-            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{config.problemTitle}</h2>
-            <p className="mt-4 text-slate-300">{config.problemIntro}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">{config.problemEyebrow}</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{config.problemTitle}</h2>
+            <p className="mt-4 text-slate-600">{config.problemIntro}</p>
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -322,12 +322,12 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
               return (
                 <article
                   key={p.title}
-                  className="rounded-2xl border border-white/12 bg-white/[0.04] p-5 transition-colors hover:border-cyan-300/25 hover:bg-white/[0.06]"
+                  className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-sky-300 hover:shadow-md"
                 >
-                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/25 bg-cyan-300/10">
-                    <Icon className="h-5 w-5 text-cyan-200" aria-hidden />
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-sky-200 bg-sky-50">
+                    <Icon className="h-5 w-5 text-sky-700" aria-hidden />
                   </div>
-                  <h3 className="text-base font-semibold text-white">{p.title}</h3>
+                  <h3 className="text-base font-semibold text-slate-900">{p.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-slate-400">{p.body}</p>
                 </article>
               );
@@ -340,14 +340,14 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         <div className="parallax-layer layer-lines" />
         <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">{config.mapEyebrow}</p>
-            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{config.mapTitle}</h2>
-            <p className="mt-4 text-slate-300">{config.mapIntro}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">{config.mapEyebrow}</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{config.mapTitle}</h2>
+            <p className="mt-4 text-slate-600">{config.mapIntro}</p>
           </div>
 
           <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1fr]">
             <div className="glass-panel p-6">
-              <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-200">
+              <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-700">
                 <Cloud className="h-4 w-4 text-slate-400" aria-hidden />
                 {config.fromLabel}
               </div>
@@ -355,9 +355,9 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
                 {config.fromStack.map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200"
+                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-sm"
                   >
-                    <AlertTriangle className="h-4 w-4 shrink-0 text-amber-300/80" aria-hidden />
+                    <AlertTriangle className="h-4 w-4 shrink-0 text-amber-500" aria-hidden />
                     {item}
                   </li>
                 ))}
@@ -365,23 +365,23 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
             </div>
 
             <div className="hidden flex-col items-center justify-center lg:flex" aria-hidden>
-              <div className="migration-flow-pulse flex h-14 w-14 items-center justify-center rounded-full border border-cyan-300/40 bg-cyan-300/10">
-                <ArrowRight className="h-6 w-6 text-cyan-200" />
+              <div className="migration-flow-pulse flex h-14 w-14 items-center justify-center rounded-full border border-sky-300 bg-sky-100">
+                <ArrowRight className="h-6 w-6 text-sky-700" />
               </div>
             </div>
 
             <div className="glass-panel border-cyan-300/25 p-6">
-              <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-cyan-100">
-                <Boxes className="h-4 w-4 text-cyan-300" aria-hidden />
+              <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-sky-800">
+                <Boxes className="h-4 w-4 text-sky-600" aria-hidden />
                 {config.toLabel}
               </div>
               <ul className="space-y-3">
                 {config.toStack.map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-3 rounded-xl border border-cyan-300/20 bg-cyan-300/10 px-4 py-3 text-sm text-slate-100"
+                    className="flex items-center gap-3 rounded-xl border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-slate-700"
                   >
-                    <Check className="h-4 w-4 shrink-0 text-cyan-300" aria-hidden />
+                    <Check className="h-4 w-4 shrink-0 text-sky-600" aria-hidden />
                     {item}
                   </li>
                 ))}
@@ -393,15 +393,15 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
             {config.migrateCards.map((card) => {
               const Icon = card.icon;
               return (
-                <article key={card.title} className="rounded-2xl border border-white/12 bg-[#0d1530]/80 p-6">
+                <article key={card.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                   <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
-                    <Icon className="h-5 w-5 text-cyan-200" aria-hidden />
+                    <Icon className="h-5 w-5 text-sky-700" aria-hidden />
                   </div>
-                  <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+                  <h3 className="text-lg font-semibold text-slate-900">{card.title}</h3>
                   {card.items && (
                     <ul className="mt-3 space-y-1.5">
                       {card.items.map((item) => (
-                        <li key={item} className="flex items-center gap-2 text-sm text-slate-300">
+                        <li key={item} className="flex items-center gap-2 text-sm text-slate-600">
                           <span className="h-1 w-1 rounded-full bg-cyan-300" aria-hidden />
                           {item}
                         </li>
@@ -441,19 +441,19 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         <div className="parallax-layer layer-glow-soft" />
         <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">{config.processEyebrow}</p>
-            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{config.processTitle}</h2>
-            <p className="mt-4 text-slate-300">{config.processIntro}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">{config.processEyebrow}</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{config.processTitle}</h2>
+            <p className="mt-4 text-slate-600">{config.processIntro}</p>
           </div>
 
           <ol className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {config.processSteps.map((step, i) => (
-              <li key={step.n} className="relative rounded-2xl border border-white/12 bg-white/[0.04] p-6">
-                <div className="text-xs font-mono text-cyan-300/80">{step.n}</div>
-                <h3 className="mt-2 text-lg font-semibold text-white">{step.title}</h3>
+              <li key={step.n} className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div className="text-xs font-mono text-sky-600/80">{step.n}</div>
+                <h3 className="mt-2 text-lg font-semibold text-slate-900">{step.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-slate-400">{step.body}</p>
                 {i < config.processSteps.length - 1 && (
-                  <span className="absolute bottom-4 right-5 hidden text-cyan-300/40 xl:inline" aria-hidden>
+                  <span className="absolute bottom-4 right-5 hidden text-sky-600/40 xl:inline" aria-hidden>
                     →
                   </span>
                 )}
@@ -467,17 +467,17 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         <div className="parallax-layer layer-lines" />
         <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">{config.whyEyebrow}</p>
-            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{config.whyTitle}</h2>
-            <p className="mt-4 text-slate-300">{config.whyIntro}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">{config.whyEyebrow}</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{config.whyTitle}</h2>
+            <p className="mt-4 text-slate-600">{config.whyIntro}</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {config.whyPoints.map((w) => {
               const Icon = w.icon;
               return (
                 <article key={w.title} className="glass-tile p-6">
-                  <Icon className="h-5 w-5 text-cyan-200" aria-hidden />
-                  <h3 className="mt-3 text-lg font-semibold text-white">{w.title}</h3>
+                  <Icon className="h-5 w-5 text-sky-700" aria-hidden />
+                  <h3 className="mt-3 text-lg font-semibold text-slate-900">{w.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-slate-400">{w.body}</p>
                 </article>
               );
@@ -491,9 +491,9 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">{config.deliverablesEyebrow}</p>
-              <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{config.deliverablesTitle}</h2>
-              <p className="mt-4 text-slate-300">{config.deliverablesIntro}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">{config.deliverablesEyebrow}</p>
+              <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{config.deliverablesTitle}</h2>
+              <p className="mt-4 text-slate-600">{config.deliverablesIntro}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="#audit" className="btn-primary">
                   {config.primaryCta}
@@ -507,9 +507,9 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
               {config.deliverables.map((d) => (
                 <li
                   key={d}
-                  className="flex items-start gap-3 rounded-xl border border-white/12 bg-white/[0.04] px-4 py-3 text-sm text-slate-200"
+                  className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-sm"
                 >
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-300" aria-hidden />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-sky-600" aria-hidden />
                   {d}
                 </li>
               ))}
@@ -522,9 +522,9 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         <div className="parallax-layer layer-glow-soft" />
         <div className="relative mx-auto max-w-3xl px-6 py-20 sm:py-24">
           <div className="text-center">
-            <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">{config.faqEyebrow}</p>
-            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{config.faqTitle}</h2>
-            <p className="mt-4 text-slate-300">{config.faqIntro}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">{config.faqEyebrow}</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{config.faqTitle}</h2>
+            <p className="mt-4 text-slate-600">{config.faqIntro}</p>
           </div>
           <div className="mt-10">
             <FaqAccordion items={config.faqs} />
@@ -533,15 +533,15 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
       </section>
 
       {related.length > 0 && (
-        <section className="border-y border-white/10 bg-[#070c1f]" id="related">
+        <section className="border-y border-slate-200 bg-slate-100/70" id="related">
           <div className="mx-auto max-w-7xl px-6 py-14">
-            <h2 className="text-2xl font-bold text-white">Related WEBSRC services</h2>
+            <h2 className="text-2xl font-bold text-slate-900">Related WEBSRC services</h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((page) => (
                 <Link
                   key={page.slug}
                   href={`/${page.slug}`}
-                  className="rounded-xl border border-white/12 bg-white/[0.04] px-4 py-3 text-sm text-slate-200 transition-colors hover:border-cyan-300/30 hover:text-white"
+                  className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-sm transition-colors hover:border-cyan-300/30 hover:text-slate-900"
                 >
                   {page.navLabel}
                 </Link>
@@ -556,22 +556,22 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
-              <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">{config.auditEyebrow}</p>
-              <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">{config.auditTitle}</h2>
-              <p className="mt-4 text-slate-300">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">{config.auditEyebrow}</p>
+              <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{config.auditTitle}</h2>
+              <p className="mt-4 text-slate-600">
                 <HighlightPriceText text={config.auditIntro} />
               </p>
-              <ul className="mt-8 space-y-3 text-sm text-slate-300">
+              <ul className="mt-8 space-y-3 text-sm text-slate-600">
                 <li className="flex items-center gap-2">
-                  <Users className="h-4 w-4 text-cyan-300" aria-hidden />
+                  <Users className="h-4 w-4 text-sky-600" aria-hidden />
                   {config.auditBullets[0]}
                 </li>
                 <li className="flex items-center gap-2">
-                  <Wrench className="h-4 w-4 text-cyan-300" aria-hidden />
+                  <Wrench className="h-4 w-4 text-sky-600" aria-hidden />
                   {config.auditBullets[1]}
                 </li>
                 <li className="flex items-center gap-2">
-                  <Shield className="h-4 w-4 text-cyan-300" aria-hidden />
+                  <Shield className="h-4 w-4 text-sky-600" aria-hidden />
                   {config.auditBullets[2]}
                 </li>
               </ul>
@@ -588,11 +588,11 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         <div className="parallax-layer layer-grid" />
         <div className="parallax-layer layer-glow" />
         <div className="relative mx-auto max-w-5xl px-6 py-24 text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">{config.finalEyebrow}</p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-black leading-tight text-white sm:text-5xl">
+          <p className="text-xs uppercase tracking-[0.3em] text-sky-700">{config.finalEyebrow}</p>
+          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-black leading-tight text-slate-900 sm:text-5xl">
             {config.finalTitle}
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-slate-200">
+          <p className="mx-auto mt-5 max-w-2xl text-slate-700">
             <HighlightPriceText text={config.finalBody} />
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">

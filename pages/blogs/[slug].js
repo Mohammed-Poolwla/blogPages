@@ -119,7 +119,7 @@ const BlogPost = ({
         <div className="parallax-layer layer-grid" />
         <div className="parallax-layer layer-glow" />
         <div className="relative max-w-6xl mx-auto p-4 pt-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <article className="lg:col-span-8 rounded-2xl border border-white/10 bg-white p-6 sm:p-8 shadow-xl">
+          <article className="lg:col-span-8 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xl">
             <p className="text-xs uppercase tracking-[0.2em] text-cyan-700 mb-3">WEBSRC Blog</p>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">{title}</h1>
             {topic && (
@@ -194,19 +194,19 @@ const BlogPost = ({
 
           <aside className="lg:col-span-4">
             <div className="sticky top-24 space-y-4">
-              <div className="rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-md">
-                <h3 className="text-lg font-semibold text-white mb-3">Article navigation</h3>
-                <ul className="text-sm text-slate-200 space-y-2 list-disc list-inside">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 backdrop-blur-md">
+                <h3 className="text-lg font-semibold text-slate-900 mb-3">Article navigation</h3>
+                <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside">
                   <li><a href="#" className="hover:underline">Back to top</a></li>
                   <li><Link href="/blogs" className="hover:underline">All blogs</Link></li>
                 </ul>
               </div>
               {(keywords || undefined) && (
-                <div className="rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-md">
-                  <h4 className="text-sm font-semibold mb-2 text-white">Tags</h4>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 backdrop-blur-md">
+                  <h4 className="text-sm font-semibold mb-2 text-slate-900">Tags</h4>
                   <div className="flex flex-wrap gap-2">
                     {keywords?.split(',').map((t) => t.trim()).filter(Boolean).map((t) => (
-                      <Link key={t} href={{ pathname: "/blogs", query: { tag: t } }} className="px-2 py-1 rounded-full border border-white/30 text-xs text-slate-100 hover:bg-white/10">
+                      <Link key={t} href={{ pathname: "/blogs", query: { tag: t } }} className="px-2 py-1 rounded-full border border-slate-300 text-xs text-slate-700 hover:bg-slate-50">
                         {t}
                       </Link>
                     ))}
@@ -214,9 +214,9 @@ const BlogPost = ({
                 </div>
               )}
               <div className="rounded-2xl border border-cyan-300/40 bg-cyan-300/10 p-5">
-                <p className="text-xs uppercase tracking-[0.18em] text-cyan-100 mb-2">Need similar results?</p>
-                <p className="text-sm text-slate-100">WEBSRC builds high-performance products and content systems with measurable outcomes.</p>
-                <Link href="/contact" className="mt-4 inline-flex text-sm font-semibold text-cyan-100 hover:text-white">Start a project →</Link>
+                <p className="text-xs uppercase tracking-[0.18em] text-sky-700 mb-2">Need similar results?</p>
+                <p className="text-sm text-slate-700">WEBSRC builds high-performance products and content systems with measurable outcomes.</p>
+                <Link href="/contact" className="mt-4 inline-flex text-sm font-semibold text-sky-700 hover:text-slate-900">Start a project →</Link>
               </div>
             </div>
           </aside>
@@ -347,7 +347,7 @@ const BlogPost = ({
             </button>
             <button
               type="submit"
-              className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 text-sm font-medium text-slate-900 bg-blue-600 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Submit
             </button>

@@ -44,16 +44,16 @@ export default function AboutPage() {
               />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">About WEBSRC</p>
-              <h1 className="mt-4 text-4xl font-black uppercase tracking-[0.08em] text-white sm:text-5xl">
+              <p className="text-xs uppercase tracking-[0.28em] text-sky-700">About WEBSRC</p>
+              <h1 className="mt-4 text-4xl font-black uppercase tracking-[0.08em] text-slate-900 sm:text-5xl">
                 Engineering with empathy
               </h1>
-              <p className="mt-5 max-w-3xl text-base text-slate-200 sm:text-lg">
+              <p className="mt-5 max-w-3xl text-base text-slate-600 sm:text-lg">
                 I am Mohammed Poolwala, founder of WEBSRC. We build high-performance digital products
                 for businesses and publish practical pet-care blogs for families. This dual mission
                 comes from one belief: technology should improve real life for real people.
               </p>
-              <p className="mt-3 max-w-3xl text-sm text-slate-300">
+              <p className="mt-3 max-w-3xl text-sm text-slate-600">
                 12+ years in software engineering, currently working as a Senior Consultant while helping
                 startups and teams ship better products with modern frontend and full-stack systems.
               </p>
@@ -66,24 +66,24 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#070c1f]">
+      <section className="bg-slate-50">
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div className="grid gap-6 md:grid-cols-3">
             <article className="rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-6">
-              <h2 className="text-xl font-semibold text-white">What we build</h2>
-              <p className="mt-3 text-sm text-slate-200">
+              <h2 className="text-xl font-semibold text-slate-900">What we build</h2>
+              <p className="mt-3 text-sm text-slate-600">
                 Conversion-focused websites, content systems, and scalable web platforms with performance at the core.
               </p>
             </article>
             <article className="rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-6">
-              <h2 className="text-xl font-semibold text-white">Why we write pet blogs</h2>
-              <p className="mt-3 text-sm text-slate-200">
+              <h2 className="text-xl font-semibold text-slate-900">Why we write pet blogs</h2>
+              <p className="mt-3 text-sm text-slate-600">
                 Many pet owners need clear, trustworthy guidance. We use our content expertise to make that help accessible.
               </p>
             </article>
             <article className="rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-6">
-              <h2 className="text-xl font-semibold text-white">How we care</h2>
-              <p className="mt-3 text-sm text-slate-200">
+              <h2 className="text-xl font-semibold text-slate-900">How we care</h2>
+              <p className="mt-3 text-sm text-slate-600">
                 Every project and every article is built with responsibility, clarity, and long-term value for the user.
               </p>
             </article>
@@ -128,10 +128,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#0a1330]">
+      <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-16">
-          <h2 className="text-2xl font-bold text-white">Client Reviews on Upwork</h2>
-          <p className="mt-3 max-w-3xl text-slate-300">
+          <h2 className="text-2xl font-bold text-slate-900">Client Reviews on Upwork</h2>
+          <p className="mt-3 max-w-3xl text-slate-600">
             I help startups, agencies, and enterprise teams ship AI-powered apps and automation
             systems in weeks, not months. My stack includes React, React Native, Supabase, Lovable,
             n8n, and practical AI integrations.
@@ -139,11 +139,11 @@ export default function AboutPage() {
 
           <div className="mt-6 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
             <div className="rounded-2xl border border-cyan-300/25 bg-cyan-400/5 p-6">
-              <h3 className="text-lg font-semibold text-white">Upwork Profile Snapshot</h3>
-              <p className="mt-2 text-sm text-slate-300">
+              <h3 className="text-lg font-semibold text-slate-900">Upwork Profile Snapshot</h3>
+              <p className="mt-2 text-sm text-slate-600">
                 100% Job Success, Top Rated, 4.8 rating (15 reviews), 19 total jobs, and 283 total hours.
               </p>
-              <div className="mt-4 overflow-hidden rounded-xl border border-white/10">
+              <div className="mt-4 overflow-hidden rounded-xl border border-slate-200">
                 <Image
                   src="/images/upwork-profile.png"
                   alt="Upwork profile snapshot for Mohammed P."
@@ -173,8 +173,8 @@ export default function AboutPage() {
             </div>
 
             <div className="rounded-2xl border border-cyan-300/25 bg-cyan-400/5 p-6">
-              <h3 className="text-lg font-semibold text-white">What I Build</h3>
-              <ul className="mt-3 space-y-2 text-sm text-slate-200">
+              <h3 className="text-lg font-semibold text-slate-900">What I Build</h3>
+              <ul className="mt-3 space-y-2 text-sm text-slate-600">
                 <li>• AI-powered SaaS MVPs and web apps with production-ready architecture</li>
                 <li>• React Native apps with Expo, push notifications, and store deployment</li>
                 <li>• Lovable prototypes converted into scalable real-world products</li>
@@ -188,8 +188,8 @@ export default function AboutPage() {
                 <li>• Performance optimization including CWV tuning, bundle reduction, and caching strategy</li>
                 <li>• End-to-end delivery from product scoping to launch support and iteration</li>
               </ul>
-              <h4 className="mt-5 text-sm font-semibold uppercase tracking-[0.15em] text-cyan-200">Recent Results</h4>
-              <ul className="mt-3 space-y-2 text-sm text-slate-200">
+              <h4 className="mt-5 text-sm font-semibold uppercase tracking-[0.15em] text-sky-700">Recent Results</h4>
+              <ul className="mt-3 space-y-2 text-sm text-slate-600">
                 <li>• 15+ production apps delivered using React + Supabase</li>
                 <li>• Automation systems saving clients 20+ hours per week</li>
                 <li>• AI MVP launches in 2–4 week sprint cycles</li>
@@ -205,42 +205,42 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-10">
-            <h3 className="text-xl font-bold text-white">Verified Client Feedback</h3>
+            <h3 className="text-xl font-bold text-slate-900">Verified Client Feedback</h3>
             <div className="mt-5 grid gap-5 md:grid-cols-2">
-              <article className="rounded-xl border border-white/10 bg-white/5 p-5">
-                <p className="text-sm text-cyan-200">Wix API, Next.js Developer • 5.0</p>
+              <article className="rounded-xl border border-slate-200 bg-white p-5">
+                <p className="text-sm text-sky-700">Wix API, Next.js Developer • 5.0</p>
                 <p className="mt-2 text-lg leading-none text-amber-300" aria-label="5 star rating">★★★★★</p>
-                <p className="mt-3 text-slate-100">
+                <p className="mt-3 text-slate-700">
                   &quot;Highly recommend Mohammed! They were super helpful and completed my task incredibly fast.
                   Excellent work and very efficient!&quot;
                 </p>
               </article>
-              <article className="rounded-xl border border-white/10 bg-white/5 p-5">
-                <p className="text-sm text-cyan-200">React-Next.js-GraphQL-TypeScript • 4.4</p>
+              <article className="rounded-xl border border-slate-200 bg-white p-5">
+                <p className="text-sm text-sky-700">React-Next.js-GraphQL-TypeScript • 4.4</p>
                 <p className="mt-2 text-lg leading-none text-amber-300" aria-label="4.4 star rating">★★★★☆</p>
-                <p className="mt-3 text-slate-100">
+                <p className="mt-3 text-slate-700">
                   &quot;Mohammed is highly skilled in React, NextJs and Typescript. He is able to plan project
                   structure and implement the task.&quot;
                 </p>
               </article>
-              <article className="rounded-xl border border-white/10 bg-white/5 p-5">
-                <p className="text-sm text-cyan-200">Tree Chart/Flow Chart - React • 5.0</p>
+              <article className="rounded-xl border border-slate-200 bg-white p-5">
+                <p className="text-sm text-sky-700">Tree Chart/Flow Chart - React • 5.0</p>
                 <p className="mt-2 text-lg leading-none text-amber-300" aria-label="5 star rating">★★★★★</p>
-                <p className="mt-3 text-slate-100">
+                <p className="mt-3 text-slate-700">
                   &quot;Awesome job by Mohammad. Looking forward to work with him again.&quot;
                 </p>
               </article>
-              <article className="rounded-xl border border-white/10 bg-white/5 p-5">
-                <p className="text-sm text-cyan-200">Spinning Wheel Project • 5.0</p>
+              <article className="rounded-xl border border-slate-200 bg-white p-5">
+                <p className="text-sm text-sky-700">Spinning Wheel Project • 5.0</p>
                 <p className="mt-2 text-lg leading-none text-amber-300" aria-label="5 star rating">★★★★★</p>
-                <p className="mt-3 text-slate-100">
+                <p className="mt-3 text-slate-700">
                   &quot;One of the best freelancers i have worked with&quot;
                 </p>
               </article>
             </div>
 
             <div className="mt-6 grid gap-4 md:grid-cols-3">
-              <div className="overflow-hidden rounded-xl border border-white/10">
+              <div className="overflow-hidden rounded-xl border border-slate-200">
                 <Image
                   src="/images/upwork-review-1.png"
                   alt="Upwork review screenshot one"
@@ -249,7 +249,7 @@ export default function AboutPage() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="overflow-hidden rounded-xl border border-white/10">
+              <div className="overflow-hidden rounded-xl border border-slate-200">
                 <Image
                   src="/images/upwork-review-2.png"
                   alt="Upwork review screenshot two"
@@ -258,7 +258,7 @@ export default function AboutPage() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="overflow-hidden rounded-xl border border-white/10">
+              <div className="overflow-hidden rounded-xl border border-slate-200">
                 <Image
                   src="/images/upwork-review-3.png"
                   alt="Upwork review screenshot three"
@@ -272,17 +272,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#070c1f]">
+      <section className="bg-slate-50">
         <div className="mx-auto max-w-7xl px-6 py-16">
-          <h2 className="text-2xl font-bold text-white">Connect with WEBSRC</h2>
-          <p className="mt-2 text-slate-300">
+          <h2 className="text-2xl font-bold text-slate-900">Connect with WEBSRC</h2>
+          <p className="mt-2 text-slate-600">
             If you need a high-performing website, content platform, or a trusted digital partner, let us build it together.
           </p>
           <div className="mt-6 flex flex-wrap gap-4 text-sm">
-            <a className="text-cyan-200 hover:text-cyan-100" href="https://www.linkedin.com/in/mohammed-poolwala-41621896/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a className="text-cyan-200 hover:text-cyan-100" href="https://github.com/Mohammed-Poolwla" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a className="text-cyan-200 hover:text-cyan-100" href="https://www.upwork.com/freelancers/~0127aaf7f87ebb7377" target="_blank" rel="noopener noreferrer">Upwork</a>
-            <a className="text-cyan-200 hover:text-cyan-100" href="https://medium.com/@mohammed.poolwala_1888" target="_blank" rel="noopener noreferrer">Medium</a>
+            <a className="text-sky-700 hover:text-sky-700" href="https://www.linkedin.com/in/mohammed-poolwala-41621896/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a className="text-sky-700 hover:text-sky-700" href="https://github.com/Mohammed-Poolwla" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a className="text-sky-700 hover:text-sky-700" href="https://www.upwork.com/freelancers/~0127aaf7f87ebb7377" target="_blank" rel="noopener noreferrer">Upwork</a>
+            <a className="text-sky-700 hover:text-sky-700" href="https://medium.com/@mohammed.poolwala_1888" target="_blank" rel="noopener noreferrer">Medium</a>
           </div>
           <div className="mt-8">
             <Link href="/contact" className="btn-primary">Work with WEBSRC</Link>

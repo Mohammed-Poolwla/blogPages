@@ -97,9 +97,9 @@ export default function MigrationForm({
   if (status === "success") {
     return (
       <div className="rounded-2xl border border-cyan-300/30 bg-cyan-300/10 p-8 text-center" role="status">
-        <CheckCircle2 className="mx-auto h-10 w-10 text-cyan-200" aria-hidden />
-        <h3 className="mt-4 text-xl font-semibold text-white">Request received</h3>
-        <p className="mt-2 text-sm text-slate-200">
+        <CheckCircle2 className="mx-auto h-10 w-10 text-sky-600" aria-hidden />
+        <h3 className="mt-4 text-xl font-semibold text-slate-900">Request received</h3>
+        <p className="mt-2 text-sm text-slate-600">
           Thanks. We will review your project and reply with next steps.
         </p>
         <button
@@ -117,13 +117,13 @@ export default function MigrationForm({
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="space-y-4 rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm sm:p-8"
+      className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-lg shadow-sky-900/5 sm:p-8"
       aria-label={`${formSubject} contact form`}
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="mig-name" className="block text-sm text-slate-200">
-            Name <span className="text-cyan-200">*</span>
+          <label htmlFor="mig-name" className="block text-sm font-medium text-slate-700">
+            Name <span className="text-sky-600">*</span>
           </label>
           <input
             id="mig-name"
@@ -131,20 +131,20 @@ export default function MigrationForm({
             autoComplete="name"
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-            className="mt-1 w-full rounded-lg border border-white/20 bg-[#0b1228] px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:border-cyan-300/50 focus:outline-none focus:ring-2 focus:ring-cyan-300/20"
+            className="field-light mt-1"
             placeholder="Alex Founder"
             aria-invalid={Boolean(errors.name)}
             aria-describedby={errors.name ? "mig-name-error" : undefined}
           />
           {errors.name && (
-            <p id="mig-name-error" className="mt-1 text-xs text-rose-300">
+            <p id="mig-name-error" className="mt-1 text-xs text-rose-600">
               {errors.name}
             </p>
           )}
         </div>
         <div>
-          <label htmlFor="mig-email" className="block text-sm text-slate-200">
-            Work email <span className="text-cyan-200">*</span>
+          <label htmlFor="mig-email" className="block text-sm font-medium text-slate-700">
+            Work email <span className="text-sky-600">*</span>
           </label>
           <input
             id="mig-email"
@@ -153,13 +153,13 @@ export default function MigrationForm({
             autoComplete="email"
             value={form.email}
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-            className="mt-1 w-full rounded-lg border border-white/20 bg-[#0b1228] px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:border-cyan-300/50 focus:outline-none focus:ring-2 focus:ring-cyan-300/20"
+            className="field-light mt-1"
             placeholder="you@company.com"
             aria-invalid={Boolean(errors.email)}
             aria-describedby={errors.email ? "mig-email-error" : undefined}
           />
           {errors.email && (
-            <p id="mig-email-error" className="mt-1 text-xs text-rose-300">
+            <p id="mig-email-error" className="mt-1 text-xs text-rose-600">
               {errors.email}
             </p>
           )}
@@ -168,7 +168,7 @@ export default function MigrationForm({
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="mig-company" className="block text-sm text-slate-200">
+          <label htmlFor="mig-company" className="block text-sm font-medium text-slate-700">
             Company
           </label>
           <input
@@ -177,12 +177,12 @@ export default function MigrationForm({
             autoComplete="organization"
             value={form.company}
             onChange={(e) => setForm((f) => ({ ...f, company: e.target.value }))}
-            className="mt-1 w-full rounded-lg border border-white/20 bg-[#0b1228] px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:border-cyan-300/50 focus:outline-none focus:ring-2 focus:ring-cyan-300/20"
+            className="field-light mt-1"
             placeholder="Optional"
           />
         </div>
         <div>
-          <label htmlFor="mig-url" className="block text-sm text-slate-200">
+          <label htmlFor="mig-url" className="block text-sm font-medium text-slate-700">
             App or Lovable URL
           </label>
           <input
@@ -191,15 +191,15 @@ export default function MigrationForm({
             type="url"
             value={form.appUrl}
             onChange={(e) => setForm((f) => ({ ...f, appUrl: e.target.value }))}
-            className="mt-1 w-full rounded-lg border border-white/20 bg-[#0b1228] px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:border-cyan-300/50 focus:outline-none focus:ring-2 focus:ring-cyan-300/20"
+            className="field-light mt-1"
             placeholder="https://"
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="mig-message" className="block text-sm text-slate-200">
-          What needs migrating? <span className="text-cyan-200">*</span>
+        <label htmlFor="mig-message" className="block text-sm font-medium text-slate-700">
+          What needs migrating? <span className="text-sky-600">*</span>
         </label>
         <textarea
           id="mig-message"
@@ -207,20 +207,20 @@ export default function MigrationForm({
           rows={5}
           value={form.message}
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-          className="mt-1 w-full rounded-lg border border-white/20 bg-[#0b1228] px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:border-cyan-300/50 focus:outline-none focus:ring-2 focus:ring-cyan-300/20"
+          className="field-light mt-1"
           placeholder="e.g. production SaaS with auth, file uploads, and about 50 tables. Need ownership of Supabase + Vercel."
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "mig-message-error" : undefined}
         />
         {errors.message && (
-          <p id="mig-message-error" className="mt-1 text-xs text-rose-300">
+          <p id="mig-message-error" className="mt-1 text-xs text-rose-600">
             {errors.message}
           </p>
         )}
       </div>
 
       {status === "error" && serverError && (
-        <p className="text-sm text-rose-300" role="alert">
+        <p className="text-sm text-rose-600" role="alert">
           {serverError}
         </p>
       )}
@@ -235,7 +235,7 @@ export default function MigrationForm({
           submitLabel
         )}
       </button>
-      <p className="text-xs text-slate-400">
+      <p className="text-xs text-slate-500">
         We typically reply within one business day. NDAs available on request.
       </p>
     </form>

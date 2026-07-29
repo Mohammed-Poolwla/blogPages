@@ -92,7 +92,7 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
         <meta name="keywords" content="WEBSRC, AI web apps, n8n automation, React development, Next.js agency, Supabase developer, parallax website design, pet care blogs" />
         <meta name="author" content="WEBSRC" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
-        <meta name="theme-color" content="#050816" />
+        <meta name="theme-color" content="#f8fbff" />
         <link rel="canonical" href={siteUrl} />
 
         <meta property="og:type" content="website" />
@@ -160,17 +160,17 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-3 py-1 text-xs tracking-wide text-cyan-100">
+              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-3 py-1 text-xs tracking-wide text-sky-700">
                 <span className="h-2 w-2 rounded-full bg-cyan-300" />
                 Full service digital engineering
               </div>
-              <h1 className="mt-6 text-5xl font-black uppercase leading-[1.05] tracking-[0.12em] sm:text-6xl">
-                WEBSRC
-                <span className="mt-3 block text-xl font-semibold tracking-[0.28em] text-slate-300 sm:text-2xl">
-                  Build in Layers.
+              <h1 className="mt-6 text-5xl font-black leading-[1.05] tracking-tight text-slate-900 sm:text-6xl">
+                <span className="brand-gradient">WEBSRC</span>
+                <span className="mt-3 block text-xl font-semibold tracking-tight text-slate-600 sm:text-2xl">
+                  Build production apps that convert.
                 </span>
               </h1>
-              <p className="mt-7 max-w-xl text-base text-slate-200 sm:text-lg">
+              <p className="mt-7 max-w-xl text-base text-slate-600 sm:text-lg">
                 We design immersive web experiences with performance-led engineering.
                 Each section tells a story, each interaction earns trust, and each build
                 is ready to scale.
@@ -182,7 +182,7 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                   </span>
                 ))}
               </div>
-              <p className="mt-4 text-xs text-cyan-200/90 tracking-[0.18em]">
+              <p className="mt-4 text-xs text-sky-700/90 tracking-[0.18em]">
                 PERFORMANCE + USABILITY + AUTOMATION = SCALABLE DIGITAL OUTCOMES
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -195,16 +195,16 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
               </div>
               <div className="mt-10 grid max-w-xl grid-cols-3 gap-3 text-center text-sm">
                 <div className="glass-tile py-3">
-                  <div className="text-lg font-semibold text-white">10+</div>
-                  <div className="text-slate-300">Launches</div>
+                  <div className="text-lg font-semibold text-slate-900">10+</div>
+                  <div className="text-slate-600">Launches</div>
                 </div>
                 <div className="glass-tile py-3">
-                  <div className="text-lg font-semibold text-white">5+</div>
-                  <div className="text-slate-300">Years</div>
+                  <div className="text-lg font-semibold text-slate-900">5+</div>
+                  <div className="text-slate-600">Years</div>
                 </div>
                 <div className="glass-tile py-3">
-                  <div className="text-lg font-semibold text-white">95+</div>
-                  <div className="text-slate-300">CWV</div>
+                  <div className="text-lg font-semibold text-slate-900">95+</div>
+                  <div className="text-slate-600">CWV</div>
                 </div>
               </div>
             </div>
@@ -218,9 +218,9 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                   height={1000}
                   className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="mb-1 text-xs uppercase tracking-[0.2em] text-cyan-200">Featured Build</p>
+                  <p className="mb-1 text-xs uppercase tracking-[0.2em] text-sky-200">Featured Build</p>
                   <h3 className="text-2xl font-semibold text-white">saleshero.dk</h3>
                   <p className="text-sm text-slate-200">Parallax visual flow + conversion-focused UX system</p>
                 </div>
@@ -234,16 +234,16 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
         <div className="parallax-layer layer-lines" />
         <div className="relative mx-auto grid max-w-7xl gap-6 px-6 py-20 sm:grid-cols-3">
           <div className="glass-tile p-6">
-            <div className="mb-2 text-3xl font-black text-cyan-200">01</div>
-            <p className="text-sm text-slate-200">Strategy first architecture to reduce complexity before code.</p>
+            <div className="mb-2 text-3xl font-black text-sky-700">01</div>
+            <p className="text-sm text-slate-600">Strategy first architecture to reduce complexity before code.</p>
           </div>
           <div className="glass-tile p-6">
-            <div className="mb-2 text-3xl font-black text-cyan-200">02</div>
-            <p className="text-sm text-slate-200">Parallax visual systems to guide user attention through story.</p>
+            <div className="mb-2 text-3xl font-black text-sky-700">02</div>
+            <p className="text-sm text-slate-600">Parallax visual systems to guide user attention through story.</p>
           </div>
           <div className="glass-tile p-6">
-            <div className="mb-2 text-3xl font-black text-cyan-200">03</div>
-            <p className="text-sm text-slate-200">Fast handoff pipelines with measurable technical outcomes.</p>
+            <div className="mb-2 text-3xl font-black text-sky-700">03</div>
+            <p className="text-sm text-slate-600">Fast handoff pipelines with measurable technical outcomes.</p>
           </div>
         </div>
       </section>
@@ -253,7 +253,7 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
         <div className="parallax-layer layer-lines" />
         <div className="relative mx-auto max-w-7xl px-6 py-20">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <h2 className="text-3xl font-bold text-white">Selected Work</h2>
+            <h2 className="text-3xl font-bold text-slate-900">Selected Work</h2>
             <div className="flex flex-wrap gap-2">
               {filters.map((f) => (
                 <button
@@ -261,8 +261,8 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                   onClick={() => setFilter(f)}
                   className={`rounded-full border px-3 py-1 text-sm transition-colors ${
                     filter === f
-                      ? "border-cyan-300/70 bg-cyan-300/20 text-cyan-100"
-                      : "border-slate-500/50 bg-transparent text-slate-300 hover:border-slate-300 hover:text-white"
+                      ? "border-cyan-300/70 bg-cyan-300/20 text-sky-700"
+                      : "border-slate-500/50 bg-transparent text-slate-600 hover:border-slate-300 hover:text-slate-900"
                   }`}
                 >
                   {f}
@@ -275,7 +275,7 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
             {filteredProjects.map((p, idx) => (
               <article
                 key={p.title}
-                className={`${idx === 0 ? "sm:col-span-2 lg:col-span-2" : ""} group overflow-hidden rounded-2xl border border-white/10 bg-[#0d1530]`}
+                className={`${idx === 0 ? "sm:col-span-2 lg:col-span-2" : ""} group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg`}
               >
                 <div className={`${idx === 0 ? "h-72" : "h-52"} relative overflow-hidden`}>
                   <Image
@@ -285,10 +285,10 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                     height={1000}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/10 to-transparent opacity-70" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-slate-900/15 to-transparent opacity-80" />
                   <div className="absolute left-2 top-2 flex flex-wrap gap-2">
                     {p.tags.map((t) => (
-                      <span key={t} className="rounded-full border border-white/20 bg-black/30 px-2 py-0.5 text-xs text-white">
+                      <span key={t} className="rounded-full border border-white/30 bg-slate-900/50 px-2 py-0.5 text-xs text-white">
                         {t}
                       </span>
                     ))}
@@ -298,12 +298,12 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                   </div>
                 </div>
                 <div className="p-5">
-                  <p className="text-sm text-slate-300">{p.summary}</p>
+                  <p className="text-sm text-slate-600">{p.summary}</p>
                   <Link
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex text-sm font-medium text-cyan-200 transition-colors hover:text-cyan-100"
+                    className="mt-4 inline-flex text-sm font-medium text-sky-700 transition-colors hover:text-sky-700"
                   >
                     Open project →
                   </Link>
@@ -346,11 +346,11 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
         <div className="parallax-layer layer-paws" />
         <div className="relative mx-auto max-w-7xl px-6 py-20">
           <div className="max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">Our purpose</p>
-            <h2 className="mt-4 text-3xl font-black uppercase tracking-[0.08em] text-white sm:text-5xl">
+            <p className="text-xs uppercase tracking-[0.28em] text-sky-700">Our purpose</p>
+            <h2 className="mt-4 text-3xl font-black uppercase tracking-[0.08em] text-slate-900 sm:text-5xl">
               Why a tech company writes pet blogs
             </h2>
-            <p className="mt-5 text-base text-slate-200 sm:text-lg">
+            <p className="mt-5 text-base text-slate-600 sm:text-lg">
               WEBSRC builds digital products, but our mission is bigger than code. We use technology
               to improve everyday decisions for families and pet parents with clear, honest, practical
               guidance.
@@ -373,10 +373,10 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
               },
             ].map((item, index) => (
               <article key={item.t} className="pets-value-card p-6" style={{ animationDelay: `${index * 180}ms` }}>
-                <p className="mb-2 text-xs uppercase tracking-[0.18em] text-cyan-200">WEBSRC Promise</p>
-                <h3 className="text-xl font-semibold text-white">{item.t}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-200">{item.d}</p>
-                <div className="mt-4 text-xs text-cyan-100/90">
+                <p className="mb-2 text-xs uppercase tracking-[0.18em] text-sky-700">WEBSRC Promise</p>
+                <h3 className="text-xl font-semibold text-slate-900">{item.t}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{item.d}</p>
+                <div className="mt-4 text-xs text-sky-700/90">
                   <span className="font-semibold">Model:</span> Observe → Analyze → Improve
                 </div>
               </article>
@@ -385,7 +385,7 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
 
           <div className="mt-10 rounded-2xl border border-cyan-200/25 bg-cyan-300/10 p-6 text-center backdrop-blur-sm">
             <p className="paw-pulse text-2xl">🐾</p>
-            <p className="mx-auto mt-2 max-w-3xl text-sm text-slate-100 sm:text-base">
+            <p className="mx-auto mt-2 max-w-3xl text-sm text-slate-700 sm:text-base">
               For end users, this means one place to get both modern digital experiences and compassionate pet guidance.
               We care about performance, clarity, and the lives touched by every article we publish.
             </p>
@@ -407,8 +407,8 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
         <div className="parallax-layer layer-glow-soft" />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-2">
           <div className="rounded-2xl border border-cyan-300/20 bg-cyan-400/5 p-8">
-            <h2 className="text-2xl font-bold text-white">From Medium</h2>
-            <p className="mt-2 text-sm text-slate-300">Thoughts on engineering, product and growth.</p>
+            <h2 className="text-2xl font-bold text-slate-900">From Medium</h2>
+            <p className="mt-2 text-sm text-slate-600">Thoughts on engineering, product and growth.</p>
             <div className="mt-6 space-y-4">
               {(medium || []).slice(0, 3).map((p) => (
                 <a
@@ -416,31 +416,31 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                   href={p.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block rounded-xl border border-white/10 bg-white/5 p-4 transition-colors hover:bg-white/10"
+                  className="block rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:bg-slate-50"
                 >
                   <div className="text-xs text-slate-400">{p.pubDate || ""}</div>
-                  <div className="mt-1 text-sm font-semibold text-white">{p.title}</div>
+                  <div className="mt-1 text-sm font-semibold text-slate-900">{p.title}</div>
                 </a>
               ))}
             </div>
             <Link
               href="https://medium.com/@mohammed.poolwala_1888"
               target="_blank"
-              className="mt-6 inline-flex text-sm font-medium text-cyan-200 hover:text-cyan-100"
+              className="mt-6 inline-flex text-sm font-medium text-sky-700 hover:text-sky-700"
             >
               Follow Medium →
             </Link>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-[#0d1530] p-8">
-            <h2 className="text-2xl font-bold text-white">Latest Articles</h2>
-            <p className="mt-2 text-sm text-slate-300">Fresh posts from the WEBSRC blog.</p>
+          <div className="rounded-2xl border border-slate-200 bg-white p-8">
+            <h2 className="text-2xl font-bold text-slate-900">Latest Articles</h2>
+            <p className="mt-2 text-sm text-slate-600">Fresh posts from the WEBSRC blog.</p>
             <div className="mt-6 space-y-4">
               {(blogs || []).slice(0, 3).map((b) => (
                 <Link
                   key={b.slug}
                   href={`/blogs/${b.slug}`}
-                  className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-3 transition-colors hover:bg-white/10"
+                  className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-3 transition-colors hover:bg-slate-50"
                 >
                   <div className="h-14 w-16 overflow-hidden rounded-md">
                     <CldImage
@@ -453,13 +453,13 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                     />
                   </div>
                   <div className="min-w-0">
-                    <h3 className="line-clamp-1 text-sm font-semibold text-white">{b.title}</h3>
-                    <p className="line-clamp-1 text-xs text-slate-300">{b.description}</p>
+                    <h3 className="line-clamp-1 text-sm font-semibold text-slate-900">{b.title}</h3>
+                    <p className="line-clamp-1 text-xs text-slate-600">{b.description}</p>
                   </div>
                 </Link>
               ))}
             </div>
-            <Link href="/blogs" className="mt-6 inline-flex text-sm font-medium text-cyan-200 hover:text-cyan-100">
+            <Link href="/blogs" className="mt-6 inline-flex text-sm font-medium text-sky-700 hover:text-sky-700">
               Browse all blogs →
             </Link>
           </div>
@@ -469,11 +469,11 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
       <section className="parallax-cta">
         <div className="parallax-layer layer-grid" />
         <div className="relative mx-auto max-w-5xl px-6 py-24 text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Start a project</p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-black uppercase leading-tight tracking-[0.08em] text-white sm:text-5xl">
+          <p className="text-xs uppercase tracking-[0.3em] text-sky-700">Start a project</p>
+          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-black uppercase leading-tight tracking-[0.08em] text-slate-900 sm:text-5xl">
             Reimagine your website with WEBSRC
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-slate-200">
+          <p className="mx-auto mt-5 max-w-2xl text-slate-600">
             Bring layered storytelling, premium visuals and production-grade performance into one
             coherent digital system.
           </p>

@@ -35,30 +35,38 @@ export default function ContactPage() {
       <section className="parallax-hero">
         <div className="parallax-layer layer-grid" />
         <div className="relative mx-auto max-w-3xl px-6 py-16">
-          <h1 className="text-4xl font-black uppercase tracking-[0.08em] text-white sm:text-5xl">Contact</h1>
-          <p className="mt-4 text-slate-200">
-            Reach out at <a className="text-cyan-200 hover:text-cyan-100" href="mailto:info@websrc.uk">info@websrc.uk</a> or send a message below.
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">Get in touch</p>
+          <h1 className="mt-3 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">Contact WEBSRC</h1>
+          <p className="mt-4 text-lg text-slate-600">
+            Reach out at <a className="font-semibold text-sky-700 hover:text-sky-800" href="mailto:info@websrc.uk">info@websrc.uk</a> or send a message below.
           </p>
-          <div className="mt-6">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link href="/book" className="btn-primary">
               Book Appointment
             </Link>
-            <span className="ml-3 text-sm text-slate-300">Prefer a scheduled call? Pick a time.</span>
+            <a
+              href="https://wa.me/918109041335?text=Hi%20WEBSRC%2C%20I%20need%20help%20with%20my%20project."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost-light"
+            >
+              WhatsApp Us
+            </a>
           </div>
-          <form className="mt-8 space-y-4 rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm" onSubmit={handleSubmit}>
+          <form className="mt-8 space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-lg shadow-sky-900/5" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="name" className="block text-sm text-slate-200">Name</label>
-              <input id="name" name="name" type="text" className="mt-1 w-full rounded-md border border-white/20 bg-[#0b1228] px-3 py-2 text-slate-100 placeholder:text-slate-500" />
+              <label htmlFor="name" className="block text-sm font-medium text-slate-700">Name</label>
+              <input id="name" name="name" type="text" className="field-light mt-1" placeholder="Your name" />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm text-slate-200">Email</label>
-              <input id="email" name="email" type="email" className="mt-1 w-full rounded-md border border-white/20 bg-[#0b1228] px-3 py-2 text-slate-100 placeholder:text-slate-500" />
+              <label htmlFor="email" className="block text-sm font-medium text-slate-700">Email</label>
+              <input id="email" name="email" type="email" className="field-light mt-1" placeholder="you@company.com" />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm text-slate-200">Message</label>
-              <textarea id="message" name="message" rows={5} className="mt-1 w-full rounded-md border border-white/20 bg-[#0b1228] px-3 py-2 text-slate-100 placeholder:text-slate-500" />
+              <label htmlFor="message" className="block text-sm font-medium text-slate-700">Message</label>
+              <textarea id="message" name="message" rows={5} className="field-light mt-1" placeholder="Tell us about your project" />
             </div>
-            <button type="submit" className="btn-primary">Send</button>
+            <button type="submit" className="btn-primary">Send message</button>
           </form>
         </div>
       </section>

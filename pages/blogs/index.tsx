@@ -201,9 +201,9 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
         <div className="parallax-layer layer-grid" />
         <div className="parallax-layer layer-glow" />
         <div className="relative mx-auto max-w-7xl px-6 py-14">
-          <p className="text-xs uppercase tracking-[0.28em] text-cyan-200">WEBSRC Insights</p>
-          <h1 className="mt-3 text-4xl font-black uppercase tracking-[0.08em] text-white sm:text-5xl">Blogs & Guides</h1>
-          <p className="mt-4 max-w-3xl text-slate-200">
+          <p className="text-xs uppercase tracking-[0.28em] text-sky-700">WEBSRC Insights</p>
+          <h1 className="mt-3 text-4xl font-black uppercase tracking-[0.08em] text-slate-900 sm:text-5xl">Blogs & Guides</h1>
+          <p className="mt-4 max-w-3xl text-slate-600">
             Browse technical deep dives, AI implementation ideas, and practical pet-care content written for real outcomes.
           </p>
         </div>
@@ -212,22 +212,22 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <aside className="order-2 lg:order-1 lg:col-span-3 space-y-6">
-            <div className="rounded-2xl border border-white/15 bg-white/5 p-4 backdrop-blur-sm">
-              <h2 className="text-lg font-semibold mb-3 text-white">Search</h2>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <h2 className="text-lg font-semibold mb-3 text-slate-900">Search</h2>
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search blogs..."
-                className="w-full mt-1 px-3 py-2 rounded-md border border-white/20 bg-[#0b1228] text-slate-100 placeholder:text-slate-500"
+                className="field-light mt-1"
               />
             </div>
 
-            <div className="rounded-2xl border border-white/15 bg-white/5 p-4 backdrop-blur-sm">
-              <h2 className="text-lg font-semibold mb-3 text-white">Categories</h2>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <h2 className="text-lg font-semibold mb-3 text-slate-900">Categories</h2>
               <div className="flex flex-wrap gap-2 max-h-56 overflow-auto">
                 <button
-                  className={`px-3 py-1 rounded-full border text-sm ${selectedCategory === "All" ? "bg-cyan-300/20 text-cyan-100 border-cyan-300/60" : "bg-transparent text-slate-300 border-white/20 hover:text-white"}`}
+                  className={`px-3 py-1 rounded-full border text-sm ${selectedCategory === "All" ? "bg-cyan-300/20 text-sky-700 border-cyan-300/60" : "bg-transparent text-slate-600 border-slate-200 hover:text-slate-900"}`}
                   onClick={() => onChangeCategory("All")}
                 >
                   All
@@ -235,7 +235,7 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
                 {allCategories.map((cat) => (
                   <button
                     key={cat}
-                    className={`px-3 py-1 rounded-full border text-sm ${selectedCategory === cat ? "bg-cyan-300/20 text-cyan-100 border-cyan-300/60" : "bg-transparent text-slate-300 border-white/20 hover:text-white"}`}
+                    className={`px-3 py-1 rounded-full border text-sm ${selectedCategory === cat ? "bg-cyan-300/20 text-sky-700 border-cyan-300/60" : "bg-transparent text-slate-600 border-slate-200 hover:text-slate-900"}`}
                     onClick={() => onChangeCategory(cat)}
                   >
                     {cat}
@@ -244,11 +244,11 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
               </div>
             </div>
 
-            <div className="rounded-2xl border border-white/15 bg-white/5 p-4 backdrop-blur-sm">
-              <h2 className="text-lg font-semibold mb-3 text-white">Tags</h2>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <h2 className="text-lg font-semibold mb-3 text-slate-900">Tags</h2>
               <div className="flex flex-wrap gap-2 max-h-56 overflow-auto pr-1">
                 <button
-                  className={`px-3 py-1 rounded-full border text-sm ${selectedTag === "All" ? "bg-cyan-300/20 text-cyan-100 border-cyan-300/60" : "bg-transparent text-slate-300 border-white/20 hover:text-white"}`}
+                  className={`px-3 py-1 rounded-full border text-sm ${selectedTag === "All" ? "bg-cyan-300/20 text-sky-700 border-cyan-300/60" : "bg-transparent text-slate-600 border-slate-200 hover:text-slate-900"}`}
                   onClick={() => onChangeTag("All")}
                 >
                   All
@@ -256,7 +256,7 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
                 {allTags.map((t) => (
                   <button
                     key={t}
-                    className={`px-3 py-1 rounded-full border text-sm ${selectedTag === t ? "bg-cyan-300/20 text-cyan-100 border-cyan-300/60" : "bg-transparent text-slate-300 border-white/20 hover:text-white"}`}
+                    className={`px-3 py-1 rounded-full border text-sm ${selectedTag === t ? "bg-cyan-300/20 text-sky-700 border-cyan-300/60" : "bg-transparent text-slate-600 border-slate-200 hover:text-slate-900"}`}
                     onClick={() => onChangeTag(t)}
                   >
                     {t}
@@ -268,7 +268,7 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
             <div className="flex gap-2">
               <button
                 onClick={resetFilters}
-                className="px-4 py-2 text-sm font-medium text-slate-100 bg-white/10 rounded-md hover:bg-white/20"
+                className="px-4 py-2 text-sm font-medium text-slate-700 bg-slate-50 rounded-md hover:bg-white/20"
               >
                 Reset filters
               </button>
@@ -276,7 +276,7 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
           </aside>
 
           <div className="order-1 lg:order-2 lg:col-span-9">
-            <div className="mb-4 text-sm text-slate-300">
+            <div className="mb-4 text-sm text-slate-600">
               Showing {filteredBlogs.length} result{filteredBlogs.length === 1 ? "" : "s"}
               {selectedCategory !== "All" && <> in category <span className="font-medium">{selectedCategory}</span></>}
               {selectedTag !== "All" && <> with tag <span className="font-medium">{selectedTag}</span></>}
@@ -285,7 +285,7 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
               {pageItems.map((blog) => (
                 <div
                   key={blog.slug}
-                  className="bg-[#0d1530] border border-white/10 rounded-2xl shadow-lg overflow-hidden relative"
+                  className="bg-white border border-slate-200 rounded-2xl shadow-lg overflow-hidden relative"
                 >
                   {process.env.NODE_ENV === "development" && (
                     <>
@@ -324,17 +324,17 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
                           className="w-full h-48 object-cover"
                         />
                       </div>
-                      <div className="absolute bottom-0 left-0 bg-gradient-to-t from-[#050816] to-transparent text-white p-4 w-full">
+                      <div className="absolute bottom-0 left-0 bg-gradient-to-t from-slate-900/80 to-transparent text-white p-4 w-full">
                         <h3 className="text-xl font-semibold">{blog.title}</h3>
                         {(blog.topic || blog.keywords) && (
                           <div className="mt-1 text-xs text-gray-200 flex flex-wrap gap-2">
                             {blog.topic && (
-                              <Link href={{ pathname: "/blogs", query: { category: blog.topic } }} className="px-2 py-0.5 rounded-full bg-black/40 border border-white/20 hover:bg-black/60">
+                              <Link href={{ pathname: "/blogs", query: { category: blog.topic } }} className="px-2 py-0.5 rounded-full bg-slate-900/50 border border-slate-200 hover:bg-slate-900/70">
                                 {blog.topic}
                               </Link>
                             )}
                             {parseTags(blog.keywords).slice(0, 3).map((t) => (
-                              <Link key={t} href={{ pathname: "/blogs", query: { tag: t } }} className="px-2 py-0.5 rounded-full bg-black/30 border border-white/10 hover:bg-black/50">
+                              <Link key={t} href={{ pathname: "/blogs", query: { tag: t } }} className="px-2 py-0.5 rounded-full bg-slate-900/40 border border-slate-200 hover:bg-slate-900/60">
                                 {t}
                               </Link>
                             ))}
@@ -344,9 +344,9 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
                     </div>
                   </div>
                   <div className="p-4">
-                    <p className="text-slate-300">{blog.description}</p>
+                    <p className="text-slate-600">{blog.description}</p>
                     <div className="mt-4 flex items-center justify-between">
-                      <Link href={`/blogs/${blog.slug}`} className="text-cyan-200 hover:text-cyan-100 font-medium">
+                      <Link href={`/blogs/${blog.slug}`} className="text-sky-700 hover:text-sky-700 font-medium">
                         Read more
                       </Link>
                       <div className="flex items-center gap-3 text-slate-400">
@@ -390,7 +390,7 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
               ))}
             </div>
             {pageItems.length === 0 && (
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center text-slate-200">
+              <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center text-slate-600">
                 No blogs match your current filters. Try resetting filters.
               </div>
             )}
@@ -400,7 +400,7 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
                 <button
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                   disabled={currentPageSafe === 1}
-                  className="px-3 py-2 sm:px-4 sm:py-2 rounded-md border border-white/20 bg-white/10 text-slate-100 disabled:opacity-50 hover:bg-white/20 text-sm font-medium"
+                  className="px-3 py-2 sm:px-4 sm:py-2 rounded-md border border-slate-200 bg-slate-50 text-slate-700 disabled:opacity-50 hover:bg-white/20 text-sm font-medium"
                 >
                   Prev
                 </button>
@@ -411,7 +411,7 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
                     <button
                       key={p}
                       onClick={() => setCurrentPage(p)}
-                      className={`px-3 py-2 rounded-md border text-sm font-medium ${p === currentPageSafe ? "bg-cyan-300/20 text-cyan-100 border-cyan-300/60" : "bg-white/10 border-white/20 text-slate-100 hover:bg-white/20"}`}
+                      className={`px-3 py-2 rounded-md border text-sm font-medium ${p === currentPageSafe ? "bg-cyan-300/20 text-sky-700 border-cyan-300/60" : "bg-slate-50 border-slate-200 text-slate-700 hover:bg-white/20"}`}
                     >
                       {p}
                     </button>
@@ -419,14 +419,14 @@ const BlogsPage = ({ blogs, categories, tags }: { blogs: Blog[]; categories: str
                 </div>
                 
                 {/* Show current page info on small screens */}
-                <div className="sm:hidden px-3 py-2 text-sm text-slate-300 font-medium">
+                <div className="sm:hidden px-3 py-2 text-sm text-slate-600 font-medium">
                   {currentPageSafe} of {totalPages}
                 </div>
                 
                 <button
                   onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
                   disabled={currentPageSafe === totalPages}
-                  className="px-3 py-2 sm:px-4 sm:py-2 rounded-md border border-white/20 bg-white/10 text-slate-100 disabled:opacity-50 hover:bg-white/20 text-sm font-medium"
+                  className="px-3 py-2 sm:px-4 sm:py-2 rounded-md border border-slate-200 bg-slate-50 text-slate-700 disabled:opacity-50 hover:bg-white/20 text-sm font-medium"
                 >
                   Next
                 </button>
