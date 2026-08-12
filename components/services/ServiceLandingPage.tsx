@@ -194,17 +194,17 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
         />
       </Head>
 
-      <nav className="border-b border-slate-200 bg-white/70" aria-label="Breadcrumb">
-        <div className="mx-auto flex max-w-7xl items-center gap-2 px-6 py-3 text-xs text-slate-400">
-          <Link href="/" className="transition-colors hover:text-slate-900">
+      <nav className="border-b border-[#d9e2ec] bg-white" aria-label="Breadcrumb">
+        <div className="mx-auto flex max-w-7xl items-center gap-2 px-6 py-3 text-xs text-[#5b6b7c]">
+          <Link href="/" className="transition-colors hover:text-[#0b1f3a]">
             Home
           </Link>
           <span aria-hidden>/</span>
-          <Link href="/services" className="transition-colors hover:text-slate-900">
+          <Link href="/services" className="transition-colors hover:text-[#0b1f3a]">
             Services
           </Link>
           <span aria-hidden>/</span>
-          <span className="font-medium text-slate-700">{config.navLabel}</span>
+          <span className="font-medium text-[#0b1f3a]">{config.navLabel}</span>
         </div>
       </nav>
 

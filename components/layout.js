@@ -4,7 +4,7 @@ import WhatsAppFloat from './WhatsAppFloat';
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+    <div className="min-h-screen flex flex-col bg-white text-[#0b1f3a]">
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
