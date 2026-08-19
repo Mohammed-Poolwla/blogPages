@@ -205,18 +205,18 @@ export function buildMigrationConfig(input: MigrationInput): ServicePageConfig {
           "Yes. Every project includes one week of support for migration-related issues. If you want ongoing product work after that, we can set up a retainer.",
       },
     ],
-    auditEyebrow: "Free assessment",
-    auditTitle: `Book a free ${faqName} migration assessment`,
+    auditEyebrow: "Free audit",
+    auditTitle: `Start a free ${faqName} migration audit`,
     auditIntro:
-      "Tell us about your app. We come back with scope, risks, timeline, and a fixed estimate. No pressure pitch.",
+      "Share your email and app URL. We reply with risks, scope, timeline, and a fixed estimate. No pressure pitch.",
     auditBullets: [
-      "For founders, indie hackers, and technical CTOs",
+      "Free written audit, usually within 24 hours",
       "Reviewed by an engineer, not a sales script",
       "NDAs available. Production apps welcome.",
     ],
     finalEyebrow: "Next step",
     finalTitle: `Ready to migrate your ${source} app to Supabase?`,
-    finalBody: `Get a free assessment and a clear plan for moving from ${source} to infrastructure you own.`,
+    finalBody: `Get a free audit and a clear plan for moving from ${source} to infrastructure you own.`,
     formSubject: `${faqName} Migration`,
     architectureSteps: [
       { label: sourceShort, detail: "App + hosted stack", icon: Sparkles },

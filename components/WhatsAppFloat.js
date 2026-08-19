@@ -1,24 +1,12 @@
-const DEFAULT_WHATSAPP_NUMBER = "918109041335";
-const DEFAULT_MESSAGE = "Hi WEBSRC, I need help with my website or Supabase migration.";
-
-function getWhatsAppNumber() {
-  const raw = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || DEFAULT_WHATSAPP_NUMBER;
-  return String(raw).replace(/[^\d]/g, "");
-}
-
-function getWhatsAppMessage() {
-  return process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE || DEFAULT_MESSAGE;
-}
+import { getWhatsAppHref, getWhatsAppNumber } from "@/lib/whatsapp";
 
 export default function WhatsAppFloat() {
   const number = getWhatsAppNumber();
   if (!number) return null;
 
-  const href = `https://wa.me/${number}?text=${encodeURIComponent(getWhatsAppMessage())}`;
-
   return (
     <a
-      href={href}
+      href={getWhatsAppHref()}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with WEBSRC on WhatsApp"
