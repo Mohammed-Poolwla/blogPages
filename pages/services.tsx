@@ -59,10 +59,10 @@ export default function ServicesPage() {
   return (
     <Layout>
       <Head>
-        <title>Services - WEBSRC</title>
+        <title>Services | Lovable to Supabase Migration &amp; Product Engineering | WEBSRC</title>
         <meta
           name="description"
-          content="WEBSRC services: AI web apps, React/Next.js, React Native, Supabase backends, n8n automations, and high-performance product delivery."
+          content="WEBSRC services: Lovable to Supabase migration, AI web apps, React/Next.js, React Native, n8n automations, and production product delivery."
         />
       </Head>
       <section className="parallax-hero">
@@ -107,8 +107,9 @@ export default function ServicesPage() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                { href: '/lovable-to-supabase', title: 'Lovable to Supabase', body: 'Migrate Lovable apps to owned Supabase infrastructure.' },
-                { href: '/lovable-migration', title: 'Lovable Migration', body: 'Plan and run an exit from Lovable cloud with production ownership.' },
+                { href: '/lovable-to-supabase', title: 'Lovable to Supabase', body: 'Migrate Lovable Cloud to Supabase: database, auth, storage, and RLS.' },
+                { href: '/lovable-migration', title: 'Lovable Migration', body: 'Lovable migration service to exit Lovable Cloud with production ownership.' },
+                { href: '/migrate-lovable-cloud-to-supabase-for-free', title: 'Free vs paid migration', body: 'Can you migrate Lovable Cloud to Supabase for free? Honest cost breakdown.' },
                 { href: '/bolt-to-supabase', title: 'Bolt to Supabase', body: 'Move Bolt apps to Supabase without a full rewrite.' },
                 { href: '/replit-to-supabase', title: 'Replit to Supabase', body: 'Take Replit prototypes into production Supabase setups.' },
                 { href: '/v0-to-supabase', title: 'v0 to Supabase', body: 'Connect v0 UIs to a real Supabase backend.' },
@@ -134,15 +135,15 @@ export default function ServicesPage() {
             <p className="text-xs uppercase tracking-[0.24em] text-sky-700">Featured service</p>
             <h2 className="mt-2 text-2xl font-semibold text-slate-900">Lovable to Supabase Migration</h2>
             <p className="mt-3 max-w-3xl text-sm text-slate-700 sm:text-base">
-              Move your Lovable app onto infrastructure you own: Postgres, Auth, Storage, RLS, Edge Functions, and a
-              production cutover plan with minimal downtime.
+              Move Lovable Cloud to your own Supabase: Postgres, Auth, Storage, Row Level Security, Edge Functions,
+              and a production cutover plan. Free migration audit.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Link href="/lovable-to-supabase" className="btn-primary">
                 View migration page
               </Link>
               <Link href="/lovable-to-supabase#audit" className="btn-ghost-light">
-                Book free audit
+                Get free audit
               </Link>
             </div>
           </div>

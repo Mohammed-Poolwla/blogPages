@@ -3,7 +3,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import Layout from "@/components/layout";
 import FaqAccordion from "@/components/migration/FaqAccordion";
-import MigrationForm from "@/components/migration/MigrationForm";
+import MigrationForm, { WhatsAppAuditCard } from "@/components/migration/MigrationForm";
 import { SITE_URL, servicePages } from "@/lib/services";
 import type { ServicePageConfig } from "@/lib/services/types";
 import { bookHref } from "@/lib/booking";
@@ -248,7 +248,7 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="#audit" className="btn-primary">
-                  {config.primaryCta}
+                  Get Free Migration Audit
                 </a>
                 <Link href={bookHref()} className="btn-ghost-light">
                   Book Appointment
@@ -496,7 +496,7 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
               <p className="mt-4 text-slate-600">{config.deliverablesIntro}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="#audit" className="btn-primary">
-                  {config.primaryCta}
+                  Get Free Migration Audit
                 </a>
                 <Link href={bookHref()} className="btn-ghost-light">
                   Book Appointment
@@ -546,6 +546,14 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
                   {page.navLabel}
                 </Link>
               ))}
+              {config.slug === "lovable-to-supabase" || config.slug === "lovable-migration" ? (
+                <Link
+                  href="/migrate-lovable-cloud-to-supabase-for-free"
+                  className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-sm transition-colors hover:border-cyan-300/30 hover:text-slate-900"
+                >
+                  Can you migrate Lovable Cloud to Supabase for free?
+                </Link>
+              ) : null}
             </div>
           </div>
         </section>
@@ -554,33 +562,31 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
       <section className="parallax-deep-section" id="audit">
         <div className="parallax-layer layer-grid" />
         <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24">
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">{config.auditEyebrow}</p>
-              <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{config.auditTitle}</h2>
-              <p className="mt-4 text-slate-600">
-                <HighlightPriceText text={config.auditIntro} />
-              </p>
-              <ul className="mt-8 space-y-3 text-sm text-slate-600">
-                <li className="flex items-center gap-2">
-                  <Users className="h-4 w-4 text-sky-600" aria-hidden />
-                  {config.auditBullets[0]}
-                </li>
-                <li className="flex items-center gap-2">
-                  <Wrench className="h-4 w-4 text-sky-600" aria-hidden />
-                  {config.auditBullets[1]}
-                </li>
-                <li className="flex items-center gap-2">
-                  <Shield className="h-4 w-4 text-sky-600" aria-hidden />
-                  {config.auditBullets[2]}
-                </li>
-              </ul>
-              <Link href={bookHref()} className="btn-ghost-light mt-8">
-                Prefer a call? Book Appointment
-              </Link>
-            </div>
-            <MigrationForm formSubject={config.formSubject} submitLabel={config.primaryCta} />
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">{config.auditEyebrow || "Get started"}</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{config.auditTitle}</h2>
+            <p className="mt-4 text-slate-600">
+              <HighlightPriceText text={config.auditIntro} />
+            </p>
           </div>
+          <div className="mt-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <WhatsAppAuditCard />
+            <MigrationForm formSubject={config.formSubject} submitLabel="Get My Free Audit" compact />
+          </div>
+          <ul className="mt-8 grid gap-3 text-sm text-slate-600 sm:grid-cols-3">
+            <li className="flex items-center gap-2">
+              <Users className="h-4 w-4 text-sky-600" aria-hidden />
+              {config.auditBullets[0]}
+            </li>
+            <li className="flex items-center gap-2">
+              <Wrench className="h-4 w-4 text-sky-600" aria-hidden />
+              {config.auditBullets[1]}
+            </li>
+            <li className="flex items-center gap-2">
+              <Shield className="h-4 w-4 text-sky-600" aria-hidden />
+              {config.auditBullets[2]}
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -597,7 +603,7 @@ export default function ServiceLandingPage({ config }: { config: ServicePageConf
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a href="#audit" className="btn-primary">
-              {config.primaryCta}
+              Get Free Migration Audit
             </a>
             <Link href={bookHref()} className="btn-ghost-light">
               Book Appointment
