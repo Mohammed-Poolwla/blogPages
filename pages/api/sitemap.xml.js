@@ -8,19 +8,38 @@ function generateSiteMap(urls) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urlSet}\n</urlset>`;
 }
 
+const SERVICE_PATHS = [
+  "lovable-to-supabase",
+  "lovable-migration",
+  "migrate-lovable-cloud-to-supabase-for-free",
+  "bolt-to-supabase",
+  "replit-to-supabase",
+  "v0-to-supabase",
+  "firebase-to-supabase",
+  "bubble-to-supabase",
+  "supabase-audit",
+  "supabase-consulting",
+  "ai-mvp-to-production",
+  "book",
+];
+
 export default async function handler(req, res) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://websrc.uk";
 
   const staticUrls = [
     { loc: `${baseUrl}/`, priority: "1.0" },
     { loc: `${baseUrl}/about` },
-    { loc: `${baseUrl}/services` },
+    { loc: `${baseUrl}/services`, priority: "0.9" },
     { loc: `${baseUrl}/contact` },
     { loc: `${baseUrl}/blogs` },
     { loc: `${baseUrl}/privacy`, changefreq: "yearly", priority: "0.3" },
     { loc: `${baseUrl}/terms`, changefreq: "yearly", priority: "0.3" },
     { loc: `${baseUrl}/disclaimer`, changefreq: "yearly", priority: "0.3" },
     { loc: `${baseUrl}/cookies`, changefreq: "yearly", priority: "0.3" },
+    ...SERVICE_PATHS.map((path) => ({
+      loc: `${baseUrl}/${path}`,
+      priority: path.startsWith("lovable") || path.startsWith("migrate-lovable") ? "0.95" : "0.8",
+    })),
   ];
 
   let blogUrls = [];
@@ -36,5 +55,3 @@ export default async function handler(req, res) {
   res.write(sitemap);
   res.end();
 }
-
-
