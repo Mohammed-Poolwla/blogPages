@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/layout";
+import MigrationForm, { WhatsAppAuditCard } from "@/components/migration/MigrationForm";
 import { useMemo, useState } from "react";
 import { CldImage } from "next-cloudinary";
 import { BlogsTable, db } from "../lib/db";
@@ -72,9 +73,9 @@ const projectsData: ReadonlyArray<Project> = [
 
 const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) => {
   const siteUrl = "https://websrc.uk";
-  const homeTitle = "WEBSRC - AI Apps, Automation, and Parallax Digital Experiences";
+  const homeTitle = "WEBSRC | Lovable to Supabase Migration, AI Apps, and Automation";
   const homeDescription =
-    "WEBSRC builds high-performance websites, AI-powered products, and workflow automation systems with modern UX and measurable outcomes.";
+    "WEBSRC migrates Lovable Cloud to Supabase, then builds production AI apps and automation. Own your backend: database, auth, storage, and RLS. Free migration audit.";
   const ogImage = `${siteUrl}/landing-images/saleshero-dk.png`;
   const filters = ["All", "Web", "Content", "Performance", "Design", "AI"] as const;
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");
@@ -89,7 +90,7 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
       <Head>
         <title>{homeTitle}</title>
         <meta name="description" content={homeDescription} />
-        <meta name="keywords" content="WEBSRC, AI web apps, n8n automation, React development, Next.js agency, Supabase developer, parallax website design, pet care blogs" />
+        <meta name="keywords" content="WEBSRC, lovable to supabase, lovable to supabase migration, migrate lovable cloud to supabase, lovable backend migration, supabase developer, AI web apps, n8n automation, React Next.js agency" />
         <meta name="author" content="WEBSRC" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <meta name="theme-color" content="#f8fbff" />
@@ -142,6 +143,8 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
               ],
               areaServed: "Worldwide",
               serviceType: [
+                "Lovable to Supabase migration",
+                "Lovable Cloud to Supabase migration",
                 "AI-powered web app development",
                 "n8n workflow automation",
                 "React and Next.js engineering",
@@ -171,9 +174,9 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                 </span>
               </h1>
               <p className="mt-7 max-w-xl text-base text-slate-600 sm:text-lg">
-                We design immersive web experiences with performance-led engineering.
-                Each section tells a story, each interaction earns trust, and each build
-                is ready to scale.
+                Lovable to Supabase specialists for founders who need to own their backend.
+                We also ship high-performance web apps and automation with engineering you can
+                scale.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {["A/B Tested", "Core Web Vitals", "AI-Assisted", "System Design"].map((item) => (
@@ -186,11 +189,11 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                 PERFORMANCE + USABILITY + AUTOMATION = SCALABLE DIGITAL OUTCOMES
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/services" className="btn-primary">
-                  Explore Services
+                <Link href="#audit" className="btn-primary">
+                  Get Free Migration Audit
                 </Link>
-                <Link href="#projects" className="btn-ghost-light">
-                  View Work
+                <Link href="/lovable-to-supabase" className="btn-ghost-light">
+                  Lovable to Supabase
                 </Link>
               </div>
               <div className="mt-10 grid max-w-xl grid-cols-3 gap-3 text-center text-sm">
@@ -466,24 +469,28 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
         </div>
       </section>
 
-      <section className="parallax-cta">
+      <section className="parallax-cta" id="audit">
         <div className="parallax-layer layer-grid" />
-        <div className="relative mx-auto max-w-5xl px-6 py-24 text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-sky-700">Start a project</p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-black uppercase leading-tight tracking-[0.08em] text-slate-900 sm:text-5xl">
-            Reimagine your website with WEBSRC
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-slate-600">
-            Bring layered storytelling, premium visuals and production-grade performance into one
-            coherent digital system.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link href="/contact" className="btn-primary">
-              Contact WEBSRC
-            </Link>
-            <Link href="/services" className="btn-ghost-light">
-              Service Details
-            </Link>
+        <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-700">Free audit</p>
+            <h2 className="mt-3 text-3xl font-black leading-tight text-slate-900 sm:text-5xl">
+              Start your free Lovable Cloud to Supabase audit
+            </h2>
+            <p className="mt-4 max-w-2xl text-slate-600">
+              Email plus optional app URL. We reply with lock-in risks, what has to move, and a scoped plan. Or chat now on WhatsApp.{" "}
+              <Link href="/migrate-lovable-cloud-to-supabase-for-free" className="font-semibold text-sky-800 hover:underline">
+                Can you migrate Lovable Cloud to Supabase for free?
+              </Link>
+            </p>
+          </div>
+          <div className="mt-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <WhatsAppAuditCard />
+            <MigrationForm
+              formSubject="Homepage Free Audit"
+              submitLabel="Get My Free Audit"
+              compact
+            />
           </div>
         </div>
       </section>

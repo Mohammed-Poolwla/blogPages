@@ -1,7 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { CheckCircle2, Loader2 } from "lucide-react";
+import { CheckCircle2, Loader2, MessageCircle } from "lucide-react";
+import { AUDIT_WHATSAPP_MESSAGE, getWhatsAppHref } from "@/lib/whatsapp";
 
 type FormState = {
   name: string;
@@ -26,11 +27,13 @@ function isValidEmail(email: string) {
 export default function MigrationForm({
   intent = "audit",
   formSubject = "Lovable to Supabase",
-  submitLabel = "Book Free Migration Audit",
+  submitLabel = "Get My Free Audit",
+  compact = false,
 }: {
   intent?: "audit" | "estimate" | "call";
   formSubject?: string;
   submitLabel?: string;
+  compact?: boolean;
 }) {
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
@@ -39,11 +42,9 @@ export default function MigrationForm({
 
   function validate(values: FormState) {
     const next: Partial<Record<keyof FormState, string>> = {};
-    if (!values.name.trim()) next.name = "Name is required.";
+    if (!compact && !values.name.trim()) next.name = "Name is required.";
     if (!values.email.trim()) next.email = "Email is required.";
-    else if (!isValidEmail(values.email)) next.email = "Enter a valid email.";
-    if (!values.message.trim()) next.message = "Tell us a bit about your project.";
-    else if (values.message.trim().length < 20) next.message = "Please add a few more details (20+ characters).";
+    else if (!isValidEmail(values.email)) next.email = "Enter a valid work email.";
     return next;
   }
 
@@ -57,21 +58,23 @@ export default function MigrationForm({
     setServerError("");
 
     const intentLabel =
-      intent === "estimate" ? "Estimate" : intent === "call" ? "Talk to an Engineer" : "Free Assessment";
+      intent === "estimate" ? "Estimate" : intent === "call" ? "Talk to an Engineer" : "Free Audit";
+    const displayName = form.name.trim() || form.email.trim().split("@")[0];
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: form.name.trim(),
+          name: displayName,
           email: form.email.trim(),
+          company: form.company.trim() || undefined,
           message: [
             `Intent: ${intentLabel}`,
             form.company.trim() ? `Company: ${form.company.trim()}` : null,
             form.appUrl.trim() ? `App / project URL: ${form.appUrl.trim()}` : null,
             "",
-            form.message.trim(),
+            form.message.trim() || "Please send a free migration audit.",
           ]
             .filter(Boolean)
             .join("\n"),
@@ -96,19 +99,20 @@ export default function MigrationForm({
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-cyan-300/30 bg-cyan-300/10 p-8 text-center" role="status">
-        <CheckCircle2 className="mx-auto h-10 w-10 text-sky-600" aria-hidden />
-        <h3 className="mt-4 text-xl font-semibold text-slate-900">Request received</h3>
-        <p className="mt-2 text-sm text-slate-600">
-          Thanks. We will review your project and reply with next steps.
+      <div className="rounded-2xl border border-[#b9d8e8] bg-[#e8f7fc] p-8 text-center" role="status">
+        <CheckCircle2 className="mx-auto h-10 w-10 text-[#0b7ea4]" aria-hidden />
+        <h3 className="mt-4 text-xl font-semibold text-[#0b1f3a]">Free audit requested</h3>
+        <p className="mt-2 text-sm text-[#5b6b7c]">
+          Thanks. We will review your stack and reply within 24 hours with risks, scope, and next steps.
         </p>
-        <button
-          type="button"
+        <a
+          href={getWhatsAppHref(AUDIT_WHATSAPP_MESSAGE)}
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn-ghost-light mt-6"
-          onClick={() => setStatus("idle")}
         >
-          Send another request
-        </button>
+          Chat on WhatsApp
+        </a>
       </div>
     );
   }
@@ -117,34 +121,59 @@ export default function MigrationForm({
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-lg shadow-sky-900/5 sm:p-8"
-      aria-label={`${formSubject} contact form`}
+      className="space-y-4 rounded-2xl border border-[#d9e2ec] bg-white p-6 shadow-lg shadow-[#0b1f3a]/8 sm:p-8"
+      aria-label={`${formSubject} free audit form`}
     >
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <label htmlFor="mig-name" className="block text-sm font-medium text-slate-700">
-            Name <span className="text-sky-600">*</span>
-          </label>
-          <input
-            id="mig-name"
-            name="name"
-            autoComplete="name"
-            value={form.name}
-            onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-            className="field-light mt-1"
-            placeholder="Alex Founder"
-            aria-invalid={Boolean(errors.name)}
-            aria-describedby={errors.name ? "mig-name-error" : undefined}
-          />
-          {errors.name && (
-            <p id="mig-name-error" className="mt-1 text-xs text-rose-600">
-              {errors.name}
-            </p>
-          )}
+      {!compact ? (
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label htmlFor="mig-name" className="block text-sm font-medium text-[#0b1f3a]">
+              Name <span className="text-[#0b7ea4]">*</span>
+            </label>
+            <input
+              id="mig-name"
+              name="name"
+              autoComplete="name"
+              value={form.name}
+              onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+              className="field-light mt-1"
+              placeholder="Alex Founder"
+              aria-invalid={Boolean(errors.name)}
+              aria-describedby={errors.name ? "mig-name-error" : undefined}
+            />
+            {errors.name && (
+              <p id="mig-name-error" className="mt-1 text-xs text-rose-600">
+                {errors.name}
+              </p>
+            )}
+          </div>
+          <div>
+            <label htmlFor="mig-email" className="block text-sm font-medium text-[#0b1f3a]">
+              Work email <span className="text-[#0b7ea4]">*</span>
+            </label>
+            <input
+              id="mig-email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              value={form.email}
+              onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+              className="field-light mt-1"
+              placeholder="you@company.com"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? "mig-email-error" : undefined}
+            />
+            {errors.email && (
+              <p id="mig-email-error" className="mt-1 text-xs text-rose-600">
+                {errors.email}
+              </p>
+            )}
+          </div>
         </div>
+      ) : (
         <div>
-          <label htmlFor="mig-email" className="block text-sm font-medium text-slate-700">
-            Work email <span className="text-sky-600">*</span>
+          <label htmlFor="mig-email" className="block text-sm font-medium text-[#0b1f3a]">
+            Work email <span className="text-[#0b7ea4]">*</span>
           </label>
           <input
             id="mig-email"
@@ -164,26 +193,12 @@ export default function MigrationForm({
             </p>
           )}
         </div>
-      </div>
+      )}
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      {compact ? (
         <div>
-          <label htmlFor="mig-company" className="block text-sm font-medium text-slate-700">
-            Company
-          </label>
-          <input
-            id="mig-company"
-            name="company"
-            autoComplete="organization"
-            value={form.company}
-            onChange={(e) => setForm((f) => ({ ...f, company: e.target.value }))}
-            className="field-light mt-1"
-            placeholder="Optional"
-          />
-        </div>
-        <div>
-          <label htmlFor="mig-url" className="block text-sm font-medium text-slate-700">
-            App or Lovable URL
+          <label htmlFor="mig-url" className="block text-sm font-medium text-[#0b1f3a]">
+            Lovable / app URL
           </label>
           <input
             id="mig-url"
@@ -192,31 +207,59 @@ export default function MigrationForm({
             value={form.appUrl}
             onChange={(e) => setForm((f) => ({ ...f, appUrl: e.target.value }))}
             className="field-light mt-1"
-            placeholder="https://"
+            placeholder="https://your-app.lovable.app"
           />
         </div>
-      </div>
+      ) : (
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label htmlFor="mig-company" className="block text-sm font-medium text-[#0b1f3a]">
+              Company
+            </label>
+            <input
+              id="mig-company"
+              name="company"
+              autoComplete="organization"
+              value={form.company}
+              onChange={(e) => setForm((f) => ({ ...f, company: e.target.value }))}
+              className="field-light mt-1"
+              placeholder="Optional"
+            />
+          </div>
+          <div>
+            <label htmlFor="mig-url" className="block text-sm font-medium text-[#0b1f3a]">
+              App or Lovable URL
+            </label>
+            <input
+              id="mig-url"
+              name="appUrl"
+              type="url"
+              value={form.appUrl}
+              onChange={(e) => setForm((f) => ({ ...f, appUrl: e.target.value }))}
+              className="field-light mt-1"
+              placeholder="https://"
+            />
+          </div>
+        </div>
+      )}
 
       <div>
-        <label htmlFor="mig-message" className="block text-sm font-medium text-slate-700">
-          What needs migrating? <span className="text-sky-600">*</span>
+        <label htmlFor="mig-message" className="block text-sm font-medium text-[#0b1f3a]">
+          {compact ? "Add more details (optional)" : "What needs migrating?"}
         </label>
         <textarea
           id="mig-message"
           name="message"
-          rows={5}
+          rows={compact ? 3 : 5}
           value={form.message}
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
           className="field-light mt-1"
-          placeholder="e.g. production SaaS with auth, file uploads, and about 50 tables. Need ownership of Supabase + Vercel."
-          aria-invalid={Boolean(errors.message)}
-          aria-describedby={errors.message ? "mig-message-error" : undefined}
+          placeholder={
+            compact
+              ? "Auth, storage, live users, Vercel, or anything we should know."
+              : "e.g. live Lovable Cloud app with auth, file uploads, and about 50 tables. Need own Supabase + Vercel."
+          }
         />
-        {errors.message && (
-          <p id="mig-message-error" className="mt-1 text-xs text-rose-600">
-            {errors.message}
-          </p>
-        )}
       </div>
 
       {status === "error" && serverError && (
@@ -225,7 +268,7 @@ export default function MigrationForm({
         </p>
       )}
 
-      <button type="submit" className="btn-primary w-full justify-center sm:w-auto" disabled={status === "loading"}>
+      <button type="submit" className="btn-primary w-full justify-center" disabled={status === "loading"}>
         {status === "loading" ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden />
@@ -235,9 +278,34 @@ export default function MigrationForm({
           submitLabel
         )}
       </button>
-      <p className="text-xs text-slate-500">
-        We typically reply within one business day. NDAs available on request.
+      <p className="text-xs text-[#5b6b7c]">
+        Free. No spam. We typically reply within 24 hours. NDAs available on request.
       </p>
     </form>
+  );
+}
+
+export function WhatsAppAuditCard({
+  title = "Chat on WhatsApp",
+  body = "Direct line for a free audit. Send the app URL and we will tell you what a Lovable Cloud to Supabase move actually involves.",
+}: {
+  title?: string;
+  body?: string;
+}) {
+  return (
+    <a
+      href={getWhatsAppHref(AUDIT_WHATSAPP_MESSAGE)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex h-full flex-col rounded-2xl border border-[#25D366]/40 bg-[#f0fdf4] p-6 transition-transform hover:-translate-y-0.5 hover:shadow-md"
+    >
+      <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#15803d]">
+        <MessageCircle className="h-4 w-4" aria-hidden />
+        Instant
+      </span>
+      <h3 className="mt-3 text-xl font-semibold text-[#0b1f3a]">{title}</h3>
+      <p className="mt-2 flex-1 text-sm leading-6 text-[#5b6b7c]">{body}</p>
+      <span className="mt-5 inline-flex text-sm font-bold text-[#15803d]">Open WhatsApp →</span>
+    </a>
   );
 }
