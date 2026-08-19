@@ -59,12 +59,12 @@ export const lovableToSupabase = buildMigrationConfig({
   navLabel: "Lovable to Supabase",
   source: "Lovable",
   sourceShort: "Lovable",
-  title: "Migrate Lovable Cloud to Your Own Supabase | From $399 | WEBSRC",
+  title: "Lovable to Supabase Migration Service | Lovable Cloud to Own Supabase | From $399 | WEBSRC",
   description:
-    "Migrate Lovable Cloud to your own Supabase and Vercel. Live app cutover with zero data loss, auth users preserved, RLS, storage, edge functions, and a rollback plan. Migrations from $399 USD. Free assessment.",
+    "Lovable to Supabase migration for live apps. Move Lovable Cloud database, auth, storage, and RLS to a Supabase project you own. Zero-data-loss cutover, optional Vercel, from $399 USD. Free migration audit.",
   keywords:
-    "migrate lovable cloud to your own supabase, lovable to supabase, lovable cloud migration, lovable to vercel supabase, migrate lovable app, lovable auth migration, lovable database migration, lovable storage migration, own supabase project, lovable production cutover, lovable rollback plan, supabase rls migration, WEBSRC",
-  h1: "Migrate Lovable Cloud to Your Own Supabase Without Starting Over",
+    "lovable to supabase, lovable to supabase migration, migrate lovable cloud to supabase, lovable cloud to supabase, lovable backend migration, WEBSRC",
+  h1: "Lovable to Supabase Migration: Own Your Backend Without Starting Over",
   heroBody:
     "Ready to leave Lovable Cloud and own the backend? WEBSRC moves your live Lovable app to your own Supabase project and Vercel deploy: schema, data, auth users, storage, edge functions, and RLS. Users keep access. You keep a rollback path. Migrations start from $399 USD (minimum, not a flat fee).",
   problemIntro:
@@ -77,30 +77,30 @@ export const lovableToSupabase = buildMigrationConfig({
     "Lovable Edge Functions and secrets",
   ],
   alternateNames: [
-    "Make Lovable app production-ready",
-    "Lovable takeover and hardening",
-    "Migrate Lovable Cloud to your own Supabase",
-    "Lovable to Vercel and Supabase migration",
-    "Lovable vibe-code audit",
-    "Own Supabase project for Lovable app",
+    "Lovable to Supabase",
+    "Migrate Lovable Cloud to Supabase",
+    "Lovable to Supabase migration service",
+    "Lovable backend migration",
+    "Lovable Cloud migration",
+    "Own your backend on Supabase",
   ],
   relatedSlugs: relatedExcept("lovable-to-supabase"),
 });
 
-lovableToSupabase.tagline = "Take over, harden, and run your Lovable app on infrastructure you own";
-lovableToSupabase.eyebrow = "WEBSRC · Lovable prototype to production";
-lovableToSupabase.primaryCta = "Book Free Lovable Audit";
-lovableToSupabase.secondaryCta = "Book Appointment";
-lovableToSupabase.h1 = "Make Your Lovable App Production-Ready on Your Own Supabase";
+lovableToSupabase.tagline = "Lovable to Supabase migration experts · own your backend";
+lovableToSupabase.eyebrow = "WEBSRC · Lovable Cloud to Supabase";
+lovableToSupabase.primaryCta = "Get Free Migration Audit";
+lovableToSupabase.secondaryCta = "Chat on WhatsApp";
+lovableToSupabase.h1 = "Lovable to Supabase Migration: Own Your Backend Without Starting Over";
 lovableToSupabase.heroBody =
-  "Lovable is strong for fast MVPs with React, Tailwind, and Supabase. Production needs more: owned Supabase, reviewed RLS, clean secrets, GitHub as source of truth, Vercel deploy, and a rollback path. WEBSRC takes over live Lovable apps, hardens the stack, and migrates you off Lovable Cloud. Migrations start from $399 USD (minimum, not a flat fee).";
+  "Migrate Lovable Cloud to your own Supabase: database, auth users, storage, RLS, and edge functions, with a rehearsed cutover and rollback. WEBSRC handles Lovable backend migration so you escape vendor lock-in, keep GitHub as source of truth, and optionally deploy the frontend on Vercel. Zero-data-loss goal. Migrations start from $399 USD (minimum, not a flat fee). Free initial audit.";
 lovableToSupabase.title =
-  "Make Your Lovable App Production-Ready | Own Supabase From $399 | WEBSRC";
+  "Lovable to Supabase Migration Service | Lovable Cloud to Own Supabase | From $399 | WEBSRC";
 lovableToSupabase.description =
-  "Take over and harden your Lovable app for production. Own Supabase, RLS, secrets, GitHub, Vercel, SEO basics, and a rehearsed cutover. Migrations from $399 USD. Free audit.";
+  "Lovable to Supabase migration for live apps. Move Lovable Cloud database, auth, storage, and RLS to a Supabase project you own. Zero-data-loss cutover, optional Vercel, from $399 USD. Free migration audit.";
 lovableToSupabase.keywords =
-  "lovable production ready, lovable takeover, lovable to supabase, harden lovable app, lovable rls, lovable github sync, lovable self host, lovable cloud migration, lovable vercel, vibe code audit, WEBSRC";
-lovableToSupabase.heroChips = ["Audit", "Harden", "Own Supabase", "CI/CD + Cutover"];
+  "lovable to supabase, lovable to supabase migration, lovable to supabase migration service, migrate lovable cloud to supabase, lovable cloud to supabase, lovable backend migration, lovable cloud migration, lovable database migration, lovable auth migration, lovable storage migration, row level security supabase, own your backend, lovable vendor lock-in, zero downtime lovable migration, free lovable migration audit, self-hosted supabase, supabase cloud vs self hosted, WEBSRC";
+lovableToSupabase.heroChips = ["Free Audit", "Zero Data Loss", "Own Backend", "RLS + Cutover"];
 lovableToSupabase.trustBadges = [
   "Code, security, and lock-in audit",
   "Auth, RLS, and secrets hardening",
@@ -112,10 +112,10 @@ lovableToSupabase.trustBadges = [
   "Keep Lovable as rollback",
   ...defaultMigrationTrust.slice(0, 2),
 ];
-lovableToSupabase.problemEyebrow = "Production gap";
-lovableToSupabase.problemTitle = 'Why "it works" does not mean production-ready';
+lovableToSupabase.problemEyebrow = "Why migrate";
+lovableToSupabase.problemTitle = "Why founders migrate Lovable Cloud to Supabase";
 lovableToSupabase.problemIntro =
-  "The risks rarely show up in a quick UI click-through. They sit in data access, deployment, secrets, authorization, SEO, and missing operations. Lovable Cloud is fine for an MVP. Pressure starts when you need real ownership.";
+  "A Lovable backend migration is about ownership. Lovable Cloud is fine for an MVP. Pressure starts with vendor lock-in, missing Row Level Security, no raw control of Postgres, and a closed backend you cannot take to your own servers or Supabase Cloud account.";
 lovableToSupabase.problems = [
   {
     icon: Lock,
@@ -124,8 +124,8 @@ lovableToSupabase.problems = [
   },
   {
     icon: Building2,
-    title: "Platform lock-in",
-    body: "Lovable Cloud hides the Supabase dashboard, billing, and keys. Convenient for shipping. Awkward when you need staging, compliance, or DNS you control.",
+    title: "Vendor lock-in",
+    body: "Lovable Cloud traps data, auth, and APIs in a proprietary backend. You need your own Supabase dashboard, billing, keys, staging, and DNS you control.",
   },
   {
     icon: GitBranch,
@@ -158,10 +158,10 @@ lovableToSupabase.problems = [
     body: "A full exit means frontend on Vercel, backend on your Supabase, and rollback as simple as flipping DNS when needed.",
   },
 ];
-lovableToSupabase.mapEyebrow = "What takeover covers";
-lovableToSupabase.mapTitle = "Lovable takeover is mostly Supabase, GitHub, and security work";
+lovableToSupabase.mapEyebrow = "Lovable Cloud to Supabase";
+lovableToSupabase.mapTitle = "What we migrate from Lovable Cloud to Supabase";
 lovableToSupabase.mapIntro =
-  "Lovable can sync to GitHub and use Supabase as a backend. We review more than React components: data model, RLS, edge functions, secrets, and the path into independent operations.";
+  "Professional Lovable to Supabase migration covers database export, auth users, storage, RLS, API wiring, and a production deploy on Supabase Cloud or self-hosted Supabase if you need data sovereignty.";
 lovableToSupabase.fromLabel = "From Lovable Cloud";
 lovableToSupabase.toLabel = "To owned production stack";
 lovableToSupabase.fromStack = [
@@ -182,31 +182,31 @@ lovableToSupabase.toStack = [
 ];
 lovableToSupabase.migrateCards = [
   {
-    icon: GitBranch,
-    title: "Export and repository",
-    body: "We check GitHub sync, make the repo the source of truth, and confirm local build, branching, reviews, and deploys work outside Lovable.",
-    items: ["GitHub sync and repo structure", "Local setup and build commands", "Branching, PRs, and releases"],
+    icon: Database,
+    title: "Database migration",
+    body: "Full schema, relationships, and data export from Lovable Cloud into PostgreSQL on your Supabase project, with integrity checks.",
+    items: ["Schema migration", "Full data export", "Indexes and relationships"],
   },
   {
-    icon: Database,
-    title: "Supabase and data access",
-    body: "Own-project setup with clean migrations, RLS, auth flows, service roles, storage, edge functions, and separate environments.",
-    items: ["Schema, migrations, and RLS", "Auth flows and role model", "Edge functions, storage, API secrets"],
+    icon: Fingerprint,
+    title: "Auth, RLS, and API setup",
+    body: "Move user accounts and providers to Supabase Auth, configure Row Level Security, keys, and client libraries so the app talks to your backend.",
+    items: ["Authentication migration", "RLS policies", "SDK and API updates"],
   },
   {
     icon: Rocket,
-    title: "Deploy, SEO, and cutover",
-    body: "Leave Lovable Cloud with app, backend, domain, and indexability planned together. Optional Vercel + DNS cutover with rollback.",
-    items: ["Staging / production with CI/CD", "Metadata, sitemap, robots, canonicals", "Rehearsed cutover + rollback window"],
+    title: "Storage, testing, and cutover",
+    body: "File storage migration plus end-to-end testing and a low-downtime production cutover with a rollback plan.",
+    items: ["Storage and URL updates", "Zero-downtime goal", "Rollback plan"],
   },
 ];
-lovableToSupabase.servicesTitle = "Lovable takeover and production hardening services";
+lovableToSupabase.servicesTitle = "Professional Lovable to Supabase migration services";
 lovableToSupabase.servicesIntro =
-  "Not a rewrite by default. Controlled takeover first: audit, own Supabase, harden critical paths, then cut over with a rollback plan.";
+  "We handle every technical detail of your Lovable Cloud to Supabase migration: secure exports, owned project setup, then harden auth, RLS, and deploy. Not a rewrite by default.";
 lovableToSupabase.servicesIncluded = [
   {
-    title: "Vibe-code / Lovable audit",
-    body: "Security scan mindset: auth, RLS, secrets, dependencies, architecture, and lock-in analysis. You get a prioritized action plan.",
+    title: "Free Lovable Cloud audit",
+    body: "We map database size, auth providers, APIs, storage, and vendor lock-in. You get a Lovable to Supabase migration plan at no cost.",
   },
   {
     title: "GitHub as source of truth",
@@ -229,14 +229,14 @@ lovableToSupabase.servicesIncluded = [
     body: "Frontend deploy when you want a full exit, plus metadata/sitemap/robots review for public pages and a rollback-friendly DNS plan.",
   },
 ];
-lovableToSupabase.processTitle = "Our 5-phase Lovable to production approach";
+lovableToSupabase.processTitle = "How Lovable to Supabase migration works";
 lovableToSupabase.processIntro =
-  "The entry point is auditable and scoped. After that we decide together whether hardening, migration, further development, or ops support is next.";
+  "Free project audit first. Then a scoped Lovable Cloud to Supabase migration: export, owned backend setup, RLS, testing, and cutover. Typical live apps land in days, not months — exact timeline depends on schema, auth, and storage.";
 lovableToSupabase.processSteps = [
   {
     n: "01",
-    title: "Audit",
-    body: "Security, secrets, dependencies, architecture, and lock-in review. Result: a prioritized plan, not guesswork.",
+    title: "Free project audit",
+    body: "We analyze your Lovable Cloud project: database, auth, APIs, file storage, and lock-in. You get a detailed migration plan at zero cost.",
   },
   {
     n: "02",
@@ -259,10 +259,10 @@ lovableToSupabase.processSteps = [
     body: "Post-launch window with Lovable kept warm as safety net. Optional further feature work after ownership is solid.",
   },
 ];
-lovableToSupabase.whyTitle = "Why founders hire WEBSRC for Lovable takeover";
+lovableToSupabase.whyTitle = "Why teams hire WEBSRC for Lovable to Supabase migration";
 lovableToSupabase.whyIntro =
   "Public runbooks and exporters exist. Live apps still fail on auth, storage URLs, RLS, secrets, Git ownership, and cutover timing. We own that risk with you.";
-lovableToSupabase.deliverablesTitle = "What you get after Lovable takeover";
+lovableToSupabase.deliverablesTitle = "What you get after a Lovable to Supabase migration";
 lovableToSupabase.deliverablesIntro =
   "Ownership artifacts under your accounts, hardened access paths, and a short post-launch window while Lovable stays available for rollback.";
 lovableToSupabase.deliverables = [
@@ -283,10 +283,35 @@ lovableToSupabase.architectureSteps = [
   { label: "Own Supabase", detail: "Postgres, Auth, Storage", icon: Database },
   { label: "Production", detail: "Vercel, CI/CD, rollback", icon: Rocket },
 ];
-lovableToSupabase.faqTitle = "Lovable production takeover FAQ";
+lovableToSupabase.faqTitle = "Lovable to Supabase migration FAQ";
 lovableToSupabase.faqIntro =
-  "Provider-specific answers on ownership, hardening, GitHub, RLS, SEO, self-hosting options, and pricing starting from $399.";
+  "Common searches: migrate Lovable Cloud to Supabase, free DIY vs paid, downtime, auth, storage, RLS, self-hosted vs Supabase Cloud, and pricing from $399.";
 lovableToSupabase.faqs = [
+  {
+    question: "Can you migrate Lovable Cloud to Supabase for free?",
+    answer:
+      "Tooling can be free: Supabase has a free tier and open-source exports exist. The real cost is engineering time for schema, auth hashes, storage URLs, RLS, and go-live. Read our full guide on migrating Lovable Cloud to Supabase for free, then start with a WEBSRC audit. Paid live-app migration starts from $399 USD as a minimum, not a flat fee.",
+  },
+  {
+    question: "How long does Lovable Cloud to Supabase migration take?",
+    answer:
+      "Simple MVPs can move in a few days after the audit. Live apps with auth, storage, and custom functions take longer. We scope timeline in the free audit rather than promising a one-size 3–7 day slogan.",
+  },
+  {
+    question: "What is included in a Lovable backend migration?",
+    answer:
+      "Database migration, authentication migration, file storage migration, Row Level Security, API/client updates, testing, and a rehearsed production cutover. Optional Vercel frontend and self-hosted Supabase if you need it.",
+  },
+  {
+    question: "Is zero-downtime Lovable to Supabase migration possible?",
+    answer:
+      "That is the goal for live products: staging rehearsal, row-count checks, a short cutover window, and Lovable kept as rollback until the new backend is stable.",
+  },
+  {
+    question: "Can I self-host Supabase after leaving Lovable Cloud?",
+    answer:
+      "Yes. After migration we can land you on official Supabase Cloud or self-hosted Supabase on your VPS for data sovereignty. The free audit recommends which fit is right.",
+  },
   {
     question: "What does Lovable takeover mean?",
     answer:
@@ -348,22 +373,29 @@ lovableToSupabase.faqs = [
       "Yes. Best practice is to leave Lovable in place after cutover until production is stable, often about 30 days, so you have a warm rollback path.",
   },
 ];
-lovableToSupabase.auditTitle = "Book a free Lovable vibe-code audit";
+lovableToSupabase.auditTitle = "Start your free Lovable Cloud to Supabase audit";
 lovableToSupabase.auditIntro =
-  "Tell us about your Lovable app. We reply with lock-in risks, RLS/secrets gaps, whether you need Vercel, timeline, and a custom estimate starting from $399 USD.";
+  "Share your email and Lovable URL. We reply with lock-in risks, RLS/secrets gaps, whether you need Vercel, timeline, and a custom estimate starting from $399 USD.";
 lovableToSupabase.auditBullets = [
-  "For live Lovable apps and production cutovers",
+  "Free written audit, usually within 24 hours",
   "Own Supabase + optional Vercel exit",
   "NDAs available. Rollback plan included.",
 ];
-lovableToSupabase.finalTitle = "Ready to take over and harden your Lovable app?";
+lovableToSupabase.finalTitle = "Ready to migrate Lovable Cloud to your own Supabase?";
 lovableToSupabase.finalBody =
-  "Get a free audit and a clear path to ownership: your Supabase, your keys, hardened access, optional Vercel, and a rehearsed cutover starting from $399 USD.";
-lovableToSupabase.formSubject = "Lovable Production Takeover / Own Supabase";
+  "Get a free Lovable to Supabase audit and a clear path to ownership: your backend, your keys, hardened RLS, optional Vercel, and a rehearsed cutover starting from $399 USD.";
+lovableToSupabase.formSubject = "Lovable to Supabase Migration";
 lovableToSupabase.schemaServiceType = [
-  "Lovable to production takeover",
+  "Lovable to Supabase migration",
   "Lovable Cloud to Supabase migration",
-  "Lovable app hardening",
+  "Lovable backend migration",
+];
+lovableToSupabase.schemaAlternateNames = [
+  "Lovable to Supabase",
+  "Migrate Lovable Cloud to Supabase",
+  "Lovable to Supabase migration service",
+  "Lovable Cloud migration",
+  "Own your backend on Supabase",
 ];
 lovableToSupabase.pricing = {
   amountLabel: "$399",
@@ -373,9 +405,9 @@ lovableToSupabase.pricing = {
 };
 lovableToSupabase.hookSection = {
   eyebrow: "Typical Lovable pitfalls",
-  title: "What we fix before your MVP meets real customers",
+  title: "Lovable Cloud lock-in we remove before you scale",
   intro:
-    "Adapted from the production gaps teams hit after vibe-coding: ownership, security, deploy path, and operations. Delivered as a done-for-you WEBSRC service.",
+    "Vendor lock-in, missing RLS, opaque costs, and a backend you cannot take to your own Supabase Cloud or self-hosted stack. WEBSRC migrates Lovable Cloud to Supabase as a done-for-you service.",
   items: [
     {
       title: "Own Supabase project",
@@ -585,38 +617,39 @@ export const lovableMigration: ServicePageConfig = {
   ...lovableToSupabase,
   slug: "lovable-migration",
   navLabel: "Lovable Migration",
-  eyebrow: "WEBSRC Lovable migration service",
-  tagline: "Exit Lovable hosting with a production plan",
-  title: "Lovable Migration Service | Move Off Lovable Cloud | WEBSRC",
+  eyebrow: "WEBSRC · Lovable Cloud migration service",
+  tagline: "Lovable migration: exit Lovable Cloud, own your backend on Supabase",
+  title: "Lovable Migration Service | Migrate Lovable Cloud to Supabase | WEBSRC",
   description:
-    "WEBSRC Lovable migration service for founders who need ownership of code, database, auth, and infrastructure. Primary path: Lovable Cloud to your own Supabase. Free assessment.",
+    "Lovable migration service for founders who need to own code, database, auth, and infrastructure. Primary path: Lovable Cloud to Supabase with a free audit. WEBSRC.",
   keywords:
-    "lovable migration, migrate lovable app, lovable cloud migration, exit lovable, lovable to supabase, migrate lovable cloud to your own supabase, WEBSRC",
-  h1: "Lovable Migration Service for Founders Who Need Ownership",
+    "lovable migration, lovable migration service, migrate lovable app, lovable cloud migration, lovable to supabase, migrate lovable cloud to supabase, lovable backend migration, exit lovable, WEBSRC",
+  h1: "Lovable Migration Service: Move Off Lovable Cloud to Supabase",
   heroBody:
-    "If your product still lives on Lovable Cloud and you need control, we plan and run the exit. Most teams land on their own Supabase project, with optional Vercel hosting. You keep the product, gain the keys, and get a production checklist.",
+    "A Lovable migration is how you leave proprietary hosting and own the stack. WEBSRC plans and runs Lovable Cloud to Supabase: database, auth, storage, RLS, and a production cutover. Optional Vercel. Free audit first.",
   pricing: undefined,
   hookSection: undefined,
-  heroChips: ["Secure Migration", "Zero Data Loss", "Full Ownership", "Production Ready"],
-  problemTitle: "Why teams start a Lovable migration",
+  heroChips: ["Free Audit", "Zero Data Loss", "Own Backend", "Production Ready"],
+  problemTitle: "Why teams start a Lovable Cloud migration",
   problemIntro:
-    "A Lovable migration is less about hating the tool and more about ownership. You want your own database, auth, deploy path, and the ability to hire any engineer into the codebase.",
-  mapTitle: "Typical Lovable migration path",
+    "Lovable migration is about ownership, not hating the builder. You want your own Postgres, auth, deploy path, and an end to vendor lock-in.",
+  mapTitle: "Typical Lovable to Supabase migration path",
   mapIntro: "Most Lovable migrations we run target your own Supabase as the production backend under your accounts.",
   servicesTitle: "What our Lovable migration service covers",
-  whyTitle: "Why hire WEBSRC for Lovable migration",
-  deliverablesTitle: "Lovable migration deliverables",
+  whyTitle: "Why hire WEBSRC for Lovable to Supabase migration",
+  deliverablesTitle: "Lovable Cloud to Supabase deliverables",
   faqTitle: "Lovable migration FAQ",
-  auditTitle: "Book a free Lovable migration assessment",
-  finalTitle: "Ready to plan your Lovable migration?",
-  finalBody: "Get a free assessment and a practical path off Lovable Cloud onto infrastructure you own.",
+  auditTitle: "Start your free Lovable Cloud to Supabase audit",
+  finalTitle: "Ready to migrate Lovable Cloud to Supabase?",
+  finalBody: "Get a free audit and a practical path off Lovable Cloud onto infrastructure you own.",
   formSubject: "Lovable Migration",
-  schemaServiceType: ["Lovable migration", "Lovable cloud migration", "Lovable to Supabase migration"],
+  schemaServiceType: ["Lovable migration", "Lovable Cloud migration", "Lovable to Supabase migration"],
   schemaAlternateNames: [
     "Lovable migration service",
     "Migrate Lovable app",
-    "Exit Lovable cloud",
+    "Migrate Lovable Cloud to Supabase",
     "Lovable to Supabase",
+    "Exit Lovable Cloud",
   ],
   relatedSlugs: relatedExcept("lovable-migration"),
 };

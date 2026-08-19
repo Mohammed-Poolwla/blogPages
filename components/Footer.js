@@ -33,7 +33,7 @@ const Footer = () => {
               />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-6 text-slate-400">
-              Migrations, audits, and production hardening for founders who need to own their infrastructure.
+              Lovable to Supabase migration, audits, and production hardening for founders who need to own their backend.
             </p>
             <Link href="/contact" className="btn-primary mt-5 !bg-[#00b4d8] !px-4 !py-2 text-sm hover:!bg-[#12c4e6]">
               Talk to Our Experts
