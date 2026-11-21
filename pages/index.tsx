@@ -292,33 +292,33 @@ const HomePage = ({ medium }: { medium: MediumPost[] }) => {
                 key={p.title}
                 className={`${idx === 0 ? "sm:col-span-2 lg:col-span-2" : ""} group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg`}
               >
-                <div className={`${idx === 0 ? "h-72" : "h-52"} relative overflow-hidden`}>
+                <div className={`${idx === 0 ? "h-72" : "h-52"} relative overflow-hidden bg-slate-100`}>
                   <Image
                     src={p.image}
                     alt={p.title}
                     width={1600}
                     height={1000}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-slate-900/15 to-transparent opacity-80" />
-                  <div className="absolute left-2 top-2 flex flex-wrap gap-2">
+                </div>
+                <div className="p-5">
+                  <div className="mb-3 flex flex-wrap gap-2">
                     {p.houseProduct && (
-                      <span className="rounded-full border border-cyan-300/50 bg-cyan-500/80 px-2 py-0.5 text-xs font-semibold text-white">
+                      <span className="rounded-full border border-cyan-200 bg-cyan-50 px-2.5 py-0.5 text-xs font-semibold text-sky-800">
                         House Product
                       </span>
                     )}
                     {p.tags.map((t) => (
-                      <span key={t} className="rounded-full border border-white/30 bg-slate-900/50 px-2 py-0.5 text-xs text-white">
+                      <span
+                        key={t}
+                        className="rounded-full border border-slate-200 bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700"
+                      >
                         {t}
                       </span>
                     ))}
                   </div>
-                  <div className="absolute inset-x-0 bottom-0 p-4">
-                    <h3 className="text-lg font-semibold text-white">{p.title}</h3>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <p className="text-sm text-slate-600">{p.summary}</p>
+                  <h3 className="text-lg font-semibold text-slate-900">{p.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{p.summary}</p>
                   {p.houseProduct && (
                     <p className="mt-3 text-xs leading-5 text-slate-500">
                       Stack: Next.js · Postgres · self-hosted Supabase · React Native (Android + iOS) · SEO-ready
@@ -329,7 +329,7 @@ const HomePage = ({ medium }: { medium: MediumPost[] }) => {
                     {...(p.url.startsWith("http")
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className="mt-4 inline-flex text-sm font-medium text-sky-700 transition-colors hover:text-sky-700"
+                    className="mt-4 inline-flex text-sm font-medium text-sky-700 transition-colors hover:text-sky-800"
                   >
                     {p.houseProduct ? "View case study →" : "Open project →"}
                   </Link>
