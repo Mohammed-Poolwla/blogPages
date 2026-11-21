@@ -28,6 +28,14 @@ const projectsData: ReadonlyArray<Project> = [
     houseProduct: true,
   },
   {
+    title: "newmedimmediatecare.com",
+    image: "/landing-images/newmedimmediatecare-com.png",
+    url: "https://newmedimmediatecare.com",
+    summary:
+      "Full end-to-end design and development for a multi-location urgent care brand: clinic booking flows, locations, services, insurance/pricing, and conversion-focused UX for Hoffman Estates, Rolling Meadows, and Mount Prospect.",
+    tags: ["Web", "Design", "Performance"],
+  },
+  {
     title: "artofthepossibleagency.com",
     image: "/landing-images/artofthepossibleagency-com.png",
     url: "https://artofthepossibleagency.com",
