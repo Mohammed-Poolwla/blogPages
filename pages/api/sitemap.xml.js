@@ -18,6 +18,7 @@ const SERVICE_PATHS = [
   "supabase-audit",
   "supabase-consulting",
   "ai-mvp-to-production",
+  "crayon-editor",
   "book",
 ];
 

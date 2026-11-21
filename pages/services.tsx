@@ -131,20 +131,43 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="mt-10 rounded-2xl border border-cyan-300/30 bg-cyan-300/10 p-6 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.24em] text-sky-700">Featured service</p>
-            <h2 className="mt-2 text-2xl font-semibold text-slate-900">Lovable to Supabase Migration</h2>
-            <p className="mt-3 max-w-3xl text-sm text-slate-700 sm:text-base">
-              Move Lovable Cloud to your own Supabase: Postgres, Auth, Storage, Row Level Security, Edge Functions,
-              and a production cutover plan. Free migration audit.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <Link href="/lovable-to-supabase" className="btn-primary">
-                View migration page
-              </Link>
-              <Link href="/lovable-to-supabase#audit" className="btn-ghost-light">
-                Get free audit
-              </Link>
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <div className="rounded-2xl border border-cyan-300/30 bg-cyan-300/10 p-6 sm:p-8">
+              <p className="text-xs uppercase tracking-[0.24em] text-sky-700">Featured service</p>
+              <h2 className="mt-2 text-2xl font-semibold text-slate-900">Lovable to Supabase Migration</h2>
+              <p className="mt-3 max-w-3xl text-sm text-slate-700 sm:text-base">
+                Move Lovable Cloud to your own Supabase: Postgres, Auth, Storage, Row Level Security, Edge Functions,
+                and a production cutover plan. Free migration audit.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link href="/lovable-to-supabase" className="btn-primary">
+                  View migration page
+                </Link>
+                <Link href="/lovable-to-supabase#audit" className="btn-ghost-light">
+                  Get free audit
+                </Link>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+              <p className="text-xs uppercase tracking-[0.24em] text-sky-700">House product</p>
+              <h2 className="mt-2 text-2xl font-semibold text-slate-900">Crayon Editor</h2>
+              <p className="mt-3 max-w-3xl text-sm text-slate-700 sm:text-base">
+                Our live proof point: Lovable → self-hosted Supabase + Postgres, SEO-friendly Next.js, and React Native
+                for Android &amp; iOS — used by real creators.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link href="/crayon-editor" className="btn-primary">
+                  View case study
+                </Link>
+                <a
+                  href="https://crayoneditor.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost-light"
+                >
+                  Open product
+                </a>
+              </div>
             </div>
           </div>
 

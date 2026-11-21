@@ -21,7 +21,7 @@ const projectsData: ReadonlyArray<Project> = [
   {
     title: "crayoneditor.com",
     image: "/landing-images/crayoneditor-com.png",
-    url: "https://crayoneditor.com/",
+    url: "/crayon-editor",
     summary:
       "House product used by real creators: AI design & video studio. Prototyped on Lovable, then migrated to self-hosted Supabase + Postgres. SEO-friendly Next.js web app, React Native for Android & iOS, cloud sync, templates, timeline editing, and AI Magic Studio.",
     tags: ["Web", "Mobile", "AI", "Performance"],
@@ -214,7 +214,7 @@ const HomePage = ({ medium }: { medium: MediumPost[] }) => {
               </div>
             </div>
 
-            <div className="glass-panel overflow-hidden">
+            <Link href="/crayon-editor" className="glass-panel block overflow-hidden">
               <div className="relative h-80 sm:h-96">
                 <Image
                   src="/landing-images/crayoneditor-com.png"
@@ -232,7 +232,7 @@ const HomePage = ({ medium }: { medium: MediumPost[] }) => {
                   </p>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -318,11 +318,12 @@ const HomePage = ({ medium }: { medium: MediumPost[] }) => {
                   )}
                   <Link
                     href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {...(p.url.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                     className="mt-4 inline-flex text-sm font-medium text-sky-700 transition-colors hover:text-sky-700"
                   >
-                    {p.houseProduct ? "Visit product →" : "Open project →"}
+                    {p.houseProduct ? "View case study →" : "Open project →"}
                   </Link>
                 </div>
               </article>
