@@ -1,5 +1,3 @@
-import { BlogsTable, db } from "../../lib/db";
-
 function generateSiteMap(urls) {
   const urlSet = urls
     .map((u) => `\n  <url>\n    <loc>${u.loc}</loc>\n    <changefreq>${u.changefreq || "weekly"}</changefreq>\n    <priority>${u.priority || "0.7"}</priority>\n  </url>`)
@@ -31,7 +29,6 @@ export default async function handler(req, res) {
     { loc: `${baseUrl}/about` },
     { loc: `${baseUrl}/services`, priority: "0.9" },
     { loc: `${baseUrl}/contact` },
-    { loc: `${baseUrl}/blogs` },
     { loc: `${baseUrl}/privacy`, changefreq: "yearly", priority: "0.3" },
     { loc: `${baseUrl}/terms`, changefreq: "yearly", priority: "0.3" },
     { loc: `${baseUrl}/disclaimer`, changefreq: "yearly", priority: "0.3" },
@@ -42,15 +39,7 @@ export default async function handler(req, res) {
     })),
   ];
 
-  let blogUrls = [];
-  try {
-    const blogs = await db.select().from(BlogsTable);
-    blogUrls = blogs.map((b) => ({ loc: `${baseUrl}/blogs/${b.slug}` }));
-  } catch (e) {
-    blogUrls = [];
-  }
-
-  const sitemap = generateSiteMap([...staticUrls, ...blogUrls]);
+  const sitemap = generateSiteMap(staticUrls);
   res.setHeader("Content-Type", "application/xml");
   res.write(sitemap);
   res.end();

@@ -10,7 +10,7 @@ export default function AboutPage() {
         <title>About WEBSRC</title>
         <meta
           name="description"
-          content="Meet the founder of WEBSRC. We build high-performance digital products and publish practical pet-care guides with clarity, empathy, and trust."
+          content="Meet the founder of WEBSRC. We deliver Lovable to Supabase migration, AI web apps, automation, and production-ready product engineering."
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -49,9 +49,8 @@ export default function AboutPage() {
                 Engineering with empathy
               </h1>
               <p className="mt-5 max-w-3xl text-base text-slate-600 sm:text-lg">
-                I am Mohammed Poolwala, founder of WEBSRC. We build high-performance digital products
-                for businesses and publish practical pet-care blogs for families. This dual mission
-                comes from one belief: technology should improve real life for real people.
+                I am Mohammed Poolwala, founder of WEBSRC. We help founders and teams own their backend,
+                ship production AI apps, and harden MVPs with practical full-stack engineering.
               </p>
               <p className="mt-3 max-w-3xl text-sm text-slate-600">
                 12+ years in software engineering, currently working as a Senior Consultant while helping
@@ -59,7 +58,7 @@ export default function AboutPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/contact" className="btn-primary">Start a project</Link>
-                <Link href="/blogs" className="btn-ghost-light">Read pet guides</Link>
+                <Link href="/services" className="btn-ghost-light">View services</Link>
               </div>
             </div>
           </div>
@@ -72,19 +71,19 @@ export default function AboutPage() {
             <article className="rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-6">
               <h2 className="text-xl font-semibold text-slate-900">What we build</h2>
               <p className="mt-3 text-sm text-slate-600">
-                Conversion-focused websites, content systems, and scalable web platforms with performance at the core.
+                Lovable to Supabase migrations, AI web apps, automation systems, and scalable platforms with performance at the core.
               </p>
             </article>
             <article className="rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-6">
-              <h2 className="text-xl font-semibold text-slate-900">Why we write pet blogs</h2>
+              <h2 className="text-xl font-semibold text-slate-900">How we deliver</h2>
               <p className="mt-3 text-sm text-slate-600">
-                Many pet owners need clear, trustworthy guidance. We use our content expertise to make that help accessible.
+                Clear scoping, weekly shipping cadence, and production-ready handoff so founders can own and grow their stack.
               </p>
             </article>
             <article className="rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-6">
-              <h2 className="text-xl font-semibold text-slate-900">How we care</h2>
+              <h2 className="text-xl font-semibold text-slate-900">How we partner</h2>
               <p className="mt-3 text-sm text-slate-600">
-                Every project and every article is built with responsibility, clarity, and long-term value for the user.
+                Every engagement is built with responsibility, clarity, and long-term value for the product and the team.
               </p>
             </article>
           </div>
@@ -104,7 +103,7 @@ export default function AboutPage() {
                 <li>• Frontend: React.js, Next.js, JavaScript/TypeScript, responsive UI architecture</li>
                 <li>• Backend: Node.js, Laravel, Postgres/Drizzle, API integrations</li>
                 <li>• Delivery: Vercel, CI/CD, CDN and image optimization pipelines</li>
-                <li>• Strategy: performance, SEO, analytics, content operations, and mentoring</li>
+                <li>• Strategy: performance, SEO, analytics, product delivery, and mentoring</li>
               </ul>
             </div>
             <div>

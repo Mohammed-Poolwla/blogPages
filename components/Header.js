@@ -34,9 +34,6 @@ const Header = () => {
           <Link href="/lovable-to-supabase" className="text-[#5b6b7c] transition-colors hover:text-[#0b1f3a]">
             Lovable to Supabase
           </Link>
-          <Link href="/blogs" className="text-[#5b6b7c] transition-colors hover:text-[#0b1f3a]">
-            Blogs
-          </Link>
           <Link href="/book" className="btn-primary !rounded-md !px-4 !py-2 text-sm">
             Talk to Our Experts
           </Link>
@@ -80,9 +77,6 @@ const Header = () => {
             </Link>
             <Link href="/lovable-to-supabase" className="block hover:text-slate-900">
               Lovable to Supabase
-            </Link>
-            <Link href="/blogs" className="block hover:text-slate-900">
-              Blogs
             </Link>
             <Link href="/book" className="btn-primary inline-flex w-full justify-center">
               Talk to Our Experts

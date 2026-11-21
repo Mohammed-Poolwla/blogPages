@@ -5,10 +5,7 @@ import Link from "next/link";
 import Layout from "@/components/layout";
 import MigrationForm, { WhatsAppAuditCard } from "@/components/migration/MigrationForm";
 import { useMemo, useState } from "react";
-import { CldImage } from "next-cloudinary";
-import { BlogsTable, db } from "../lib/db";
 
-type Blog = { slug: string; title: string; image: string; description: string };
 type MediumPost = { title: string; link: string; pubDate?: string };
 
 type Project = {
@@ -16,10 +13,20 @@ type Project = {
   image: string;
   url: string;
   summary: string;
-  tags: Array<"Web" | "Content" | "Performance" | "Design" | "AI">;
+  tags: Array<"Web" | "Mobile" | "Content" | "Performance" | "Design" | "AI">;
+  houseProduct?: boolean;
 };
 
 const projectsData: ReadonlyArray<Project> = [
+  {
+    title: "crayoneditor.com",
+    image: "/landing-images/crayoneditor-com.png",
+    url: "https://crayoneditor.com/",
+    summary:
+      "House product used by real creators: AI design & video studio. Prototyped on Lovable, then migrated to self-hosted Supabase + Postgres. SEO-friendly Next.js web app, React Native for Android & iOS, cloud sync, templates, timeline editing, and AI Magic Studio.",
+    tags: ["Web", "Mobile", "AI", "Performance"],
+    houseProduct: true,
+  },
   {
     title: "artofthepossibleagency.com",
     image: "/landing-images/artofthepossibleagency-com.png",
@@ -71,13 +78,13 @@ const projectsData: ReadonlyArray<Project> = [
   },
 ] as const;
 
-const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) => {
+const HomePage = ({ medium }: { medium: MediumPost[] }) => {
   const siteUrl = "https://websrc.uk";
   const homeTitle = "WEBSRC | Lovable to Supabase Migration, AI Apps, and Automation";
   const homeDescription =
     "WEBSRC migrates Lovable Cloud to Supabase, then builds production AI apps and automation. Own your backend: database, auth, storage, and RLS. Free migration audit.";
-  const ogImage = `${siteUrl}/landing-images/saleshero-dk.png`;
-  const filters = ["All", "Web", "Content", "Performance", "Design", "AI"] as const;
+  const ogImage = `${siteUrl}/landing-images/crayoneditor-com.png`;
+  const filters = ["All", "Web", "Mobile", "Content", "Performance", "Design", "AI"] as const;
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");
 
   const filteredProjects = useMemo(() => {
@@ -103,7 +110,7 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
         <meta property="og:description" content={homeDescription} />
         <meta property="og:url" content={siteUrl} />
         <meta property="og:image" content={ogImage} />
-        <meta property="og:image:alt" content="WEBSRC featured project showcase" />
+        <meta property="og:image:alt" content="Crayon Editor — WEBSRC house product on web and mobile" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={homeTitle} />
@@ -118,11 +125,6 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
               "@type": "WebSite",
               name: "WEBSRC",
               url: siteUrl,
-              potentialAction: {
-                "@type": "SearchAction",
-                target: "https://websrc.uk/blogs?query={search_term_string}",
-                "query-input": "required name=search_term_string",
-              },
             }),
           }}
         />
@@ -215,17 +217,19 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
             <div className="glass-panel overflow-hidden">
               <div className="relative h-80 sm:h-96">
                 <Image
-                  src="/landing-images/saleshero-dk.png"
-                  alt="Featured WEBSRC project"
+                  src="/landing-images/crayoneditor-com.png"
+                  alt="Crayon Editor — WEBSRC house product"
                   width={1600}
                   height={1000}
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="mb-1 text-xs uppercase tracking-[0.2em] text-sky-200">Featured Build</p>
-                  <h3 className="text-2xl font-semibold text-white">saleshero.dk</h3>
-                  <p className="text-sm text-slate-200">Parallax visual flow + conversion-focused UX system</p>
+                  <p className="mb-1 text-xs uppercase tracking-[0.2em] text-sky-200">House Product</p>
+                  <h3 className="text-2xl font-semibold text-white">crayoneditor.com</h3>
+                  <p className="text-sm text-slate-200">
+                    Lovable → self-hosted Supabase · Next.js · React Native · live users
+                  </p>
                 </div>
               </div>
             </div>
@@ -290,6 +294,11 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-slate-900/15 to-transparent opacity-80" />
                   <div className="absolute left-2 top-2 flex flex-wrap gap-2">
+                    {p.houseProduct && (
+                      <span className="rounded-full border border-cyan-300/50 bg-cyan-500/80 px-2 py-0.5 text-xs font-semibold text-white">
+                        House Product
+                      </span>
+                    )}
                     {p.tags.map((t) => (
                       <span key={t} className="rounded-full border border-white/30 bg-slate-900/50 px-2 py-0.5 text-xs text-white">
                         {t}
@@ -302,13 +311,18 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
                 </div>
                 <div className="p-5">
                   <p className="text-sm text-slate-600">{p.summary}</p>
+                  {p.houseProduct && (
+                    <p className="mt-3 text-xs leading-5 text-slate-500">
+                      Stack: Next.js · Postgres · self-hosted Supabase · React Native (Android + iOS) · SEO-ready
+                    </p>
+                  )}
                   <Link
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex text-sm font-medium text-sky-700 transition-colors hover:text-sky-700"
                   >
-                    Open project →
+                    {p.houseProduct ? "Visit product →" : "Open project →"}
                   </Link>
                 </div>
               </article>
@@ -344,75 +358,14 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
         </div>
       </section>
 
-      {/* Temporarily hidden: pet blogs section
-      <section className="pets-parallax-story">
-        <div className="parallax-layer layer-paws" />
-        <div className="relative mx-auto max-w-7xl px-6 py-20">
-          <div className="max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.28em] text-sky-700">Our purpose</p>
-            <h2 className="mt-4 text-3xl font-black uppercase tracking-[0.08em] text-slate-900 sm:text-5xl">
-              Why a tech company writes pet blogs
-            </h2>
-            <p className="mt-5 text-base text-slate-600 sm:text-lg">
-              WEBSRC builds digital products, but our mission is bigger than code. We use technology
-              to improve everyday decisions for families and pet parents with clear, honest, practical
-              guidance.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                t: "Care beyond clients",
-                d: "We believe good technology should serve real life, including the wellbeing of pets in every home.",
-              },
-              {
-                t: "Trusted advice at scale",
-                d: "Our content systems make reliable pet information easy to find, easy to read, and easy to act on.",
-              },
-              {
-                t: "Human-first innovation",
-                d: "From product UX to pet blogs, we build with empathy so end users feel supported, not overwhelmed.",
-              },
-            ].map((item, index) => (
-              <article key={item.t} className="pets-value-card p-6" style={{ animationDelay: `${index * 180}ms` }}>
-                <p className="mb-2 text-xs uppercase tracking-[0.18em] text-sky-700">WEBSRC Promise</p>
-                <h3 className="text-xl font-semibold text-slate-900">{item.t}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{item.d}</p>
-                <div className="mt-4 text-xs text-sky-700/90">
-                  <span className="font-semibold">Model:</span> Observe → Analyze → Improve
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-10 rounded-2xl border border-cyan-200/25 bg-cyan-300/10 p-6 text-center backdrop-blur-sm">
-            <p className="paw-pulse text-2xl">🐾</p>
-            <p className="mx-auto mt-2 max-w-3xl text-sm text-slate-700 sm:text-base">
-              For end users, this means one place to get both modern digital experiences and compassionate pet guidance.
-              We care about performance, clarity, and the lives touched by every article we publish.
-            </p>
-            <div className="mt-5 flex flex-wrap justify-center gap-3">
-              <Link href="/blogs" className="btn-primary">
-                Read Pet Guides
-              </Link>
-              <Link href="/about" className="btn-ghost-light">
-                Why WEBSRC Cares
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-      */}
-
       <section className="parallax-deep-section">
         <div className="parallax-layer layer-grid" />
         <div className="parallax-layer layer-glow-soft" />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-2">
+        <div className="relative mx-auto max-w-7xl px-6 py-20">
           <div className="rounded-2xl border border-cyan-300/20 bg-cyan-400/5 p-8">
             <h2 className="text-2xl font-bold text-slate-900">From Medium</h2>
             <p className="mt-2 text-sm text-slate-600">Thoughts on engineering, product and growth.</p>
-            <div className="mt-6 space-y-4">
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {(medium || []).slice(0, 3).map((p) => (
                 <a
                   key={p.link}
@@ -432,38 +385,6 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
               className="mt-6 inline-flex text-sm font-medium text-sky-700 hover:text-sky-700"
             >
               Follow Medium →
-            </Link>
-          </div>
-
-          <div className="rounded-2xl border border-slate-200 bg-white p-8">
-            <h2 className="text-2xl font-bold text-slate-900">Latest Articles</h2>
-            <p className="mt-2 text-sm text-slate-600">Fresh posts from the WEBSRC blog.</p>
-            <div className="mt-6 space-y-4">
-              {(blogs || []).slice(0, 3).map((b) => (
-                <Link
-                  key={b.slug}
-                  href={`/blogs/${b.slug}`}
-                  className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-3 transition-colors hover:bg-slate-50"
-                >
-                  <div className="h-14 w-16 overflow-hidden rounded-md">
-                    <CldImage
-                      src={b.image}
-                      height={200}
-                      width={250}
-                      alt={b.slug}
-                      crop={{ type: "auto", source: true }}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="line-clamp-1 text-sm font-semibold text-slate-900">{b.title}</h3>
-                    <p className="line-clamp-1 text-xs text-slate-600">{b.description}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            <Link href="/blogs" className="mt-6 inline-flex text-sm font-medium text-sky-700 hover:text-sky-700">
-              Browse all blogs →
             </Link>
           </div>
         </div>
@@ -501,48 +422,29 @@ const HomePage = ({ blogs, medium }: { blogs: Blog[]; medium: MediumPost[] }) =>
 export default HomePage;
 
 export async function getStaticProps() {
+  const feedUrl = "https://medium.com/feed/@mohammed.poolwala_1888";
+  let medium: MediumPost[] = [];
   try {
-    const result = await db.select().from(BlogsTable).limit(3);
-    type BlogRow = {
-      slug: string | null;
-      title: string | null;
-      image: string | null;
-      description: string | null;
-    };
-    const rows = (result || []) as BlogRow[];
-    const blogs: Blog[] = rows.map((b) => ({
-      slug: b.slug || "",
-      title: b.title || "",
-      image: b.image || "",
-      description: b.description || "",
-    }));
-
-    const feedUrl = "https://medium.com/feed/@mohammed.poolwala_1888";
-    let medium: MediumPost[] = [];
-    try {
-      const res = await fetch(feedUrl, { headers: { Accept: "application/rss+xml, application/xml, text/xml" } });
-      const xml = await res.text();
-      const items = xml.split("<item>").slice(1).map((chunk) => "<item>" + chunk);
-      medium = items
-        .slice(0, 3)
-        .map((item) => {
-          const get = (tag: string) => {
-            const m = item.match(new RegExp(`<${tag}>([\\s\\S]*?)<\\/${tag}>`));
-            return m ? m[1].replace(/<!\[CDATA\[/g, "").replace(/\]\]>/g, "").trim() : "";
-          };
-          return {
-            title: get("title"),
-            link: get("link"),
-            pubDate: get("pubDate"),
-          } as MediumPost;
-        })
-        .filter((p) => p.title && p.link);
-    } catch (_) {
-      medium = [];
-    }
-
-    return { props: { blogs, medium }, revalidate: 3600 };
-  } catch (e) {
-    return { props: { blogs: [], medium: [] }, revalidate: 3600 };
+    const res = await fetch(feedUrl, { headers: { Accept: "application/rss+xml, application/xml, text/xml" } });
+    const xml = await res.text();
+    const items = xml.split("<item>").slice(1).map((chunk) => "<item>" + chunk);
+    medium = items
+      .slice(0, 3)
+      .map((item) => {
+        const get = (tag: string) => {
+          const m = item.match(new RegExp(`<${tag}>([\\s\\S]*?)<\\/${tag}>`));
+          return m ? m[1].replace(/<!\[CDATA\[/g, "").replace(/\]\]>/g, "").trim() : "";
+        };
+        return {
+          title: get("title"),
+          link: get("link"),
+          pubDate: get("pubDate"),
+        } as MediumPost;
+      })
+      .filter((p) => p.title && p.link);
+  } catch (_) {
+    medium = [];
   }
+
+  return { props: { medium }, revalidate: 3600 };
 }

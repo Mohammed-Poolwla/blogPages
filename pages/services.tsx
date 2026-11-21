@@ -39,8 +39,8 @@ const services = [
     icon: ServerStackIcon,
   },
   {
-    title: 'Content & Authority Systems',
-    description: 'SEO-ready blog systems, editorial workflows, and growth content pipelines for long-term traffic.',
+    title: 'Marketing Sites & SEO',
+    description: 'Conversion-focused marketing sites, technical SEO, and content platforms that support product growth.',
     icon: NewspaperIcon,
   },
   {

@@ -19,9 +19,9 @@ export default function DisclaimerPage() {
 
         <h2>No professional advice</h2>
         <p>
-          Content relating to pet care, nutrition, behaviour, and health is not a substitute for professional
-          veterinary advice, diagnosis, or treatment. Always consult a qualified veterinarian with questions about a
-          pet’s medical condition.
+          Content on this website is not a substitute for professional legal, financial, medical, or technical advice
+          tailored to your situation. Always consult a qualified professional before making decisions based on site
+          content.
         </p>
 
         <h2>No guarantees</h2>

@@ -294,12 +294,6 @@ h3 {
     linear-gradient(180deg, #f5f8fb 0%, #eef3f8 100%);
 }
 
-.pets-parallax-story {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, #ffffff 0%, #f3f7fb 100%);
-}
-
 .parallax-light {
   background: linear-gradient(180deg, #f7fafc 0%, #eef4f8 100%);
 }
@@ -345,12 +339,6 @@ h3 {
   );
 }
 
-.layer-paws {
-  opacity: 0.2;
-  background-image: radial-gradient(circle, rgba(0, 180, 216, 0.25) 0 1.6px, transparent 2px);
-  background-size: 34px 34px;
-}
-
 .layer-light-dots {
   opacity: 0.35;
   background-image: radial-gradient(circle, rgba(11, 31, 58, 0.12) 0 1.8px, transparent 2px);
@@ -361,39 +349,6 @@ h3 {
   background:
     radial-gradient(circle at 16% 18%, rgba(0, 180, 216, 0.1), transparent 30%),
     radial-gradient(circle at 82% 70%, rgba(11, 31, 58, 0.06), transparent 28%);
-}
-
-.pets-value-card {
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  background: #ffffff;
-  animation: cardLiftIn 0.65s ease both;
-}
-
-.paw-pulse {
-  display: inline-block;
-  animation: pawPulse 1.8s ease-in-out infinite;
-}
-
-@keyframes cardLiftIn {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pawPulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.13);
-  }
 }
 
 .legal-page {
